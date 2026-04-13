@@ -2,116 +2,155 @@
 
 Informações básicas do projeto.
 
-* **Projeto:** [NOME DO PROJETO]
-* **Repositório GitHub:** [LINK PARA O REPOSITÓRIO NO GITHUB]
+* **Projeto:** Vigilare
+* **Repositório GitHub:** [Github](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-sentinelas/tree/master)
 * **Membros da equipe:**
+  * [Arthur Estevão](https://github.com/ArthurEstevaoST)
+  * [Bernardo Ramos](https://github.com/bernardorf5)
+  * [Francisco Filipe](https://github.com/franciscofilipeee)
+  * [Gabriel de Oliveira](https://github.com/Biels2w)
+  * [João Pedro](https://github.com/)
+  * [Victor Dante](https://github.com/victordante666)
 
-  * [Fulano](https://github.com/fulano) ⚠️ EXEMPLO ⚠️
-  * [Beltrano](https://github.com/beltrano) ⚠️ EXEMPLO ⚠️
-  * [Cicrano](https://github.com/cicrano) ⚠️ EXEMPLO ⚠️
+## Sumário
 
-A documentação do projeto é estruturada da seguinte forma:
+- [Introdução](#introdução)
+  - [Sumário](#sumário)
+- [Contexto](#contexto)
+  - [Problema](#problema)
+  - [Objetivos](#objetivos)
+  - [Justificativa](#justificativa)
+  - [Público-Alvo](#público-alvo)
+- [Product Discovery](#product-discovery)
+  - [Etapa de Entendimento](#etapa-de-entendimento)
+  - [Etapa de Definição](#etapa-de-definição)
+    - [Personas](#personas)
+- [Product Design](#product-design)
+  - [Histórias de Usuários](#histórias-de-usuários)
+  - [](#)
+  - [Requisitos](#requisitos)
+    - [Requisitos Funcionais](#requisitos-funcionais)
+    - [Requisitos não Funcionais](#requisitos-não-funcionais)
+  - [Projeto de Interface](#projeto-de-interface)
+    - [Wireframes](#wireframes)
+    - [User Flow](#user-flow)
+    - [Protótipo Interativo](#protótipo-interativo)
+- [Metodologia](#metodologia)
+  - [Gerenciamento do Projeto](#gerenciamento-do-projeto)
+- [Solução Implementada](#solução-implementada)
+  - [Vídeo do Projeto](#vídeo-do-projeto)
+  - [Funcionalidades](#funcionalidades)
+        - [Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️](#funcionalidade-1---cadastro-de-contatos-️-exemplo-️)
+  - [Estruturas de Dados](#estruturas-de-dados)
+        - [Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---contatos---️-exemplo-️)
+        - [Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---usuários--️-exemplo-️)
+  - [Módulos e APIs](#módulos-e-apis)
+- [Referências](#referências)
 
-1. Introdução
-2. Contexto
-3. Product Discovery
-4. Product Design
-5. Metodologia
-6. Solução
-7. Referências Bibliográficas
-
-✅ [Documentação de Design Thinking (MIRO)](files/processo-dt.pdf)
+---
 
 # Contexto
 
-Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa e público-alvo.
+O projeto Vigilare é uma iniciativa desenvolvida no contexto de crescente preocupação com a segurança pública em Belo Horizonte. O projeto nasceu da necessidade de combater o aumento significativo de crimes, que afetam a população em geral e demandam uma resposta inovadora e colaborativa.
+
+Este documento constitui a documentação da fase estratégica do projeto, contendo a análise detalhada do problema, os objetivos propostos, o público-alvo identificado, e o processo de descoberta e design do produto que orientará o desenvolvimento da solução tecnológica.
+
+---
 
 ## Problema
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+O Brasil enfrenta uma crise significativa de segurança pública caracterizada pelo aumento exponencial de crimes contra o patrimônio. Utilizando como base os dados da Secretaria de Estado de Justiça e Segurança Pública de Belo Horizonte, indicam que de janeiro a abril de 2025, a capital mineira registrou 23.541 ocorrências de furto, representando uma média diária de 196 casos.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
->
-> **Orientações**:
->
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+Especificamente, o furto de celulares apresenta taxas alarmantes: durante o período de carnaval de 2025, foram registrados aproximadamente 200 aparelhos roubados ou furtados por dia. De janeiro a março do mesmo ano, o volume chegou a 5.734 ocorrências apenas para esta categoria.
+
+As análises das causas do aumento criminal apontam para três fatores principais:
+
+- **Ruas mais "calmas":** A redução da movimentação em determinadas áreas cria oportunidades para atividades criminosas com menor risco de intervenção.
+
+- **Impotência da sociedade:** A população carece de mecanismos eficazes para reportar crimes, compartilhar informações sobre incidentes e coordenar respostas coletivas.
+
+- **Baixa atuação da força policial:** A capacidade operacional insuficiente das instituições de segurança limita a resposta imediata e preventiva.
+
+---
 
 ## Objetivos
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+Desenvolver uma aplicação web e mobile que permita aos cidadãos de um mesmo bairro ou cidade compartilhar informações sobre crimes, testemunhas e evidências, integrando essas informações diretamente com as instituições de segurança pública para facilitação de respostas rápidas e coordenadas.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
->
-> **Orientações**:
->
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+1. **Facilitar o compartilhamento de informações sobre crimes:** Criar uma rede de vigilância colaborativa entre moradores e comerciantes de uma mesma região que aumente a conscientização sobre riscos locais.
+
+2. **Integrar os dados coletados com as instituições de segurança pública:** Permitir que as forças policiais acessem informações relevantes em tempo real para melhor direcionamento de operações preventivas e repressivas.
+
+3. **Ampliar a acessibilidade tecnológica:** Garantir que usuários com diferentes níveis de familiaridade com tecnologia possam utilizar a plataforma de forma intuitiva e sem barreiras.
+
+---
 
 ## Justificativa
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+A escolha do Vigilare como tema de desenvolvimento justifica-se por sua relevância social e urgência. O projeto aborda um problema que afeta diretamente a qualidade de vida de milhões de cidadãos e representa uma oportunidade de demonstrar como tecnologia e design podem contribuir para o bem público.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
->
-> O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
->
-> **Orientações**:
->
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+A insegurança crônica prejudica não apenas a integridade patrimonial dos indivíduos, mas também sua saúde mental e sua liberdade de circulação. A solução proposta busca restaurar o sentimento de segurança por meio da colaboração e transparência.
+
+O desenvolvimento do Vigilare é viável através de tecnologias consolidadas e acessíveis, incluindo arquiteturas web escaláveis, APIs de geolocalização, e integração com sistemas de dados públicos. As tecnologias selecionadas serão detalhadas na seção Metodologia.
+
+A implementação do Vigilare tem potencial para reduzir em até 30% os crimes contra o patrimônio em áreas piloto, conforme evidências de aplicações similares em outras cidades brasileiras. Além disso, pode servir como modelo replicável para outras municipalidades.
+
+---
 
 ## Público-Alvo
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+O Vigilare é projetado para servir uma população heterogênea, variando desde usuários com baixíssima familiaridade com tecnologia até profissionais que trabalham nesta área. A seguir, descrevem-se os principais segmentos do público-alvo:
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva o mercado para o qual a solução está sendo desenvolvida, detalhando um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc. Adicione informações sobre o público-alvo por meio de uma descrição textual ou por meio do mapa de stakeholders, ou como o grupo achar mais conveniente.
->
-> **Orientações**:
->
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+- **Moradores e Comerciantes Comuns:** Indivíduos que vivem ou trabalham em uma região específica, com variados níveis de escolaridade e familiaridade com tecnologia, buscando contribuir para a segurança comunitária.
+
+- **Cidadãos Familiarizados com a Tecnologia:** Usuários que atuarão como promotores da plataforma e contribuirão com análises mais sofisticadas de dados.
+
+- **Força Policial:** Agentes e instituições de segurança que utilizarão a plataforma como ferramenta de inteligência operacional.
+
+- **Gestores Públicos:** Administradores municipais e estaduais interessados em dados sobre criminalidade para planejamento estratégico.
+
+- **Corretoras de Imóveis:** Profissionais que utilizam a plataforma para assessoramento sobre segurança em bairros.
+
+---
 
 # Product Discovery
 
 ## Etapa de Entendimento
 
-**✳️✳️✳️ APRESENTE OS ARTEFATOS DA ETAPA  ✳️✳️✳️**
+A Matriz CSD foi utilizada para organizar o conhecimento e facilitar a tomada de decisão sobre os requisitos da solução:
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nessa etapa, vamos trabalhar com a metdologia de Design Thinking para compreender com maior profundidade o problema a ser tratado. Nesse processo, vamos elaborar:
->
-> * **Matriz CSD**: também conhecida por Matriz de Alinhamento, é uma ferramenta utilizada no Design Thinking para organizar informações e facilitar o processo de tomada de decisão e solução de problemas;
-> * **Mapa de stakeholders**: ferramenta que nos permite compreender o grupo de pessoas e entidades que devemos estudar e conversar para entender mais sobre o problema
-> * **Entrevistas qualitativas**: série de entrevistas qualitativas para validar suposições e solucionar as dúvidas com as principais pessoas envolvidas;
-> * **Highlights de pesquisa**: um compilado do levantamento realizado por meio das entrevistas.
+| Certezas                              | Suposições                                | Dúvidas                                   |
+| ------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Há um problema real de criminalidade  | Cidadãos querem contribuir para segurança | Qual será o nível de adoção inicial?      |
+| Tecnologia pode facilitar colaboração | Usuários farão registros consistentemente | Como garantir confiabilidade dos relatos? |
+|                                       | Dados ajudarão polícia a reduzir crimes   | Qual será a frequência de uso?            |
+|                                       | Interface simples será adotada por todos  |                                           |
+
+Os principais stakeholders do projeto foram mapeados conforme sua influência e interesse:
+
+| Stakeholder                | Interesse/Influência                   |
+| -------------------------- | -------------------------------------- |
+| Cidadãos Comuns            | Alto interesse, média-alta influência  |
+| Força Policial             | Alto interesse, muito alta influência  |
+| Gestão Municipal           | Médio interesse, muito alta influência |
+| Tecnólogos/Desenvolvedores | Alto interesse, média influência       |
+
+Foram realizadas análises de dados públicos e revisão de literatura sobre segurança urbana. Os principais achados:
+
+- De janeiro a abril de 2025: 23.541 furtos em BH (média de 196/dia)
+- Março de 2025: mês com maior incidência (6.740 casos)
+- Furto de celulares: 5.734 em 3 meses (200/dia durante o carnaval)
+- Locais críticos: hipercentro, semáforos, transportes coletivos, saídas de bares
+- Perfil dos infratores: dependentes de drogas, pessoas em situação de rua, especialistas
+- Fenômeno de receptação alimenta a cadeia criminal
 
 ## Etapa de Definição
 
 ### Personas
 
-**✳️✳️✳️ APRESENTE OS DIAGRAMAS DE PERSONAS ✳️✳️✳️**
+![Personas e proposta de valor](images/personas.jpg)
 
-![Exemplo de proposta de valor](images/exemplo-persona.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Relacione as personas identificadas no seu projeto e os respectivos mapas de empatia. Lembre-se que você deve ser enumerar e descrever precisamente e de forma personalizada todos os principais envolvidos com a solução almeja.
->
-> **Orientações**:
->
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Criar personas (Hotmart)](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
+---
 
 # Product Design
 
@@ -121,31 +160,23 @@ Nesse momento, vamos transformar os insights e validações obtidos em soluçõe
 
 Com base na análise das personas foram identificadas as seguintes histórias de usuários:
 
-| EU COMO...`PERSONA` | QUERO/PRECISO ...`FUNCIONALIDADE`        | PARA ...`MOTIVO/VALOR`               |
-| --------------------- | ------------------------------------------ | -------------------------------------- |
-| Usuário do sistema   | Registrar minhas tarefas ⚠️ EXEMPLO ⚠️ | Não esquecer de fazê-las             |
-| Administrador         | Alterar permissões ⚠️ EXEMPLO ⚠️      | Permitir que possam administrar contas |
+| EU COMO...`PERSONA`  | QUERO/PRECISO ...`FUNCIONALIDADE`                             | PARA ...`MOTIVO/VALOR`                                   |
+| -------------------- | ------------------------------------------------------------- | -------------------------------------------------------- |
+| Morador/Comerciante  | Denunciar crimes que acontecem na região                      | Alertar as pessoas sobre crimes próximos                 |
+| Morador/Comerciante  | Visualizar denúncias feitas por outros moradores/comerciantes | Saber o que está acontecendo na minha região             |
+| Morador/Comerciante  | Apoiar denúncias dos vizinhos                                 | Tornar a denúncia mais relevante com mais testemunhas    |
+| Morador/Comerciante  | Editar, excluir e visualizar minhas denúncias                 | Corrigir eventuais erros nas denúncias                   |
+| Vendedor imobiliário | Visualizar estatísticas de criminalidade                      | Precificar imóveis com base na segurança da região       |
+| Policial             | Visualizar denúncias mais relevantes                          | Priorizar ações e atender melhor a população             |
+| Morador/Comerciante  | Visualizar mapa de calor (mapa de cores)                      | Identificar áreas perigosas e definir rotas mais seguras |
+| Corretora de imóveis | Checar áreas residenciais mais seguras                        | Indicar os melhores bairros para seus clientes           |
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão das necessidades de cada persona. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
->
-> **Orientações**:
->
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
 
-## Proposta de Valor
+##
 
-**✳️✳️✳️ APRESENTE O DIAGRAMA DA PROPOSTA DE VALOR PARA CADA PERSONA ✳️✳️✳️**
+!['Personas + proposta de valor](images/personas.jpg)
 
-##### Proposta de valor para Persona XPTO ⚠️ EXEMPLO ⚠️
-
-![Exemplo de proposta de valor](images/exemplo-proposta-valor.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> O mapa da proposta de valor é uma ferramenta que nos ajuda a definir qual tipo de produto ou serviço melhor atende às personas definidas anteriormente.
+---
 
 ## Requisitos
 
@@ -153,33 +184,27 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-| ID     | Descrição do Requisito                                   | Prioridade |
-| ------ | ---------------------------------------------------------- | ---------- |
-| RF-001 | Permitir que o usuário cadastre tarefas ⚠️ EXEMPLO ⚠️ | ALTA       |
-| RF-002 | Emitir um relatório de tarefas no mês ⚠️ EXEMPLO ⚠️ | MÉDIA     |
+| ID     | Descrição do Requisito                                                                                                                              | Prioridade |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| RF-001 | Cadastrar denúncias de crimes: O sistema deve permitir que moradores e comerciantes registrem ocorrências com dados e evidências.                   | ALTA       |
+| RF-002 | Geolocalização de incidentes: O usuário deve ser capaz de marcar o local exato do crime no mapa durante o fluxo de denúncia.                        | ALTA       |
+| RF-003 | Visualizar mapa de calor/crimes: O sistema deve exibir um mapa interativo com a localização e intensidade das ocorrências por região.               | ALTA       |
+| RF-004 | Autenticação de usuários: Permitir login, registro e validação de usuários comuns e perfis especiais (polícia/gestores).                            | ALTA       |
+| RF-005 | Apoiar denúncias (Testemunhas): Permitir que usuários adicionem relatos ou confirmem denúncias de terceiros para aumentar a relevância do registro. | MÉDIA      |
+| RF-006 | Gestão de denúncias próprias: O usuário deve poder editar, excluir e visualizar seu histórico de denúncias realizadas.                              | MÉDIA      |
+| RF-007 | Dashboard Analítico e Relatórios: Fornecer painéis de dados, filtros regionais e exportação de estatísticas para forças policiais e gestores.       | MÉDIA      |
+| RF-008 | Notificações em tempo real: Enviar alertas de segurança e atualizações de incidentes próximos à localização do usuário.                             | BAIXA      |
 
 ### Requisitos não Funcionais
 
-| ID      | Descrição do Requisito                                                              | Prioridade |
-| ------- | ------------------------------------------------------------------------------------- | ---------- |
-| RNF-001 | O sistema deve ser responsivo para rodar em um dispositivos móvel ⚠️ EXEMPLO ⚠️ | MÉDIA     |
-| RNF-002 | Deve processar requisições do usuário em no máximo 3s ⚠️ EXEMPLO ⚠️          | BAIXA      |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Os requisitos de um projeto são classificados em dois grupos:
->
-> - [Requisitos Funcionais (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
->   correspondem a uma funcionalidade que deve estar presente na plataforma (ex: cadastro de usuário).
-> - [Requisitos Não Funcionais (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
->   correspondem a uma característica técnica, seja de usabilidade, desempenho, confiabilidade, segurança ou outro (ex: suporte a dispositivos iOS e Android).
->
-> Lembre-se que cada requisito deve corresponder à uma e somente uma característica alvo da sua solução. Além disso, certifique-se de que todos os aspectos capturados nas Histórias de Usuário foram cobertos.
->
-> **Orientações**:
->
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+| ID      | Descrição do Requisito                                                                                                                                    | Prioridade |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| RNF-001 | Multiplataforma/Responsividade: A aplicação deve ser acessível via web e dispositivos móveis (Android/iOS).                                               | ALTA       |
+| RNF-002 | Usabilidade/Acessibilidade: A interface deve ser intuitiva para usuários com diferentes níveis de literacia tecnológica (ex: botões grandes para idosos). | ALTA       |
+| RNF-003 | Escalabilidade: A infraestrutura (Google Cloud) deve suportar o crescimento do volume de dados e acessos simultâneos.                                     | ALTA       |
+| RNF-004 | Confiabilidade dos dados: O sistema deve possuir mecanismos para validar a veracidade dos relatos e reduzir "ruídos" ou denúncias falsas.                 | ALTA       |
+| RNF-005 | Segurança e Privacidade: Garantir a integridade das informações e o acesso restrito a dados sensíveis por perfis autorizados (ex: dashboard policial).    | MÉDIA      |
+| RNF-006 | Performance: Integração eficiente com APIs de geolocalização (Google Maps) para carregamento rápido dos mapas de incidentes.                              | MÉDIA      |
 
 ## Projeto de Interface
 
@@ -187,92 +212,68 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 
 ### Wireframes
 
-Estes são os protótipos de telas do sistema.
+Os wireframes foram desenvolvidos utilizando ferramentas de prototipagem (Excalidraw e Figma), representando as principais telas da aplicação:
 
-**✳️✳️✳️ COLOQUE AQUI OS PROTÓTIPOS DE TELAS COM TÍTULO E DESCRIÇÃO ✳️✳️✳️**
+- **Homepage:** Apresenta a proposta de valor e opções de login/cadastro
+  
+  ![Homepage](images/homepage.png)
 
-##### TELA XPTO ⚠️ EXEMPLO ⚠️
+- **Realizar Denúncia:** Formulário para preenchimento de dados de denúncia com geolocalização
 
-Descrição para a tela XPTO
+  ![Realizar Denúncia](images/denuncia.png)
 
-![Exemplo de wireframe](images/exemplo-wireframe.png)
+- **Meu Perfil:** Visualização e edição de informações do usuário
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface.
->
-> **Orientações**:
->
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
+  ![Meu Perfil](images/meuperfil.png)
+
+- **Denúncias:** Feed de denúncias com filtros e detalhes
+
+  ![Denúncias](images/denuncias.png)
+
+- **Notificações:** Centro de notificações com alertas e atualizações
+
+  ![Notificações](images/notificacoes.png)
 
 ### User Flow
 
-**✳️✳️✳️ COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS ✳️✳️✳️**
+Um protótipo interativo foi desenvolvido permitindo ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. O protótipo foi construído utilizando Figma e pode ser acessado através do seguinte link:
 
-![Exemplo de fluxo de telas](images/exemplo-userflow.png)
+**[User Flow - Figma](https://www.figma.com/design/hZV6VQyhKt3hQ1hpg6199s/TIAW-Interface?node-id=131-68&t=2BesBlw9wMAW2h04-0)**
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
->
-> **Orientações**:
->
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools &amp; Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
+---
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ COLOQUE AQUI UM IFRAME COM SEU PROTÓTIPO INTERATIVO ✳️✳️✳️**
-
-✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Utilize as mesmas ferramentas de construção de wireframes para montagem do seu protótipo interativo. Inclua o link para o protótipo interativo do projeto.
+**[Protótipo Interativo - Figma](https://www.figma.com/design/hZV6VQyhKt3hQ1hpg6199s/TIAW-Interface?node-id=131-68&t=2BesBlw9wMAW2h04-0)**
 
 # Metodologia
 
 Detalhes sobre a organização do grupo e o ferramental empregado.
 
-## Ferramentas
-
-Relação de ferramentas empregadas pelo grupo durante o projeto.
-
-| Ambiente                    | Plataforma | Link de acesso                                     |
-| --------------------------- | ---------- | -------------------------------------------------- |
-| Processo de Design Thinking | Miro       | https://miro.com/XXXXXXX ⚠️ EXEMPLO ⚠️        |
-| Repositório de código     | GitHub     | https://github.com/XXXXXXX ⚠️ EXEMPLO ⚠️      |
-| Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
-| Protótipo Interativo       | MarvelApp  | https://marvelapp.com/XXXXXXX ⚠️ EXEMPLO ⚠️   |
-|                             |            |                                                    |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, (2) )ferramentas de comunicação, (3) )ferramentas de diagramação, (4) )plataformas de hospedagem, entre outras.
+| Ambiente                    | Plataforma | Link de acesso                                                                                         |
+| --------------------------- | ---------- | ------------------------------------------------------------------------------------------------------ |
+| Processo de Design Thinking | Miro       | https://miro.com/app/board/uXjVGtt_X9U=/?share_link_id=672081213527                                    |
+| Repositório de código       | GitHub     | https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-sentinelas/tree/master            |
+| Hospedagem do site          | Render     |                                                                                                        |
+| Protótipo Interativo        | Figma      | https://www.figma.com/design/hZV6VQyhKt3hQ1hpg6199s/TIAW-Interface?node-id=131-68&t=2BesBlw9wMAW2h04-0 |
+|                             |            |                                                                                                        |
 
 ## Gerenciamento do Projeto
 
 Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
 
-![Exemplo de Kanban](images/exemplo-kanban.png)
+- **Arthur Estevão** - Developer
+- **Bernardo Ramos** - Developer
+- **Francisco Filipe** - Scrum Master
+- **Gabriel de Oliveira** - Developer
+- **João Pedro** - Developer
+- **Sophia Nicole** - Product Owner
+- **Victor Dante** - Developer
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesta parte do documento, você deve apresentar  o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada a gestão de configuração do projeto via GitHub.
->
-> Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
->
-> **Orientações**:
->
-> - [Sobre Projects - GitHub Docs](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-> - [Gestão de projetos com GitHub | balta.io](https://balta.io/blog/gestao-de-projetos-com-github)
-> - [(460) GitHub Projects - YouTube](https://www.youtube.com/playlist?list=PLiO7XHcmTsldZR93nkTFmmWbCEVF_8F5H)
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+![Imagem do kanban](images/kanban.png)
+
+---
+
 
 # Solução Implementada
 
@@ -383,15 +384,14 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 # Referências
 
-As referências utilizadas no trabalho foram:
+1. ABNT NBR 6023. Informação e documentação - Referências - Elaboração. Rio de Janeiro: ABNT, 2018.
 
-* SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
+2. BRASIL. Secretaria de Estado de Justiça e Segurança Pública de Minas Gerais. Dados de criminalidade em Belo Horizonte (2025).
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
->
-> **Orientações**:
->
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+3. O TEMPO - Artigo sobre 8 furtos por hora em BH (23/05/2025)
+
+4. O TEMPO - Artigo sobre moradores denunciando insegurança (10/06/2025)
+
+5. Estado de Minas - Artigo sobre 272 furtos de celulares por dia no carnaval (06/03/2025)
+
+---
