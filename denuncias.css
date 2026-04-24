@@ -1,4 +1,7 @@
-/* 1. RESET E BASE */
+/* ============================================================
+    1. RESET E CONFIGURAÇÕES BASE
+    Remoção de estilos padrão do navegador e cor de fundo
+   ============================================================ */
 * {
     padding: 0;
     margin: 0;
@@ -9,7 +12,10 @@ body {
     background-color: #ECF5F8;
 }
 
-/* 2. HEADER (ESTRUTURA FIXA) */
+/* ============================================================
+    2. HEADER (CABEÇALHO)
+    Configurações da barra superior, logo e navegação principal
+   ============================================================ */
 header {
     background-color: white;
     box-shadow: 1px 2px 2px rgb(173, 172, 172);
@@ -26,7 +32,7 @@ header h2 {
     gap: 15px;
 }
 
-/* 3. NAVEGAÇÃO DO HEADER */
+/* Itens do Menu de Navegação */
 .navegacao-header {
     list-style: none;
     gap: 50px;
@@ -43,12 +49,16 @@ header h2 {
     transition: 0.1s;
 }
 
+/* Divisor vertical no header */
 #barra {
     border-left: solid black 1px;
     height: 30px;
 }
 
-/* 4. COMPONENTES DE BUSCA E FILTRO */
+/* ============================================================
+    3. BARRA DE BUSCA E FILTROS (SUB-HEADER)
+    Elementos de interação logo abaixo do cabeçalho
+   ============================================================ */
 .navegacao-main-esquerda {
     gap: 35px;
     margin-left: 15vh;
@@ -59,8 +69,24 @@ header h2 {
     margin-left: 20vh;
 }
 
+/* Seletor de Cidade */
+.selecao-localidade {
+    background-color: #FFFFFF;
+    color: #236377;
+    border-radius: 10px;
+    padding: 5px;
+    width: 175px;
+    border: 2px solid #2c5d6d;
+    box-shadow: none;
+}
 
-/* Barra de Pesquisa e Animações */
+.selecao-localidade:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 2px solid #2c5d6d;
+}
+
+/* Campo de Pesquisa com Animação de Expansão */
 .pesquisa {
     border: solid #236377 2px;
     border-radius: 10px;
@@ -94,7 +120,7 @@ header h2 {
     color: #236377;
 }
 
-/* Botões de Ação */
+/* Botões de Ação da Barra */
 .filtrar-resultado {
     background-color: #FFFFFF;
     color: #236377;
@@ -111,11 +137,15 @@ header h2 {
     width: 170px;
 }
 
-/* 5. CONTEÚDO PRINCIPAL (MAIN) */
+/* ============================================================
+    4. CONTEÚDO PRINCIPAL (MAIN)
+    Layout das denúncias, cards e elementos de visualização
+   ============================================================ */
 .navegacao {
     margin-top: 22vh;
 }
 
+/* Botões de atalho (Adicionar e Notificações) */
 .adicionar-denuncia {
     color: #236377;
     background-color: #ffffff;
@@ -134,7 +164,7 @@ main h3 {
     margin-top: 12vh;
 }
 
-
+/* Painel de Exibição (Mapa e Lista) */
 .painel-principal {
     gap: 40px;
     padding: 20px;
@@ -153,6 +183,10 @@ main h3 {
     gap: 35px;
 }
 
+/* ============================================================
+    5. CARTÃO DE DENÚNCIA (CARD)
+    Estilização individual de cada item da lista de denúncias
+   ============================================================ */
 .cartao-denuncia {
     background: white;
     padding: 20px;
@@ -203,60 +237,76 @@ main h3 {
 }
 
 
+.grade-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 10%;
+    margin-top: 6vh;
+    height: 750px;
+}
+
+.card-denuncia {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.conteudo-card {
+    padding: 20px;
+    flex: 1;
+}
+
+.cabecalho-card {
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.etiqueta-moderado {
+    background: var(--cor-moderado);
+    color: rgb(253, 133, 5);
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.info-tempo {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.titulo-denuncia {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.localizacao {
+    font-size: 0.85rem;
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+.descricao {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.imagem-placeholder {
+    width: 150px;
+    background-color: #236377;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 6. FOOTER */
+/* ============================================================
+    6. FOOTER (RODAPÉ)
+    Finalização da página
+   ============================================================ */
 footer {
     background-color: #236377;
     padding: 8vh;
-    margin-top: 100vh;
+    margin-top: 8vh;
 }
