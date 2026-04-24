@@ -178,6 +178,7 @@ main h4 {
     background-color: transparent;
     margin-top: 30px;
     flex-wrap: wrap;
+    align-items: stretch;
 }
 
 .secao-mapa {
@@ -190,12 +191,14 @@ main h4 {
 
 #mapa-interativo {
     width: 100%;
+    height: 100%;
 }
 
 #mapa-interativo iframe {
     width: 100%;
-    height: 500px;
+    height: 100%;
     display: block;
+    min-height: 500px;
 }
 
 .secao-lista {
