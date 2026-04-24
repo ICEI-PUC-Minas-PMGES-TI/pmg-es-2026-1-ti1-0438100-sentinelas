@@ -46,3 +46,84 @@ header h2 {
 .imagem-header {
     gap: 15px;
 }
+
+.navegacao-main-esquerda {
+    gap: 35px;
+    margin-left: 15vh;
+}
+
+.navegacao-main-direita {
+    gap: 15px;
+    margin-left: 20vh;
+}
+
+.pesquisa {
+    border: solid #236377 2px;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    width: 300px;
+}
+
+.pesquisa:focus-within {
+    width: 380px;
+}
+
+.barra-pesquisa {
+    color: #000000;
+    background-color: transparent;
+    padding: 5px;
+    width: 270px;
+    outline: none;
+}
+
+.barra-pesquisa input {
+    border: none;
+    outline: none;
+}
+
+.barra-pesquisa::placeholder {
+    color: #236377;
+}
+
+.lupa {
+    margin-left: 10px;
+    color: #236377;
+}
+
+.filtrar-resultado {
+    background-color: #FFFFFF;
+    color: #236377;
+    border-radius: 10px;
+    width: 170px;
+    padding: 5px;
+}
+
+.pesquisar-resultado {
+    background-color: #236377;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    width: 170px;
+}
+
+.navegacao {
+    margin-top: 22vh;
+}
+
+.adicionar-denuncia {
+    color: #236377;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding: 4px 6px;
+}
+
+.notificacoes {
+    color: #236377;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding: 4px 6px;
+}
+
+.notificacao-main {
+    margin-top: 30px;
+}

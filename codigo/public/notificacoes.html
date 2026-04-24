@@ -31,5 +31,48 @@
         </nav>
     </header>
 
+
+    <div class="navegacao d-flex align-items-center">
+            <nav class="navegacao-main-esquerda d-flex align-items-center justify-content-center">
+                <div class="seletor-cidade-container">
+                    <select id="escolherCidade" class="selecao-localidade form-select">
+                        <option value="bh" selected>Belo Horizonte, MG</option>
+                        <option value="contagem">Contagem, MG</option>
+                        <option value="betim">Betim, MG</option>
+                        <option value="novalima">Nova Lima, MG</option>
+                    </select>
+                </div>
+                <div class="pesquisa d-flex align-items-center">
+                    <svg class="lupa" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                    <input class="barra-pesquisa" type="text" placeholder="Pesquise Denúncias...">
+                </div>
+                <button class="filtrar-resultado"> Filtrar Resultados </button>
+                <button class="pesquisar-resultado"> Pesquisar Resultados </button>
+            </nav>
+            <nav class="navegacao-main-direita d-flex align-items-center ">
+                <button class="adicionar-denuncia"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                    </svg>
+                </button>
+
+                <button class="notificacoes"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                    </svg>
+                </button>
+            </nav>
+        </div>
+       <div id="texto-central" class="d-flex flex-column align-items-center text-center">
+            <h1 class="notificacao-main">Notificações</h1>
+            <h3>6 resultados buscados de pesquisa</h3>
+        </div>
+        
 </body>
 </html>
