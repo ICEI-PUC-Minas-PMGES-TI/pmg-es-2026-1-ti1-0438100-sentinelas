@@ -1,129 +1,246 @@
+/* ================= RESET ================= */
 * {
-    padding: 0;
-    margin: 0;
-    border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #ECF5F8;
+  background-color: #ECF5F8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-header {
-    background-color: white;
-    box-shadow: 1px 2px 2px rgb(173, 172, 172);
-    padding: 4vh;
-    top: 0;
-    z-index: 1000;
+/* ================= HEADER ================= */
+.header-fixo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  z-index: 1000;
 }
 
+.header-spacer {
+  height: 80px;
+}
+
+.imagem-header svg {
+  width: 48px;
+  height: 48px;
+  display: block;
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+
+.imagem-header h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
 
 .navegacao-header {
-    list-style: none;
-    gap: 50px;
-    margin: 0;
+  list-style: none;
+  gap: 40px;
+  margin: 0;
 }
 
-.navegacao-header .botao-header a {
-    text-decoration: none;
-    color: black;
+.navegacao-header a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
-.navegacao-header .botao-header:hover {
-    font-weight: bold;
-    transition: 0.1s;
+.navegacao-header a:hover {
+  color: #3C667A;
 }
-
 
 #barra {
-    border-left: solid black 1px;
-    height: 30px;
+  height: 24px;
+  border-left: 1px solid #000;
 }
 
-header h2 {
-    margin: 0;
-}
-
-.imagem-header {
-    gap: 15px;
+/* ================= NAVEGAÇÃO / FILTROS ================= */
+.navegacao {
+  background: #F3FAFD;
+  padding: 32px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
 }
 
 .navegacao-main-esquerda {
-    gap: 35px;
-    margin-left: 15vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.navegacao-main-direita {
-    gap: 15px;
-    margin-left: 20vh;
+.seletor-cidade-container select {
+  border-radius: 10px;
+  border: none;
+  padding: .55rem .9rem;
+  background: #ffffff;
+  box-shadow: 0 1px 6px rgba(0,0,0,.08);
+  font-size: .95rem;
+  width: 220px;
+  justify-self: start;
+  margin-left: 80px;
 }
 
 .pesquisa {
-    border: solid #236377 2px;
-    border-radius: 10px;
-    transition: width 0.3s ease;
-    width: 300px;
-}
-
-.pesquisa:focus-within {
-    width: 380px;
-}
-
-.barra-pesquisa {
-    color: #000000;
-    background-color: transparent;
-    padding: 5px;
-    width: 270px;
-    outline: none;
-}
-
-.barra-pesquisa input {
-    border: none;
-    outline: none;
-}
-
-.barra-pesquisa::placeholder {
-    color: #236377;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: .55rem .75rem;
+  border: 1.5px solid #3C667A;
+  min-width: 360px;
+  max-width: 400;
 }
 
 .lupa {
-    margin-left: 10px;
-    color: #236377;
+  color: #4A6E7F;
+}
+
+.barra-pesquisa {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: .95rem;
+}
+
+
+.seletor-cidade-container select,
+.pesquisa,
+.filtrar-resultado,
+.pesquisar-resultado {
+  height: 42px;
+}
+
+/* ========== BOTÕES FILTRO / PESQUISA ========== */
+.navegacao > .container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
 }
 
 .filtrar-resultado {
-    background-color: #FFFFFF;
-    color: #236377;
-    border-radius: 10px;
-    width: 170px;
-    padding: 5px;
+  background: transparent;
+  border: 1.5px solid #3C667A;
+  color: #3C667A;
+  border-radius: 8px;
+  padding: .5rem 1rem;
+  font-size: .9rem;
 }
 
 .pesquisar-resultado {
-    background-color: #236377;
-    color: white;
-    border-radius: 10px;
-    padding: 5px;
-    width: 170px;
+  background: #3C667A;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: .5rem 1rem;
+  font-size: .9rem;
 }
 
-.navegacao {
-    margin-top: 22vh;
+/* ========== AÇÕES À DIREITA ========== */
+.navegacao-main-direita {
+  gap: 12px;
+  
 }
-
 .adicionar-denuncia {
-    color: #236377;
-    background-color: #ffffff;
-    border-radius: 7px;
-    padding: 4px 6px;
+    margin-left: 80px;
 }
 
-.notificacoes {
-    color: #236377;
-    background-color: #ffffff;
-    border-radius: 7px;
-    padding: 4px 6px;
+.navegacao-main-direita button {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: none;
+  box-shadow: 0 1px 6px rgba(0,0,0,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.notificacao-main {
-    margin-top: 30px;
+.navegacao-main-direita button:hover {
+    transform: translateY (-2px) scale(1);
+    box-shadow: 0 8px 16px rgba(0,0,0,.1);
+}
+
+/* ================= TEXTO CENTRAL ================= */
+#texto-central {
+  margin: 40px 0;
+}
+
+.titulo-central {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+}
+
+#texto-central h3 {
+  margin-top: .5rem;
+}
+
+/* ================= CARDS ================= */
+.card {
+  border-radius: 12px;
+  border: none;
+}
+
+.badge-moderado {
+  background: #EFAD6C;
+  border-radius: 20px;
+  padding: .35em .9em;
+  font-size: .75rem;
+}
+
+.placeholder-img {
+  width: 240px;
+  height: 160px;
+  background: #EEF2F4;
+  border-radius: 10px;
+}
+
+/* ================= FOOTER ================= */
+.footer-bar {
+  height: 100px;
+  background: #236377;
+  margin-top: 80px;
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 992px) {
+
+  .pesquisa {
+    min-width: 100%;
+  }
+
+  .placeholder-img {
+    width: 100%;
+    height: 140px;
+  }
+
+  .header-direita ul {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .navegacao-main-esquerda {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navegacao-main-direita {
+    margin-top: 16px;
+  }
 }
