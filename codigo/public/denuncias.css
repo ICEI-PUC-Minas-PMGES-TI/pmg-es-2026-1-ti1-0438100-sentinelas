@@ -1,0 +1,563 @@
+/* ============================================================
+    1. RESET E CONFIGURAÇÕES BASE
+   ============================================================ */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    background-color: #ECF5F8;
+}
+
+/* ============================================================
+    2. HEADER
+   ============================================================ */
+header {
+    background-color: white;
+    box-shadow: 1px 2px 2px rgb(173, 172, 172);
+    padding: 4vh;
+    top: 0;
+    z-index: 1000;
+}
+
+header h2 {
+    margin: 0;
+}
+
+.imagem-header {
+    gap: 15px;
+}
+
+.navegacao-header {
+    list-style: none;
+    gap: 50px;
+    margin: 0;
+}
+
+.navegacao-header .botao-header a {
+    text-decoration: none;
+    color: black;
+}
+
+.navegacao-header .botao-header:hover {
+    font-weight: bold;
+    transition: 0.1s;
+}
+
+#barra {
+    border-left: solid black 1px;
+    height: 30px;
+}
+
+/* ============================================================
+    3. BARRA DE BUSCA E FILTROS
+   ============================================================ */
+.navegacao {
+    margin-top: 20vh;
+    padding: 12px 15px;
+    background-color: #ECF5F8;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.navegacao-main-esquerda {
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-left: 15vh;
+}
+
+.navegacao-main-direita {
+    gap: 15px;
+    margin-left: auto;
+    margin-right: 15vh;
+}
+
+.selecao-localidade {
+    background-color: #FFFFFF;
+    color: #236377;
+    border-radius: 10px;
+    padding: 5px;
+    width: 175px;
+    border: 2px solid #2c5d6d;
+    box-shadow: none;
+}
+
+.selecao-localidade:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 2px solid #2c5d6d;
+}
+
+.pesquisa {
+    border: solid #236377 2px;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    width: 300px;
+}
+
+.pesquisa:focus-within {
+    width: 380px;
+}
+
+.barra-pesquisa {
+    color: #000000;
+    background-color: transparent;
+    padding: 5px;
+    width: 270px;
+    outline: none;
+}
+
+.barra-pesquisa input {
+    border: none;
+    outline: none;
+}
+
+.barra-pesquisa::placeholder {
+    color: #236377;
+}
+
+.lupa {
+    margin-left: 10px;
+    color: #236377;
+}
+
+.filtrar-resultado {
+    background-color: #FFFFFF;
+    color: #236377;
+    border-radius: 10px;
+    width: 170px;
+    padding: 5px;
+}
+
+.pesquisar-resultado {
+    background-color: #236377;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    width: 170px;
+}
+
+/* ============================================================
+    4. CONTEÚDO PRINCIPAL
+   ============================================================ */
+.adicionar-denuncia {
+    color: #236377;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding: 4px 6px;
+}
+
+.notificacoes {
+    color: #236377;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding: 4px 6px;
+}
+
+main h3 {
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+main h4 {
+    padding: 0 10px;
+}
+
+.painel-principal {
+    gap: 20px;
+    padding: 20px;
+    background-color: transparent;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.secao-mapa {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 6px 6px 10px #00000053;
+    flex: 1 1 300px;
+    min-width: 0;
+}
+
+#mapa-interativo {
+    width: 100%;
+}
+
+#mapa-interativo iframe {
+    width: 100%;
+    height: 500px;
+    display: block;
+}
+
+.secao-lista {
+    flex: 1 1 280px;
+    min-width: 0;
+    gap: 20px;
+}
+
+/* ============================================================
+    5. CARTÃO DE DENÚNCIA
+   ============================================================ */
+.cartao-denuncia {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #00000053;
+    gap: 12px;
+}
+
+.cabecalho-cartao {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.etiqueta-alerta {
+    background-color: #e69d5e;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tempo-e-testemunhas {
+    color: #666;
+    font-size: 14px;
+}
+
+.titulo-denuncia {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+    color: #1a1a1a;
+}
+
+.localizacao {
+    color: #2c5282;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.descricao-denuncia {
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.espaco-foto {
+    width: 120px;
+    height: 120px;
+    background-color: #edf2f7;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+    6. GRADE DE CARDS
+   ============================================================ */
+.grade-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 0 5%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: auto;
+}
+
+.card-denuncia {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    gap: 0;
+}
+
+.conteudo-card {
+    padding: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cabecalho-card {
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.etiqueta-moderado {
+    background-color: #fef3e2;
+    color: #e07800;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.info-tempo {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.descricao {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.imagem-placeholder {
+    width: 120px;
+    min-width: 120px;
+    background-color: #236377;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+    7. FOOTER
+   ============================================================ */
+footer {
+    background-color: #236377;
+    padding: 8vh;
+    margin-top: 8vh;
+}
+
+/* ============================================================
+    8. RESPONSIVIDADE — MEDIA QUERIES
+   ============================================================ */
+
+/* Tablets (< 992px) */
+@media (max-width: 991.98px) {
+    header {
+        padding: 2vh 3vw;
+    }
+
+    .navegacao-main-esquerda {
+        gap: 10px;
+    }
+
+    .filtrar-resultado,
+    .pesquisar-resultado {
+        width: auto;
+        min-width: 130px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .pesquisa {
+        width: 240px;
+    }
+
+    .pesquisa:focus-within {
+        width: 280px;
+    }
+
+    .barra-pesquisa {
+        width: calc(100% - 40px);
+    }
+
+    .grade-cards {
+        padding: 0 4%;
+    }
+
+    #mapa-interativo iframe {
+        height: 420px;
+    }
+}
+
+/* Mobile grande (< 768px) */
+@media (max-width: 767.98px) {
+    header {
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .navegacao-header {
+        gap: 20px !important;
+    }
+
+    #barra {
+        display: none;
+    }
+
+    .navegacao {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 15vh;
+    }
+
+    .navegacao-main-esquerda {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .navegacao-main-direita {
+        margin-left: 15vh;
+    }
+
+    .pesquisa {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .pesquisa:focus-within {
+        width: 100%;
+    }
+
+    .barra-pesquisa {
+        width: calc(100% - 40px);
+    }
+
+    .selecao-localidade {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .filtrar-resultado,
+    .pesquisar-resultado {
+        flex: 1;
+        min-width: 120px;
+        max-width: 180px;
+    }
+
+    /* Mapa e lista empilham verticalmente */
+    .painel-principal {
+        flex-direction: column;
+    }
+
+    .secao-mapa {
+        flex: none;
+        width: 100%;
+    }
+
+    #mapa-interativo iframe {
+        height: 350px;
+    }
+
+    .secao-lista {
+        flex: none;
+        width: 100%;
+    }
+
+    .espaco-foto {
+        width: 90px;
+        height: 90px;
+    }
+
+    .grade-cards {
+        grid-template-columns: 1fr;
+        padding: 0 4%;
+    }
+
+    .imagem-placeholder {
+        width: 100px;
+        min-width: 100px;
+    }
+
+    main h3 {
+        margin-top: 24px;
+        font-size: 1.3rem;
+    }
+
+    main h4 {
+        font-size: 0.95rem;
+    }
+
+    footer {
+        padding: 5vh 3vw;
+        margin-top: 5vh;
+    }
+}
+
+/* Mobile pequeno (< 576px) */
+@media (max-width: 575.98px) {
+    header h2 {
+        font-size: 1.2rem;
+    }
+
+    .imagem-header svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navegacao-header {
+        gap: 14px !important;
+        font-size: 0.9rem;
+    }
+
+    .navegacao {
+        padding: 10px 12px;
+        margin-top: 23vh;
+    }
+
+    .pesquisa {
+        max-width: 100%;
+    }
+
+    .filtrar-resultado,
+    .pesquisar-resultado {
+        flex: 1;
+        min-width: 100px;
+        font-size: 0.85rem;
+    }
+
+    #mapa-interativo iframe {
+        height: 280px;
+    }
+
+    .cartao-denuncia {
+        padding: 12px;
+        flex-direction: column;
+    }
+
+    .espaco-foto {
+        width: 100%;
+        height: 140px;
+    }
+
+    .cabecalho-cartao,
+    .cabecalho-card {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .tempo-e-testemunhas {
+        font-size: 12px;
+    }
+
+    .titulo-denuncia {
+        font-size: 1rem;
+    }
+
+    .imagem-placeholder {
+        width: 100%;
+        min-width: unset;
+        height: 120px;
+    }
+
+    .card-denuncia {
+        flex-direction: column;
+    }
+
+    .grade-cards {
+        padding: 0 3%;
+        gap: 14px;
+    }
+
+    main h3 {
+        margin-top: 20px;
+    }
+}
