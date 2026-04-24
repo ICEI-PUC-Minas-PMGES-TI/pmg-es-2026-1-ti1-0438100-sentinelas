@@ -76,15 +76,85 @@
     </div>
 
     <main>
-        <h2 class="d-flex justify-content-center">Denúncias Recentes</h2>
-        <h3 class="d-flex justify-content-center">Data & Hora </h3>
+        <h3 class="d-flex justify-content-center">Denúncias Recentes</h3>
+        <h4 class="d-flex justify-content-center">Data & Hora </h4>
+
+        <div class="painel-principal d-flex">
+            <section class="secao-mapa">
+                <div id="mapa-interativo">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.118912652805!2d-43.92638356056437!3d-19.919393237899662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6998b5a2c22e1%3A0x5df47022f03c770b!2sB.%20Brilhante%20-%20Buraco%20Quente%2C%20Belo%20Horizonte%20-%20MG%2C%2031910-680!5e0!3m2!1spt-BR!2sbr!4v1777009318168!5m2!1spt-BR!2sbr"
+                        width="600" height="750" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+
+            <section class="secao-lista d-flex flex-column">
+                <h2 class="titulo-lista ">Lista</h2>
+
+                <article class="cartao-denuncia d-flex justify-content-between">
+                    <div class="conteudo-cartao">
+                        <div class="cabecalho-cartao">
+                            <span class="etiqueta-alerta">Moderado</span>
+                            <span class="tempo-e-testemunhas">23h atrás • 4 testemunhas</span>
+                        </div>
+
+                        <h3 class="titulo-denuncia">Alta irregularidade das ruas</h3>
+                        <p class="localizacao">
+                            <i class="icone-alfinete"></i> Rua xxxxx
+                        </p>
+                        <p class="descricao-denuncia">
+                            Moradores reclamam do alto risco de acidentes devido à grande quantidade de crateras...
+                        </p>
+                    </div>
+
+                    <div class="espaco-foto"></div>
+                </article>
+                <article class="cartao-denuncia d-flex justify-content-between">
+                    <div class="conteudo-cartao">
+                        <div class="cabecalho-cartao">
+                            <span class="etiqueta-alerta">Moderado</span>
+                            <span class="tempo-e-testemunhas">23h atrás • 4 testemunhas</span>
+                        </div>
+
+                        <h3 class="titulo-denuncia">Alta irregularidade das ruas</h3>
+                        <p class="localizacao">
+                            <i class="icone-alfinete"></i> Rua xxxx
+                        </p>
+                        <p class="descricao-denuncia">
+                            Moradores reclamam do alto risco de acidentes devido à grande quantidade de crateras...
+                        </p>
+                    </div>
+
+                    <div class="espaco-foto"></div>
+                </article>
+                <article class="cartao-denuncia d-flex justify-content-between">
+                    <div class="conteudo-cartao">
+                        <div class="cabecalho-cartao">
+                            <span class="etiqueta-alerta">Moderado</span>
+                            <span class="tempo-e-testemunhas">23h atrás • 4 testemunhas</span>
+                        </div>
+
+                        <h3 class="titulo-denuncia">Alta irregularidade das ruas</h3>
+                        <p class="localizacao">
+                            <i class="icone-alfinete"></i> Rua xxxx
+                        </p>
+                        <p class="descricao-denuncia">
+                            Moradores reclamam do alto risco de acidentes devido à grande quantidade de crateras...
+                        </p>
+                    </div>
+
+                    <div class="espaco-foto"></div>
+                </article>
+            </section>
+        </div>
     </main>
 
 
 
 
 
-    <footer>.</footer>
+    <footer></footer>
 
     <script src="denuncias.js"></script>
 </body>
