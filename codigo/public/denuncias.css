@@ -165,7 +165,6 @@ header h2 {
 
 main h3 {
     margin-top: 40px;
-    padding: 0 10px;
 }
 
 main h4 {
@@ -224,7 +223,7 @@ main h4 {
 }
 
 .etiqueta-alerta {
-    background-color: #e69d5e;
+    background-color: #e07800;
     color: white;
     padding: 5px 15px;
     border-radius: 20px;
@@ -239,6 +238,7 @@ main h4 {
 
 .titulo-denuncia {
     margin: 10px 0 5px 0;
+
     font-size: 18px;
     color: #1a1a1a;
 }
