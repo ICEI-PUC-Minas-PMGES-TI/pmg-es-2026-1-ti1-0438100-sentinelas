@@ -1,0 +1,310 @@
+/* ================================================
+   VIGILARE – meu-perfil.css
+   Compatível com a estrutura do colega (denuncias.css)
+   ================================================ */
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ECF5F8;
+    font-family: 'Segoe UI', sans-serif;
+    padding-bottom: 80px; /* espaço pro footer fixo */
+}
+
+/* ===== HEADER (idêntico ao do colega) ===== */
+header {
+    background-color: white;
+    box-shadow: 1px 2px 2px rgb(173, 172, 172);
+    padding: 4vh 3vw;
+    top: 0;
+    z-index: 1000;
+}
+
+.navegacao-header {
+    list-style: none;
+    gap: 50px;
+    margin: 0;
+}
+
+.navegacao-header .botao-header a {
+    text-decoration: none;
+    color: black;
+}
+
+.navegacao-header .botao-header:hover {
+    font-weight: bold;
+    transition: 0.1s;
+}
+
+.navegacao-header .botao-header.ativo a {
+    font-weight: bold;
+    color: #2d6e7e;
+}
+
+#barra {
+    border-left: solid black 1px;
+    height: 30px;
+}
+
+header h2 {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 1.3rem;
+}
+
+.imagem-header {
+    gap: 15px;
+}
+
+/* ===== BARRA DE BUSCA ===== */
+.barra-busca {
+    margin-top: 130px; /* espaço suficiente pro header fixo */
+    padding: 14px 40px;
+    background-color: #ECF5F8;
+}
+
+.btn-cidade {
+    background: white;
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #333;
+    padding: 6px 14px;
+}
+
+.btn-cidade:hover {
+    background: #f0f0f0;
+}
+
+.input-busca {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 14px;
+    min-width: 220px;
+}
+
+.campo-busca {
+    border: none;
+    outline: none;
+    font-size: 0.85rem;
+    color: #888;
+    background: transparent;
+    width: 100%;
+}
+
+.btn-filtrar {
+    background: white;
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #333;
+    padding: 6px 14px;
+}
+
+.btn-filtrar:hover {
+    background: #f0f0f0;
+}
+
+.btn-pesquisar {
+    background-color: #2d6e7e;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: white;
+    padding: 6px 16px;
+    border: none !important;
+}
+
+.btn-pesquisar:hover {
+    background-color: #245c6b;
+    color: white;
+}
+
+.btn-icone {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+.btn-icone:hover {
+    background: #e0ecf0;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.container-perfil {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 0 30px;
+}
+
+/* ===== TÍTULOS ===== */
+.titulo-perfil {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.subtitulo-perfil {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 28px;
+}
+
+/* ===== FORMULÁRIO ===== */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo-grupo label {
+    font-size: 0.88rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.campo-input {
+    width: 100%;
+    max-width: 280px;
+    padding: 9px 14px;
+    border: 1px solid #ccc !important;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #333;
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.campo-input:focus {
+    border-color: #2d6e7e !important;
+}
+
+.link-teal {
+    font-size: 0.82rem;
+    color: #2d6e7e;
+    text-decoration: none;
+    margin-top: 2px;
+}
+
+.link-teal:hover {
+    text-decoration: underline;
+}
+
+.link-excluir {
+    font-size: 0.82rem;
+    color: #c0392b;
+    text-decoration: none;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.link-excluir:hover {
+    text-decoration: underline;
+}
+
+/* ===== BOTÕES DE AÇÃO ===== */
+.btn-descartar {
+    background: white;
+    border: 1px solid #aaa !important;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 0.88rem;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-descartar:hover {
+    background: #f5f5f5;
+}
+
+.btn-salvar {
+    background-color: #2d6e7e;
+    border: none !important;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 0.88rem;
+    color: white;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-salvar:hover {
+    background-color: #245c6b;
+}
+
+/* ===== AVATAR ===== */
+.avatar-col {
+    padding-top: 60px;
+}
+
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.avatar-add {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #2d6e7e;
+    border: 3px solid white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.avatar-add:hover {
+    background-color: #245c6b;
+}
+
+/* ===== FOOTER ===== */
+.footer-teal {
+    background-color: #2d6e7e;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .barra-busca {
+        padding: 12px 16px;
+        gap: 8px;
+    }
+
+    .avatar-col {
+        padding-top: 10px;
+    }
+
+    .titulo-perfil {
+        font-size: 1.8rem;
+    }
+}

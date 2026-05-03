@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil – Vigilare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="meuperfil.css">
+</head>
+
+<body>
+
+    <!-- ===== HEADER (igual ao do colega) ===== -->
+    <header class="position-fixed w-100 d-flex justify-content-around align-items-center">
+        <div class="imagem-header header-esquerda d-flex align-items-center">
+            <svg width="60" height="60" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="36" cy="36" r="34" stroke="#2d6e7e" stroke-width="3" fill="none"/>
+                <circle cx="36" cy="28" r="10" fill="#2d6e7e"/>
+                <path d="M14 60 Q14 42 36 42 Q58 42 58 60" fill="#2d6e7e"/>
+                <path d="M44 18 Q52 10 56 20" stroke="#2d6e7e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <h2>Vigilare</h2>
+        </div>
+
+        <nav class="header-direita">
+            <ul class="navegacao-header d-flex align-items-center">
+                <li class="botao-header"><a href="#">Home</a></li>
+                <li class="botao-header"><a href="#">Denúncias</a></li>
+                <li id="barra"></li>
+                <li class="botao-header ativo"><a href="#">Usuário Teste</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== BARRA DE BUSCA ===== -->
+    <section class="barra-busca d-flex align-items-center gap-2 flex-wrap">
+        <!-- Dropdown cidade -->
+        <div class="dropdown">
+            <button class="btn btn-cidade dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Belo Horizonte, MG
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Contagem, MG</a></li>
+                <li><a class="dropdown-item" href="#">Betim, MG</a></li>
+            </ul>
+        </div>
+
+        <!-- Campo de busca -->
+        <div class="input-busca d-flex align-items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" placeholder="Pesquise denúncias..." class="campo-busca">
+        </div>
+
+        <button class="btn btn-filtrar">Filtrar Resultados</button>
+        <button class="btn btn-pesquisar">Pesquisar Resultados</button>
+
+        <!-- Ícones -->
+        <div class="icones-header d-flex gap-3 ms-auto me-3">
+            <button class="btn-icone" title="Nova denúncia">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/>
+                </svg>
+            </button>
+            <button class="btn-icone" title="Notificações">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="container-perfil">
+        <div class="row gx-5 gy-4 align-items-start">
+
+            <!-- Coluna esquerda: formulário -->
+            <div class="col-lg-6">
+                <h1 class="titulo-perfil">Meu Perfil</h1>
+                <p class="subtitulo-perfil">Digite as informações</p>
+
+                <div class="formulario">
+                    <!-- Nome -->
+                    <div class="campo-grupo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" value="Usuário Teste" class="campo-input">
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="campo-grupo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" value="usuario@teste.com" class="campo-input">
+                        <a href="#" class="link-teal">Esqueceu sua senha?</a>
+                    </div>
+
+                    <!-- Telefone -->
+                    <div class="campo-grupo">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" value="(99) 99999-9999" class="campo-input">
+                    </div>
+
+                    <!-- CPF -->
+                    <div class="campo-grupo">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" value="999.999.999-99" class="campo-input">
+                    </div>
+
+                    <a href="#" class="link-excluir">Excluir minha conta</a>
+
+                    <!-- Botões -->
+                    <div class="botoes-acao d-flex gap-3 mt-3">
+                        <button class="btn btn-descartar">Descartar Alterações</button>
+                        <button class="btn btn-salvar">Salvar Alterações</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna direita: avatar -->
+            <div class="col-lg-6 d-flex justify-content-center align-items-center avatar-col">
+                <div class="avatar-wrapper">
+                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Círculo fundo -->
+                        <circle cx="100" cy="100" r="100" fill="#2d6e7e"/>
+                        <!-- Cabeça -->
+                        <circle cx="100" cy="78" r="35" fill="#e8f4f7"/>
+                        <!-- Corpo -->
+                        <path d="M30 180 Q30 128 100 128 Q170 128 170 180" fill="#e8f4f7"/>
+                    </svg>
+                    <!-- Botão + -->
+                    <button class="avatar-add" title="Alterar foto">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-teal"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmw0mLs2AWgT3xbMEFk3lR3BQKR" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
