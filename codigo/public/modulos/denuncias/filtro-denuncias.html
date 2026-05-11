@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Filtro de Denúncias</title>
-    <link rel="stylesheet" href="filtro-denuncias.css">
+    <link rel="stylesheet" href="../../assets/css/filtro-denuncias.css">
 </head>
+
 <body>
 
-    <header class="header">
-        <h1>Mapa de Denúncias</h1>
+    <header class="header position-fixed w-100 d-flex justify-content-between align-items-center">
+        <img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare">
+        <nav>
+            <ul class="navegacao-header d-flex">
+                <li class="botao-header"><a href="#">Home</a></li>
+                <li class="botao-header"><a href="#">Denúncias</a></li>
+                <li id="barra"></li>
+                <li class="botao-header"><a href="#">Login</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="container">
-        
-        <!-- Área de Filtro -->
         <section class="filtro">
             <h2>Filtrar Denúncias</h2>
-
             <form>
-                
-                <!-- Tipo de denúncia -->
                 <label for="tipo">Tipo de denúncia</label>
                 <select id="tipo">
                     <option value="">Selecione</option>
@@ -27,8 +32,6 @@
                     <option value="roubo">Roubo</option>
                     <option value="vandalismo">Vandalismo</option>
                 </select>
-
-                <!-- Local -->
                 <label for="local">Origem</label>
                 <select id="local">
                     <option value="">Selecione</option>
@@ -36,32 +39,22 @@
                     <option value="contagem">Contagem</option>
                     <option value="betim">Betim</option>
                 </select>
-
-                <!-- Relevância -->
                 <label for="relevancia">Relevância</label>
                 <select id="relevancia">
                     <option value="">Selecione</option>
                     <option value="informativa">Informativa</option>
                     <option value="urgente">Urgente</option>
                 </select>
-
-                <!-- Data -->
                 <label for="data">Data da ocorrência</label>
                 <input type="date" id="data">
-
-                <!-- Botão -->
                 <button type="submit">Aplicar Filtro</button>
-
             </form>
         </section>
-
-        <!-- Área de Resultados (placeholder) -->
         <section class="resultados">
             <h2>Denúncias</h2>
             <p>Resultados aparecerão aqui...</p>
         </section>
-
     </main>
-
 </body>
+
 </html>
