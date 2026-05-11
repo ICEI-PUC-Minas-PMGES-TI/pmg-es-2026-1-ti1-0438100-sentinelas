@@ -1,8 +1,8 @@
 const overlay = document.getElementById('overlay');
-const btnFiltrar = document.getElementById('btn-filtrar');
-const btnFechar = document.getElementById('btn-fechar');
-const btnCancelar = document.getElementById('btn-cancelar');
-const modal = document.getElementById('modal');
+const btnFiltrar = document.querySelector('.filtrar-resultado');
+const btnFechar = document.getElementById('fechar-filtro');
+const btnCancelar = document.getElementById('botao-cancelar');
+const btnAplicar = document.getElementById('botao-aplicar');
 
 btnFiltrar.addEventListener('click', function() {
     overlay.classList.add('aberto');
@@ -14,11 +14,4 @@ btnFechar.addEventListener('click', function() {
 
 btnCancelar.addEventListener('click', function() {
     overlay.classList.remove('aberto');
-});
-
-
-overlay.addEventListener('click', function(evento) {
-    if (evento.target === overlay) {
-    overlay.classList.remove('aberto');
-    }
 });

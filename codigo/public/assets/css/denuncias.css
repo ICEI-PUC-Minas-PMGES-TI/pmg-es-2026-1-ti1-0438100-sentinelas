@@ -372,12 +372,16 @@ footer {
 #overlay {
   position: fixed;
   inset: 0;
-  /* display: none; */
+  display: none;
   background: rgba(0, 0, 0, 0.8);
-  justify-content: center;
   color: #ffffff;
 }
 
+#overlay.aberto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 #modal {
   background-color: #236377;
