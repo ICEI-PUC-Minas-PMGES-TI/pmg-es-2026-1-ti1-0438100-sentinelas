@@ -29,7 +29,5 @@ btnAplicar.addEventListener('click', function() {
     const testemunhas = document.getElementById('testemunhas').value;
     const regiao = document.querySelector('.inserir-localidade').value;
 
-    console.log(gravidade, periodo, testemunhas, regiao);
-
     overlay.classList.remove('aberto');
 });
