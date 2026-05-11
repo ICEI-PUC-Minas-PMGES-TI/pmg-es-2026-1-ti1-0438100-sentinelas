@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificações</title>
+    <link rel="stylesheet" href="notificacao.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="logo">VIGILARE</div>
+        <nav class="menu">
+            <a href="#">Home</a>
+            <a href="#">Denúncias</a>
+            <a href="#">Usuário Teste</a>
+        </nav>
+        <div class="acoes">
+            <button class="btn">Filtrar Resultados</button>
+            <button class="btn destaque">Registrar Denúncia</button>
+            <span class="icone">🔔</span>
+            <span class="icone">👤</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Notificações</h1>
+        <p class="subtitulo">As atualizações das suas denúncias aparecem aqui</p>
+
+        <div class="filtros">
+            <button onclick="filtrar('Todos', this)" class="ativo">Todos</button>
+            <button onclick="filtrar('Grave', this)">Grave</button>
+            <button onclick="filtrar('Moderado', this)">Moderado</button>
+            <button onclick="filtrar('Leve', this)">Leve</button>
+        </div>
+
+        <section class="notificacoes" id="lista-notificacoes"></section>
+    </main>
+
+    <footer class="rodape"></footer>
+    <script src="notificacao.js"></script>
+</body>
+</html>
