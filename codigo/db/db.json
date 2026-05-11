@@ -1,25 +1,205 @@
 {
-  "usuarios": [
+  "complaints": [
     {
       "id": 1,
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "type": "theft",
+      "description": "Crime ocorreu com o carro placa XYZ-1234",
+      "location": [
+        "-19.907755",
+        "-43.9954089"
+      ],
+      "date": "2026-04-17 12:00:00.000000Z",
+      "witness_count": 4,
+      "relevancy": "urgent",
+      "user_id": 1,
+      "status": "open"
     },
     {
       "id": 2,
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
+      "type": "robbery",
+      "description": "Assalto na região central",
+      "location": [
+        "-19.906400",
+        "-43.994200"
+      ],
+      "date": "2026-04-16 18:30:00.000000Z",
+      "witness_count": 2,
+      "relevancy": "informative",
+      "user_id": 2,
+      "status": "open"
     },
     {
-      "login": "rommel",
-      "senha": "123",
-      "nome": "Rommel",
-      "email": "rommel@gmail.com",
-      "id": 3
+      "id": 3,
+      "type": "vandalism",
+      "description": "Depredação de patrimônio público",
+      "location": [
+        "-19.908100",
+        "-43.995800"
+      ],
+      "date": "2026-04-15 14:15:00.000000Z",
+      "witness_count": 1,
+      "relevancy": "informative",
+      "user_id": 3,
+      "status": "resolved"
     }
-  ]
+  ],
+  "user": {
+    "id": 1,
+    "name": "João Pedro",
+    "cpf": "123.456.789-01",
+    "email": "joao@teste.com",
+    "phone_number": "(31) 99999-9999",
+    "profile_pic_url": "https://s2.vigilare.com/profile/234249234",
+    "created_at": "2026-04-01 10:00:00.000000Z"
+  },
+  "complaint_filters": {
+    "complaint_types": [
+      "theft",
+      "robbery",
+      "vandalism",
+      "assault",
+      "burglary"
+    ],
+    "locations": {
+      "latitude": "-19.907755",
+      "longitude": "-43.9954089"
+    },
+    "complaint_relevancy": [
+      "informative",
+      "urgent",
+      "critical"
+    ],
+    "occurrency_period": [
+      "2026-04-16",
+      "2026-04-18"
+    ],
+    "witness_count_min": 1,
+    "witness_count_max": 10
+  },
+  "complaint_types": [
+    {
+      "id": 1,
+      "type": "theft"
+    },
+    {
+      "id": 2,
+      "type": "robbery"
+    },
+    {
+      "id": 3,
+      "type": "vandalism"
+    },
+    {
+      "id": 4,
+      "type": "assault"
+    },
+    {
+      "id": 6,
+      "type": "burglary"
+    }
+  ],
+  "complaint_list": {
+    "data": [
+      {
+        "id": 1,
+        "type": "theft",
+        "description": "Crime ocorreu com o carro placa XYZ-1234",
+        "date": "2026-04-17 12:00:00.000000Z"
+      },
+      {
+        "id": 2,
+        "type": "robbery",
+        "description": "Assalto na região central",
+        "date": "2026-04-16 18:30:00.000000Z"
+      }
+    ],
+    "first": 1,
+    "prev": null,
+    "next": 2,
+    "last": 4,
+    "pages": 4,
+    "items": 10
+  },
+  "complaint_search": {
+    "data": [
+      {
+        "id": 1,
+        "type": "theft",
+        "description": "Crime ocorreu com o carro placa XYZ-1234",
+        "date": "2026-04-17 12:00:00.000000Z"
+      },
+      {
+        "id": 2,
+        "type": "theft",
+        "description": "Outro furto registrado na região",
+        "date": "2026-04-17 10:00:00.000000Z"
+      }
+    ],
+    "first": 1,
+    "prev": null,
+    "next": 2,
+    "last": 4,
+    "pages": 4,
+    "items": 10
+  },
+  "notifications_list": {
+    "data": [
+      {
+        "id": 1,
+        "type": "theft",
+        "description": "Nova denúncia de roubo perto de você",
+        "date": "2026-04-17 12:00:00.000000Z",
+        "user_id": 1,
+        "read": false
+      },
+      {
+        "id": 2,
+        "type": "complaint_update",
+        "description": "Sua denúncia foi atualizada",
+        "date": "2026-04-16 18:30:00.000000Z",
+        "user_id": 2,
+        "read": true
+      },
+      {
+        "id": 3,
+        "type": "newsletter",
+        "description": "Boletim de segurança da semana",
+        "date": "2026-04-15 14:15:00.000000Z",
+        "user_id": 1,
+        "read": false
+      }
+    ],
+    "first": 1,
+    "prev": null,
+    "next": 2,
+    "last": 4,
+    "pages": 4,
+    "items": 10
+  },
+  "heatmap": {
+    "complaints": [
+      [
+        "-19.907755",
+        "-43.9954089"
+      ],
+      [
+        "-19.906400",
+        "-43.994200"
+      ],
+      [
+        "-19.908100",
+        "-43.995800"
+      ]
+    ],
+    "period": [
+      "2026-04-17 10:00:00.100000Z",
+      "2026-04-18 10:00:00.100000Z"
+    ]
+  },
+  "change_password": {
+    "email": "joao@teste.com"
+  },
+  "delete_account": {
+    "email": "joao@teste.com"
+  }
 }

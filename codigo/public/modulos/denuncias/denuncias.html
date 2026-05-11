@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denúncias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/denuncias.css">
+</head>
+
+<body>
+    <header class="header position-fixed w-100 d-flex justify-content-between align-items-center">
+        <img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare">
+        <nav>
+            <ul class="navegacao-header d-flex">
+                <li class="botao-header"><a href="#">Home</a></li>
+                <li class="botao-header"><a href="#">Denúncias</a></li>
+                <li id="barra"></li>
+                <li class="botao-header"><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="navegacao d-flex align-items-center justify-content-between flex-wrap">
+        <nav class="d-flex align-items-center justify-content-center gap-2">
+            <select name="Cidade" id="escolherCidade" class="selecao-localidade form-select">
+                <option value="bh" selected>Belo Horizonte, MG</option>
+                <option value="contagem">Contagem, MG</option>
+                <option value="betim">Betim, MG</option>
+                <option value="novalima">Nova Lima, MG</option>
+            </select>
+            <div class="pesquisa d-flex align-items-center">
+                <svg class="lupa" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+                <input class="barra-pesquisa" type="text" placeholder="Pesquise Denúncias...">
+            </div>
+            <button class="filtrar-resultado"> Filtrar Resultados </button>
+            <div id="overlay">
+                <div id="modal">
+                    <div id="header-modal">
+                        <span>Filtrar Denúncias</span>
+                        <button id="fechar-filtro">X</button>
+                    </div>
+
+                    <div id="localidade" class="d-block">
+                        <label>região</label>
+                        <input class="inserir-localidade" type="text" placeholder="Ex: Savassi, Centro..." />
+                    </div>
+
+                    <div class="campo-selecao">
+                        <label for="gravidade">Gravidade</label>
+                        <select name="gravidade" id="gravidade">
+                            <option value="todas">Todas</option>
+                            <option value="minima">Mínima</option>
+                            <option value="moderado">Moderado</option>
+                            <option value="grave">Grave</option>
+                            <option value="urgente">Urgente</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-selecao">
+                        <label for="Período"></label>
+                        <select name="periodo" id="periodo">
+                            <option value="todas">Qualquer período</option>
+                            <option value="hora">Última hora</option>
+                            <option value="dia">Hoje</option>
+                            <option value="semana">Última semana</option>
+                            <option value="mes">Último mês</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-selecao">
+                        <label for="Mínimo de testemunhas"></label>
+                        <select name="testemunhas" id="testemunhas">
+                            <option value="qualquer">Todas</option>
+                            <option value="uma">+1</option>
+                            <option value="cinco">+5</option>
+                            <option value="dez">+10</option>
+                            <option value="vinte">+20</option>
+                        </select>
+                    </div>
+
+                    <div id="footer-modal">
+                        <button id="botao-cancelar">Cancelar</button>
+                        <button id="botao-aplicar">Aplicar filtros</button>
+                    </div>
+                </div>
+            </div>
+            <button class="pesquisar-resultado"> Pesquisar Resultados </button>
+        </nav>
+        <nav class="d-flex align-items-center gap-2">
+            <button class="adicionar-denuncia align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                    height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                </svg>
+            </button>
+
+            <button class="notificacoes"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                </svg>
+            </button>
+        </nav>
+    </div>
+
+    <main>
+        <section>
+            <h3 class="d-flex justify-content-center">Denúncias Recentes</h3>
+            <h4 class="d-flex justify-content-center">Data & Hora </h4>
+        </section>
+
+        <div class="painel-principal d-flex justify-content-center w-100 flex-nowrap">
+            <section class="d-flex flex-column justify-content-center w-100">
+                <h2 class="titulo-lista ">Mapa</h2>
+
+                <div id="mapa-interativo">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.118912652805!2d-43.92638356056437!3d-19.919393237899662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6998b5a2c22e1%3A0x5df47022f03c770b!2sB.%20Brilhante%20-%20Buraco%20Quente%2C%20Belo%20Horizonte%20-%20MG%2C%2031910-680!5e0!3m2!1spt-BR!2sbr!4v1777009318168!5m2!1spt-BR!2sbr"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+
+            <section class="d-flex flex-column">
+                <h2 class="titulo-lista">Lista</h2>
+
+                <div class="secao-lista d-flex flex-column">
+                    <article class="cartao-denuncia d-flex justify-content-between">
+                        <div class="conteudo-cartao">
+                            <div class="cabecalho-cartao">
+                                <span class="etiqueta-alerta">Moderado</span>
+                                <span class="tempo-e-testemunhas">23h atrás • 4 testemunhas</span>
+                            </div>
+
+                            <h3 class="titulo-denuncia">Alta irregularidade das ruas</h3>
+                            <p class="localizacao">
+                                <i class="icone-alfinete"></i> Rua xxxxx
+                            </p>
+                            <p class="descricao-denuncia">
+                                Moradores reclamam do alto risco de acidentes devido à grande quantidade de crateras...
+                            </p>
+                        </div>
+
+                        <div class="espaco-foto"></div>
+                    </article>
+                    <article class="cartao-denuncia d-flex justify-content-between">
+                        <div class="conteudo-cartao">
+                            <div class="cabecalho-cartao">
+                                <span class="etiqueta-alerta">Moderado</span>
+                                <span class="tempo-e-testemunhas">23h atrás • 4 testemunhas</span>
+                            </div>
+
+                            <h3 class="titulo-denuncia">Alta irregularidade das ruas</h3>
+                            <p class="localizacao">
+                                <i class="icone-alfinete"></i> Rua xxxx
+                            </p>
+                            <p class="descricao-denuncia">
+                                Moradores reclamam do alto risco de acidentes devido à grande quantidade de crateras...
+                            </p>
+                        </div>
+
+                        <div class="espaco-foto"></div>
+                    </article>
+                    <article class="cartao-denuncia d-flex justify-content-between">
+                        <div class="conteudo-cartao">
+                            <div class="cabecalho-cartao">
+                                <span class="etiqueta-alerta">Moderado</span>
+                                <span class="tempo-e-testemunhas">23h atrás • 4 testemunhas</span>
+                            </div>
+
+                            <h3 class="titulo-denuncia">Alta irregularidade das ruas</h3>
+                            <p class="localizacao">
+                                <i class="icone-alfinete"></i> Rua xxxx
+                            </p>
+                            <p class="descricao-denuncia">
+                                Moradores reclamam do alto risco de acidentes devido à grande quantidade de crateras...
+                            </p>
+                        </div>
+
+                        <div class="espaco-foto"></div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <section>
+            <h3 class="d-flex justify-content-center">Denúncias da sua região</h3>
+            <h4 class="d-flex justify-content-center">Padre Eustáquio - Belo Horizonte, MG </h4>
+            <div class="grade-cards d-grid">
+
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">23h atrás • 4 testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">
+                            Moradores reclamam do alto risco de acidentes que podem ser causados devido a grande
+                            quantidade
+                            de crateras...
+                        </p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">23h atrás • 4 testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">
+                            Moradores reclamam do alto risco de acidentes...
+                        </p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">23h atrás • 4 testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">
+                            Moradores reclamam do alto risco de acidentes...
+                        </p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">23h atrás • 4 testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">
+                            Moradores reclamam do alto risco de acidentes...
+                        </p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">23h atrás • 4 testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">
+                            Moradores reclamam do alto risco de acidentes...
+                        </p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">23h atrás • 4 testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">
+                            Moradores reclamam do alto risco de acidentes...
+                        </p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../../../public/assets/js/denuncias.js"></script>
+</body>
+
+</html>
