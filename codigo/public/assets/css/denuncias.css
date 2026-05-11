@@ -373,16 +373,11 @@ footer {
   position: fixed;
   inset: 0;
   /* display: none; */
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.8);
   justify-content: center;
-  color: #000000;
+  color: #ffffff;
 }
 
-#overlay.aberto {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 #modal {
   background-color: #236377;
@@ -390,11 +385,9 @@ footer {
   border-radius: 12px;
   border: solid black 2px;
   padding: 20px;
-  margin-top: 50vh;
 }
 
 #localidade {
-  font-size: 13px;
   border-radius: 10px;
 }
 
@@ -412,14 +405,107 @@ footer {
 }
 
 
-#header-modal {}
+#header-modal {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
 
-#fechar-filtro {}
+#header-modal span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}
 
-.campo-selecao {}
+#fechar-filtro {
+  background: transparent;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  margin-left: 25vh;
+}
 
-#footer-modal {}
+#fechar-filtro:hover {
+  color: #000000;
+}
 
+#localidade,
+.campo-selecao {
+  margin-bottom: 16px;
+}
+
+#localidade label,
+.campo-selecao label {
+  display: block;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 6px;
+}
+
+.inserir-localidade,
+.campo-selecao select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+}
+
+.inserir-localidade::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.inserir-localidade:focus,
+.campo-selecao select:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.campo-selecao select option {
+  background-color: #1a4d5e;
+  color: #ffffff;
+}
+
+#footer-modal {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+#botao-cancelar {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#botao-cancelar:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+#botao-aplicar {
+  background: #ffffff;
+  border: none;
+  color: #236377;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#botao-aplicar:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
 
 
 /* ============================================================

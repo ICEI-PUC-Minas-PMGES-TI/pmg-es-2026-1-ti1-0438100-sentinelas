@@ -40,15 +40,15 @@
                 <input class="barra-pesquisa" type="text" placeholder="Pesquise Denúncias...">
             </div>
             <button class="filtrar-resultado"> Filtrar Resultados </button>
-            <div id="overlay">
+            <div id="overlay" class="d-flex justify-content-center align-items-center">
                 <div id="modal">
-                    <div id="header-modal">
+                    <div id="header-modal d-flex justify-content-between align-items-center">
                         <span>Filtrar Denúncias</span>
                         <button id="fechar-filtro">X</button>
                     </div>
 
                     <div id="localidade" class="d-block">
-                        <label>região</label>
+                        <label>Região</label>
                         <input class="inserir-localidade" type="text" placeholder="Ex: Savassi, Centro..." />
                     </div>
 
@@ -85,7 +85,7 @@
                         </select>
                     </div>
 
-                    <div id="footer-modal">
+                    <div id="footer-modal d-flex justify-content-end gap-2">
                         <button id="botao-cancelar">Cancelar</button>
                         <button id="botao-aplicar">Aplicar filtros</button>
                     </div>
