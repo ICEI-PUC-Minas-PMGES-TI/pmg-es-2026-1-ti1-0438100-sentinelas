@@ -1,25 +1,73 @@
 {
-  "usuarios": [
+  "denuncias": [
     {
-      "id": 1,
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "id": "1",
+      "type": "theft",
+      "description": "Crime ocorreu com o carro placa XYZ-1234",
+      "location": {
+        "lat": -19.907755,
+        "lng": -43.9954089
+      },
+      "date": "2026-04-17T12:00:00Z",
+      "witness_count": 4,
+      "relevancy": "urgent",
+      "user_id": 1,
+      "status": "open"
     },
     {
-      "id": 2,
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
-    },
-    {
-      "login": "rommel",
-      "senha": "123",
-      "nome": "Rommel",
-      "email": "rommel@gmail.com",
-      "id": 3
+      "id": "2",
+      "type": "robbery",
+      "description": "Assalto na região central",
+      "location": {
+        "lat": -19.9064,
+        "lng": -43.9942
+      },
+      "date": "2026-04-16T18:30:00Z",
+      "witness_count": 2,
+      "relevancy": "informative",
+      "user_id": 2,
+      "status": "open"
     }
-  ]
+  ],
+  "heatmap": {
+    "points": [
+      {
+        "lat": -19.907755,
+        "lng": -43.9954089
+      },
+      {
+        "lat": -19.9064,
+        "lng": -43.9942
+      }
+    ]
+  },
+  "notifications": [
+    {
+      "id": "1",
+      "user_id": 1,
+      "type": "theft",
+      "description": "Nova denúncia de roubo perto de você",
+      "date": "2026-04-17T12:00:00Z",
+      "read": false
+    },
+    {
+      "id": "2",
+      "user_id": 2,
+      "type": "complaint_update",
+      "description": "Sua denúncia foi atualizada",
+      "date": "2026-04-16T18:30:00Z",
+      "read": true
+    }
+  ],
+  "profile": {
+    "id": 1,
+    "name": "João Pedro",
+    "cpf": "123.456.789-01",
+    "email": "joao@teste.com",
+    "phone_number": "(31) 99999-9999",
+    "profile_pic_url": "https://s2.vigilare.com/profile/234249234"
+  },
+  "change_password": [],
+  "profile_delete": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }
