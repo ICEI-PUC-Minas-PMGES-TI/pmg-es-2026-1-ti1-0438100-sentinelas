@@ -155,3 +155,20 @@ header h2 {
     padding: 5px;
     width: 170px;
 }
+
+/* ============================================================
+    4. CONTEÚDO PRINCIPAL
+   ============================================================ */
+.adicionar-denuncia {
+    color: #236377;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding: 4px 6px;
+}
+
+.notificacoes {
+    color: #236377;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding: 4px 6px;
+}
