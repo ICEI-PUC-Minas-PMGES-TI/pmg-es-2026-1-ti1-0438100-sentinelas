@@ -1,5 +1,157 @@
+/* ============================================================
+    1. RESET E CONFIGURAÇÕES BASE
+   ============================================================ */
 * {
     padding: 0;
-    border: 0;
     margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    background-color: #ecf5f8;
+}
+
+/* ============================================================
+    2. HEADER
+   ============================================================ */
+header {
+    background-color: white;
+    box-shadow: 1px 2px 2px rgb(173, 172, 172);
+    padding: 4vh;
+    top: 0;
+    z-index: 1000;
+}
+
+header h2 {
+    margin: 0;
+}
+
+.imagem-header {
+    gap: 15px;
+}
+
+.navegacao-header {
+    list-style: none;
+    gap: 50px;
+    margin: 0;
+}
+
+.navegacao-header .botao-header a {
+    text-decoration: none;
+    padding: 8px 10px;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.navegacao-header .botao-header:hover {
+    background-color: #236377;
+    transition: 0.1s;
+    border-radius: 5px;
+}
+
+.navegacao-header .botao-header:hover a {
+    color: white;
+    transition: 0.1s;
+}
+
+#barra {
+    border-left: solid black 1px;
+    height: 30px;
+}
+
+/* ============================================================
+    3. BARRA DE BUSCA E FILTROS
+   ============================================================ */
+.navegacao {
+    margin-top: 20vh;
+    padding: 12px 15px;
+    background-color: #ecf5f8;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.navegacao-main-esquerda {
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-left: 15vh;
+}
+
+.navegacao-main-direita {
+    gap: 15px;
+    margin-left: auto;
+    margin-right: 15vh;
+}
+
+.selecao-localidade {
+    background-color: #ffffff;
+    color: #236377;
+    border-radius: 10px;
+    padding: 5px;
+    width: 175px;
+    border: 2px solid #2c5d6d;
+    box-shadow: none;
+}
+
+.selecao-localidade:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 2px solid #2c5d6d;
+}
+
+.pesquisa {
+    border: solid #236377 2px;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    width: 300px;
+}
+
+.pesquisa:focus-within {
+    width: 380px;
+}
+
+.barra-pesquisa {
+    color: #000000;
+    background-color: transparent;
+    padding: 5px;
+    width: 270px;
+    outline: none;
+}
+
+.barra-pesquisa input {
+    border: none;
+    outline: none;
+}
+
+.barra-pesquisa::placeholder {
+    color: #236377;
+}
+
+.lupa {
+    margin-left: 10px;
+    color: #236377;
+}
+
+.filtrar-resultado {
+    background-color: #ffffff;
+    color: #236377;
+    border-radius: 10px;
+    width: 170px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.pesquisar-resultado {
+    background-color: #236377;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    width: 170px;
 }
