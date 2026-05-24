@@ -78,18 +78,6 @@ header h2 {
     gap: 10px;
 }
 
-.navegacao-main-esquerda {
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-left: 15vh;
-}
-
-.navegacao-main-direita {
-    gap: 15px;
-    margin-left: auto;
-    margin-right: 15vh;
-}
-
 .selecao-localidade {
     background-color: #ffffff;
     color: #236377;
@@ -157,7 +145,7 @@ header h2 {
 }
 
 /* ============================================================
-    4. CONTEÚDO PRINCIPAL
+    4. ÍCONES DE AÇÃO (adicionar / notificações)
    ============================================================ */
 .adicionar-denuncia {
     color: #236377;
@@ -173,11 +161,35 @@ header h2 {
     padding: 4px 6px;
 }
 
+/* ============================================================
+    5. CABEÇALHO DA SEÇÃO (título + região)
+   ============================================================ */
+.cabecalho-secao {
+    text-align: center;
+    margin-top: 48px;
+    margin-bottom: 32px;
+}
+
+.titulo-secao {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a3d4a;
+}
+
+.subtitulo-secao {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #236377;
+    margin-top: 4px;
+}
+
+/* ============================================================
+    6. CARDS DE DENÚNCIAS
+   ============================================================ */
 .grade-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
     padding: 0 5%;
-    margin-top: 30px;
     margin-bottom: 30px;
     height: auto;
 }
@@ -218,6 +230,22 @@ header h2 {
     color: #666;
 }
 
+.titulo-denuncia {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a3d4a;
+    margin-bottom: 6px;
+}
+
+.localizacao {
+    font-size: 0.82rem;
+    color: #236377;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .descricao {
     font-size: 0.85rem;
     color: #666;
@@ -229,4 +257,13 @@ header h2 {
     min-width: 120px;
     background-color: #236377;
     flex-shrink: 0;
+}
+
+/* ============================================================
+    7. FOOTER
+   ============================================================ */
+footer {
+    background-color: #236377;
+    padding: 8vh;
+    margin-top: 8vh;
 }
