@@ -4,15 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imóveis</title>
+    <title>Denúncias</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/css/exibicao-imoveis.css">
+    <link rel="stylesheet" href="exibicao-denuncias.css">
 </head>
 
 <body>
+
+    <!-- ============================================================
+        HEADER
+    ============================================================ -->
     <header class="header position-fixed w-100 d-flex justify-content-between align-items-center">
-        <a href="#"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
+        <a href="#">
+            <img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do Vigilare">
+        </a>
 
         <nav>
             <ul class="navegacao-header d-flex">
@@ -24,9 +30,13 @@
         </nav>
     </header>
 
+    <!-- ============================================================
+        BARRA DE BUSCA E FILTROS
+    ============================================================ -->
     <div class="navegacao d-flex align-items-center justify-content-between flex-wrap">
         <nav class="d-flex align-items-center justify-content-center gap-2">
             <select name="Cidade" id="escolherCidade" class="selecao-localidade form-select"></select>
+
             <div class="pesquisa d-flex align-items-center">
                 <svg class="lupa" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     viewBox="0 0 16 16">
@@ -35,26 +45,172 @@
                 </svg>
                 <input class="barra-pesquisa" type="text" placeholder="Pesquise Denúncias...">
             </div>
-            <a class="filtrar-resultado" href="filtro-denuncias.html"> Filtrar Resultados </a>
-            <button class="pesquisar-resultado"> Pesquisar Resultados </button>
+
+            <a class="filtrar-resultado text-center" href="../denuncias/filtro-denuncias.html">Filtrar Resultados</a>
+            <button class="pesquisar-resultado">Pesquisar Resultados</button>
         </nav>
+
         <nav class="d-flex align-items-center gap-2">
-            <a class="adicionar-denuncia align-items-center" href="cadastro-denuncias.html"><svg
-                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            <a class="adicionar-denuncia align-items-center" href="../denuncias/cadastro-denuncias.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                     <path
                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
                 </svg>
             </a>
 
-            <a href="../notificacoes/notificacoes.html" class="notificacoes"><svg xmlns="http://www.w3.org/2000/svg"
-                    width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+            <a href="../notificacoes/notificacoes.html" class="notificacoes">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-bell-fill" viewBox="0 0 16 16">
                     <path
                         d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
                 </svg>
             </a>
         </nav>
     </div>
+
+    <!-- ============================================================
+        CONTEÚDO PRINCIPAL
+    ============================================================ -->
+    <main>
+        <section>
+            <div class="cabecalho-secao">
+                <h3 class="titulo-secao">Denúncias</h3>
+                <h4 class="subtitulo-secao" id="regiao-gps">da sua região</h4>
+            </div>
+
+            <div class="grade-cards d-grid" id="denuncias-regiao">
+
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">00h atrás • Y testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">Moradores reclamam do alto risco de acidentes...</p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">00h atrás • X testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">Moradores reclamam do alto risco de acidentes...</p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">00h atrás • X testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">Moradores reclamam do alto risco de acidentes...</p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">00h atrás • X testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">Moradores reclamam do alto risco de acidentes...</p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">00h atrás • X testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">Moradores reclamam do alto risco de acidentes...</p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+
+                <div class="card-denuncia d-flex">
+                    <div class="conteudo-card">
+                        <div class="cabecalho-card d-flex align-items-center">
+                            <span class="etiqueta-moderado">Moderado</span>
+                            <span class="info-tempo">00h atrás • X testemunhas</span>
+                        </div>
+                        <h2 class="titulo-denuncia">Alta irregularidade das ruas</h2>
+                        <p class="localizacao">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            </svg>
+                            Rua Predalva
+                        </p>
+                        <p class="descricao">Moradores reclamam do alto risco de acidentes...</p>
+                    </div>
+                    <div class="imagem-placeholder"></div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+        FOOTER
+    ============================================================ -->
+    <footer>
+    </footer>
+
 </body>
 
 </html>

@@ -172,3 +172,61 @@ header h2 {
     border-radius: 7px;
     padding: 4px 6px;
 }
+
+.grade-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 0 5%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: auto;
+}
+
+.card-denuncia {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    gap: 0;
+}
+
+.conteudo-card {
+    padding: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cabecalho-card {
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.etiqueta-moderado {
+    background-color: #fef3e2;
+    color: #e07800;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.info-tempo {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.descricao {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.imagem-placeholder {
+    width: 120px;
+    min-width: 120px;
+    background-color: #236377;
+    flex-shrink: 0;
+}
