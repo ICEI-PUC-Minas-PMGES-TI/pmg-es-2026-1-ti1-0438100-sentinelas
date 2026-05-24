@@ -282,3 +282,102 @@ footer {
     padding: 8vh;
     margin-top: 8vh;
 }
+
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 2vh 4vw;
+    }
+
+    header img {
+        width: 52px;
+    }
+
+    .navegacao-header {
+        gap: 16px;
+    }
+
+    .navegacao-header .botao-header a {
+        font-size: 0.85rem;
+        padding: 6px 6px;
+    }
+
+    #barra {
+        display: none;
+    }
+
+    .navegacao {
+        margin-top: 16vh;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .navegacao nav:first-child {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .selecao-localidade {
+        width: 100%;
+    }
+
+    .pesquisa {
+        width: 100%;
+    }
+
+    .pesquisa:focus-within {
+        width: 100%;
+    }
+
+    .barra-pesquisa {
+        width: 100%;
+    }
+
+    .filtrar-resultado,
+    .pesquisar-resultado {
+        flex: 1;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .navegacao nav:last-child {
+        justify-content: flex-end;
+    }
+
+    .cabecalho-secao {
+        margin-top: 28px;
+        margin-bottom: 20px;
+    }
+
+    .titulo-secao {
+        font-size: 1.3rem;
+    }
+
+    .subtitulo-secao {
+        font-size: 0.9rem;
+    }
+
+    .grade-cards {
+        grid-template-columns: 1fr;
+        padding: 0 4%;
+        gap: 14px;
+    }
+
+    .imagem-placeholder {
+        width: 90px;
+        min-width: 90px;
+    }
+
+    .titulo-imovel {
+        font-size: 0.95rem;
+    }
+
+    .conteudo-card {
+        padding: 12px;
+    }
+}
