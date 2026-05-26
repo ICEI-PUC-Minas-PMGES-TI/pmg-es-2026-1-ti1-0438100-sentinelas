@@ -1,78 +1,457 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <script src="./assets/js/login.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="banner">
-        <img src="./assets/images/banner_ti.png" alt="" />
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Vigilare - Denúncias</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/css/filtro-denuncias.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&family=Crimson+Text:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <div class="navbar__brand">
+
+      <div class="navbar__logo">
+
+        <svg
+          width="44"
+          height="44"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <circle cx="24" cy="24" r="22" stroke="#2c6e7f" stroke-width="2"/>
+          <ellipse cx="24" cy="24" rx="10" ry="22" stroke="#2c6e7f" stroke-width="1.5"/>
+          <line x1="2" y1="24" x2="46" y2="24" stroke="#2c6e7f" stroke-width="1.5"/>
+          <path d="M12 10 Q24 18 36 10" stroke="#2c6e7f" stroke-width="1.2" fill="none"/>
+          <path d="M12 38 Q24 30 36 38" stroke="#2c6e7f" stroke-width="1.2" fill="none"/>
+        </svg>
+
       </div>
-      <div class="barra-info">
-        <nav class="menu">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">Sobre nós</a></li>
-          </ul>
-        </nav>
-        <div class="dados-usuario">
-          <span id="userInfo"></span>
+
+      <span class="navbar__name">
+        VIGILARE
+      </span>
+
+    </div>
+
+    <nav class="navbar__links">
+
+      <a href="#" class="navbar__link">
+        Home
+      </a>
+
+      <a href="#" class="navbar__link navbar__link--active">
+        Denúncias
+      </a>
+
+    </nav>
+
+    <div class="navbar__user">
+
+      <span class="navbar__divider"></span>
+
+      <span class="navbar__username">
+        Usuário Teste
+      </span>
+
+    </div>
+
+  </header>
+
+  <!-- SEARCH BAR -->
+  <section class="searchbar">
+
+    <div class="searchbar__inner">
+
+      <!-- LOCALIZAÇÃO -->
+      <button class="searchbar__location">
+
+        <span>Belo Horizonte, MG</span>
+
+        <svg
+          class="searchbar__caret"
+          width="12"
+          height="8"
+          viewBox="0 0 12 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1l5 5 5-5"
+            stroke="#2c6e7f"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+
+      </button>
+
+      <!-- INPUT -->
+      <div class="searchbar__input-wrap">
+
+        <svg
+          class="searchbar__search-icon"
+          width="18"
+          height="18"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="9"
+            cy="9"
+            r="6.5"
+            stroke="#2c6e7f"
+            stroke-width="1.8"
+          />
+
+          <line
+            x1="14"
+            y1="14"
+            x2="19"
+            y2="19"
+            stroke="#2c6e7f"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <input
+          type="text"
+          class="searchbar__input"
+          placeholder="Pesquise denúncias..."
+        />
+
+      </div>
+
+      <!-- BOTÕES -->
+      <button class="searchbar__btn searchbar__btn--outline">
+        Filtrar
+      </button>
+
+      <button class="searchbar__btn searchbar__btn--solid">
+        Pesquisar
+      </button>
+
+      <!-- ICONES -->
+      <div class="searchbar__actions">
+
+        <button class="searchbar__icon-btn">
+
+          <svg
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="11" fill="#2c6e7f"/>
+
+            <line
+              x1="12"
+              y1="7"
+              x2="12"
+              y2="17"
+              stroke="#fff"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+            <line
+              x1="7"
+              y1="12"
+              x2="17"
+              y2="12"
+              stroke="#fff"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+
+        </button>
+
+        <button class="searchbar__icon-btn">
+
+          <svg
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="11" fill="#2c6e7f"/>
+
+            <path
+              d="M12 6a4 4 0 0 1 4 4v3l1.5 2H6.5L8 13V10a4 4 0 0 1 4-4z"
+              fill="#fff"
+            />
+
+            <circle cx="12" cy="18" r="1.3" fill="#fff"/>
+          </svg>
+
+          <span class="notif-badge">
+            3
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- FILTROS -->
+    <aside class="filters">
+
+      <h2 class="filters__title">
+        Filtros
+      </h2>
+
+      <form class="filter-form">
+
+        <div class="filter-field">
+
+          <label class="filter-field__label">
+            Tipo de denúncia
+          </label>
+
+          <input
+            type="text"
+            class="filter-field__input"
+            placeholder="Furto, roubo..."
+          />
+
         </div>
+
+        <div class="filter-field">
+
+          <label class="filter-field__label">
+            Origem
+          </label>
+
+          <input
+            type="text"
+            class="filter-field__input"
+            placeholder="Belo Horizonte..."
+          />
+
+        </div>
+
+        <div class="filter-field">
+
+          <label class="filter-field__label">
+            Relevância
+          </label>
+
+          <input
+            type="text"
+            class="filter-field__input"
+            placeholder="Urgente, moderado..."
+          />
+
+        </div>
+
+        <div class="filter-field">
+
+          <label class="filter-field__label">
+            Data
+          </label>
+
+          <div class="filter-field__date-wrap">
+
+            <input
+              type="date"
+              class="filter-field__input filter-field__input--date"
+            />
+
+            <input
+              type="date"
+              class="filter-field__input filter-field__input--date"
+            />
+
+          </div>
+
+        </div>
+
+        <div class="filter-field">
+
+          <label class="filter-field__label">
+            Testemunhas
+          </label>
+
+          <input
+            type="text"
+            class="filter-field__input"
+            placeholder="3, 4..."
+          />
+
+        </div>
+
+        <div class="filter-form__actions">
+
+          <button
+            type="reset"
+            class="filter-form__btn filter-form__btn--reset"
+          >
+            Limpar
+          </button>
+
+          <button
+            type="submit"
+            class="filter-form__btn filter-form__btn--apply"
+          >
+            Aplicar
+          </button>
+
+        </div>
+
+      </form>
+
+    </aside>
+
+    <!-- RESULTADOS -->
+    <section class="results">
+
+      <div class="results__header">
+
+        <h1 class="results__title">
+          Resultados
+        </h1>
+
+        <span class="results__count">
+          12 denúncias encontradas
+        </span>
+
       </div>
-    </header>
-    <main>
-        <h3>Boas vindas</h3>
-        <p>Sejam bem-vindos à home-page do projeto de TI 1 - Trabalho
-        Interdisciplinar</p>
-        <p>Esse conteúdo que você está lendo foi criado para exemplificar como
-        criar o seu site integrado com o ambiente de login e o back end que
-        utiliza o JSON Server.</p>
-        <p>Ao criar o seu site, você deve adaptar esse código para sua neessidade ou começar do zero, excluindo todo esse conteúdo.
+
+      <!-- CARD -->
+      <article class="report-card">
+
+        <div class="report-card__top">
+
+          <span class="report-card__tag">
+            Roubo
+          </span>
+
+          <span class="report-card__priority">
+            Urgente
+          </span>
+
+        </div>
+
+        <h3 class="report-card__title">
+          Roubo em região central
+        </h3>
+
+        <p class="report-card__description">
+          Denúncia registrada envolvendo roubo próximo à praça central.
         </p>
 
-        <h3>Arquivos do site (Front End)</h3>
-        <p>Para montar seu site, edite os arquivos existentes e crie novos arquivos na pasta <code>public</code> que mantem todos os arquivos da parte de Front End do site, a interface que é vista pelo usuário no navegador.</p>
+        <div class="report-card__meta">
 
-        <p>Nesta pasta <code>public</code>, sugerimos que você organize os arquivos do seu site da seguinte maneira:</p>
-        <ul>
-            <li><strong>Pasta <code>assets</code></strong>: os arquivos de formatação (CSS), os scripts (JS), as imagens utilizadas no site (JPG, PNG, GIF, SVG, etc), fontes (TTF) e outros arquivos gerais utilizados por todo o site.</li>
-            <li><strong>Pasta <code>modulos</code></strong>: os arquivos utilizados na implementação das funcionalidades do site. Separe uma sub-pasta para cada novo módulo ou funcionalidade. Pode também ser utilizado para dividir o trabalho de cada membro do grupo.</li>
-            <li><strong>Arquivo <code>index.html</code></strong>: arquivo que representa a "home page" do site.</li>
-        </ul>
+          <span>Belo Horizonte, MG</span>
 
-        <h3>Módulo de Login</h3>
-        <p>O módulo de login de usuário traz uma funcionalidade completa de registro de usuários e validação de login e senha.</p>
-        <h4>Integração do site com módulo de Login</h4>
-        <p>Para utilizar o módulo de login, basta incluir o script na sua página colocando a seguinte tag no HEAD</p>
-        <pre>&lt;script src="./assets/js/login.js"&gt&lt;script&gt;</pre>
-        <p>Ao incluir o script de login na sua página, caso o usuário ainda não tenha efetuado login, ao acessar a home-page do site, o navegador será direcionado para o formulário de <strong>Identificação de Usuário</strong>. Se o usuário informar corretamente o login e a senha, o navegador será direcionado para a Home-Page.</p>
-        <h4>Sessão do usuário logado</h4>
-        <p>Assim que o usuário se identifica e acessa a parte privada do site, o módulo de login cria uma chave do sessionStorage do navegador com o título <strong>usuarioCorrente</strong> e cujo conteúdo é um objeto com os atributos: id, nome, login, senha e email. </p>
-        <h4>Base de dados de usuários</h4>
-        <p>Inicialmente o módulo de login é configurado com dois usuários: </p>
-        <ul>
-            <li>admin - Senha: 123</li>
-            <li>user - Senha: 123</li>
-        </ul>
+          <span>05/03/2026</span>
 
-        <h3>Servidor Web e API baseada no JSON Server (Back end)</h3>
-        <p>O ambiente de trabalho disponibilizado para suportar o Trabalho Interdisciplinar 1 é baseado no Node.js. A aplicação de back end utiliza o módulo JSON Server para criar um Servidor Web que prove duas estruturas separadas:
-        <ul>
-            <li><strong>Arquivos estáticos (Pasta <code>public</code>)</strong>: da acesso aos arquivos utilizados no front end (HTML, CSS e JavaScript).</li>
-            <li><strong>API RESTful (pasta <code>db</code>)</strong>: uma interface para acesso aos dados definidos no arquivo db.json.</li>
-        </ul></p>
+        </div>
 
-        <h4>Arquitetura do site</h4>
-        <p>A imagem que se segue apresenta a arquitetura desse ambiente, mostrando as duas refletindo as pastas desse ambiente.</p>
-        <p><img class="img-fluid d-block w-75 m-auto" src="./assets/images/servidor.png" alt=""></p>
+      </article>
 
-        <h4>Arquivo db.json</h4>
-        <p>O arquivo JSON utilizado para definição das estruturas dos dados providos pela aplicação é localizado na pasta db e tem um formato como o mostrado no exemplo da figura a seguir. Esse arquivo define uma estrutura hipotética de contatos que descreve itens com os seguintes atributos: <code>id</code>, <code>nome</code> e <code>cidade</code>. para o JSON Server, é fundamental que toda estrutura tenha um atributo de identificador de nome <code>id</code>.</p>
-        <p><img class="img-fluid d-block w-50 m-auto" src="./assets/images/arquivo_json.png" alt=""></p>
-    </main>
-  </body>
+      <!-- CARD -->
+      <article class="report-card">
+
+        <div class="report-card__top">
+
+          <span class="report-card__tag">
+            Furto
+          </span>
+
+          <span class="report-card__priority">
+            Moderado
+          </span>
+
+        </div>
+
+        <h3 class="report-card__title">
+          Furto de veículo
+        </h3>
+
+        <p class="report-card__description">
+          Automóvel furtado durante a madrugada em estacionamento público.
+        </p>
+
+        <div class="report-card__meta">
+
+          <span>São Paulo, SP</span>
+
+          <span>06/03/2026</span>
+
+        </div>
+
+      </article>
+
+      <!-- CARD -->
+      <article class="report-card">
+
+        <div class="report-card__top">
+
+          <span class="report-card__tag">
+            Agressão
+          </span>
+
+          <span class="report-card__priority">
+            Leve
+          </span>
+
+        </div>
+
+        <h3 class="report-card__title">
+          Discussão em via pública
+        </h3>
+
+        <p class="report-card__description">
+          Relato de agressão verbal e tumulto em área comercial.
+        </p>
+
+        <div class="report-card__meta">
+
+          <span>Curitiba, PR</span>
+
+          <span>08/03/2026</span>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer"></footer>
+
+</body>
+
 </html>
