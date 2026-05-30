@@ -69,14 +69,14 @@
   },
   "agent": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Carlos Silva",
       "cpf": "987.654.321-00",
       "email": "carlos@imobiliaria.com",
       "phone_number": "(31) 98888-8888"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Marina Costa",
       "cpf": "456.789.123-45",
       "email": "marina@imobiliaria.com",
@@ -85,7 +85,7 @@
   ],
   "properties": [
     {
-      "id": 1,
+      "id": "1",
       "street": "Avenida Getúlio Vargas, 1000",
       "price": 450000,
       "photos": [
@@ -98,7 +98,7 @@
       "agent_id": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "street": "Rua Espírito Santo, 500",
       "price": 650000,
       "photos": [
@@ -110,7 +110,7 @@
       "agent_id": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "street": "Avenida Brasil, 250",
       "price": 350000,
       "photos": [
@@ -122,6 +122,19 @@
       "property_description": "Apartamento com 2 quartos, sala, cozinha e banheiro",
       "property_status": "available",
       "agent_id": 1
+    },
+    {
+      "nome": "Casa XX",
+      "local": "Rua das Flores, 233",
+      "tipo": "aluguel",
+      "preco": 240,
+      "quartos": 3,
+      "banheiros": 0,
+      "tamanho": "120m²",
+      "descricao": "Teste",
+      "fotos": [],
+      "dataCadastro": "30/05/2026",
+      "id": "za9GPlVvGQI"
     }
   ],
   "change_password": [],

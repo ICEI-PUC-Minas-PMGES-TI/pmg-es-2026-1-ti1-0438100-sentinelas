@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar nova denúncia</title>
+    <title>Editar imóvel existente</title>
     <link rel="stylesheet" href="../../assets/css/editar-imovel.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -80,6 +80,10 @@
                     <label for="descricao">Detalhes sobre o imóvel</label>
                     <textarea id="descricao" name="descricao" rows="2" required
                         placeholder="Uma casa numa boa localização, com boa iluminação ..."></textarea>
+                </div>
+                <div class="campo-formulario">
+                    <label for="foto">Foto do imóvel</label>
+                    <input type="file" id="foto" name="foto" accept="image/*" multiple>
                 </div>
                 <div class="botoes">
                     <button type="button" class="botao-cancelar" onclick="window.history.back()">Descartar
