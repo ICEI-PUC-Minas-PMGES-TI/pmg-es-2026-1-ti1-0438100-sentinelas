@@ -25,3 +25,23 @@ escolherCidade.addEventListener('change', function () {
     const cidadeSelecionada = this.value;
     carregarImoveis(cidadeSelecionada);
 });
+
+/* ============================================================
+    2. HELPERS
+   ============================================================ */
+
+function obterEtiquetaSeguranca(imovel) {
+    const valorOriginal = (imovel.seguranca ?? imovel.security ?? imovel.status ?? '').toString().toLowerCase();
+
+    if (valorOriginal.includes('segur') || valorOriginal === 'safe' || valorOriginal === 'low') {
+        return { classe: 'etiqueta-seguro', texto: 'Seguro' };
+    }
+    if (valorOriginal.includes('moder') || valorOriginal === 'moderate' || valorOriginal === 'medium') {
+        return { classe: 'etiqueta-moderado', texto: 'Moderado' };
+    }
+    if (valorOriginal.includes('aten') || valorOriginal === 'danger' || valorOriginal === 'high' || valorOriginal === 'urgent') {
+        return { classe: 'etiqueta-atencao', texto: 'Atenção' };
+    }
+
+    return { classe: 'etiqueta-moderado', texto: 'Moderado' };
+}
