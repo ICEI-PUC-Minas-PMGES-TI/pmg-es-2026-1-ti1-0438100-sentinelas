@@ -1,0 +1,383 @@
+/* ============================================================
+    1. RESET E CONFIGURAÇÕES BASE
+   ============================================================ */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    background-color: #ecf5f8;
+}
+
+/* ============================================================
+    2. HEADER
+   ============================================================ */
+header {
+    background-color: white;
+    box-shadow: 1px 2px 2px rgb(173, 172, 172);
+    padding: 4vh;
+    top: 0;
+    z-index: 1000;
+}
+
+header h2 {
+    margin: 0;
+}
+
+.navegacao-header {
+    list-style: none;
+    gap: 50px;
+    margin: 0;
+}
+
+.navegacao-header .botao-header a {
+    text-decoration: none;
+    padding: 8px 10px;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.navegacao-header .botao-header:hover {
+    background-color: #236377;
+    transition: 0.1s;
+    border-radius: 5px;
+}
+
+.navegacao-header .botao-header:hover a {
+    color: white;
+    transition: 0.1s;
+}
+
+#barra {
+    border-left: solid black 1px;
+    height: 30px;
+}
+
+/* ============================================================
+    3. BARRA DE BUSCA E FILTROS
+   ============================================================ */
+.navegacao {
+    margin-top: 20vh;
+    padding: 12px 15px;
+    background-color: #ecf5f8;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.selecao-localidade {
+    background-color: #ffffff;
+    color: #236377;
+    border-radius: 10px;
+    padding: 5px;
+    width: 175px;
+    border: 2px solid #2c5d6d;
+    box-shadow: none;
+}
+
+.selecao-localidade:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 2px solid #2c5d6d;
+}
+
+.pesquisa {
+    border: solid #236377 2px;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    width: 300px;
+}
+
+.pesquisa:focus-within {
+    width: 380px;
+}
+
+.barra-pesquisa {
+    color: #000000;
+    background-color: transparent;
+    padding: 5px;
+    width: 270px;
+    outline: none;
+}
+
+.barra-pesquisa::placeholder {
+    color: #236377;
+}
+
+.lupa {
+    margin-left: 10px;
+    color: #236377;
+}
+
+.filtrar-resultado {
+    background-color: #ffffff;
+    color: #236377;
+    border-radius: 10px;
+    width: 170px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.pesquisar-resultado {
+    background-color: #236377;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    width: 170px;
+}
+
+/* ============================================================
+    4. ÍCONES DE AÇÃO (adicionar / notificações)
+   ============================================================ */
+.adicionar-imovel {
+    color: #236377;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding: 4px 6px;
+    text-decoration: none;
+}
+
+.notificacoes {
+    color: #236377;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding: 4px 6px;
+    text-decoration: none;
+}
+
+/* ============================================================
+    5. CABEÇALHO DA SEÇÃO (título + região)
+   ============================================================ */
+.cabecalho-secao {
+    text-align: center;
+    margin-top: 48px;
+    margin-bottom: 32px;
+}
+
+.titulo-secao {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a3d4a;
+}
+
+.subtitulo-secao {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #236377;
+    margin-top: 4px;
+}
+
+/* ============================================================
+    6. CARDS DE IMÓVEIS
+   ============================================================ */
+.grade-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 0 5%;
+    margin-bottom: 30px;
+}
+
+.card-imovel {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    gap: 0;
+}
+
+.conteudo-card {
+    padding: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cabecalho-card {
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+/* Etiquetas de segurança */
+.etiqueta-seguro {
+    background-color: #e2f5e8;
+    color: #1a7a3a;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.etiqueta-moderado {
+    background-color: #fef3e2;
+    color: #e07800;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.etiqueta-atencao {
+    background-color: #fde8e8;
+    color: #c0392b;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.info-imovel {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.titulo-imovel {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a3d4a;
+    margin-bottom: 6px;
+}
+
+.localizacao {
+    font-size: 0.82rem;
+    color: #236377;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.descricao {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.imagem-placeholder {
+    width: 120px;
+    min-width: 120px;
+    background-color: #236377;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+    7. FOOTER
+   ============================================================ */
+footer {
+    background-color: #236377;
+    padding: 8vh;
+    margin-top: 8vh;
+}
+
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 2vh 4vw;
+    }
+
+    header img {
+        width: 52px;
+    }
+
+    .navegacao-header {
+        gap: 16px;
+    }
+
+    .navegacao-header .botao-header a {
+        font-size: 0.85rem;
+        padding: 6px 6px;
+    }
+
+    #barra {
+        display: none;
+    }
+
+    .navegacao {
+        margin-top: 16vh;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .navegacao nav:first-child {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .selecao-localidade {
+        width: 100%;
+    }
+
+    .pesquisa {
+        width: 100%;
+    }
+
+    .pesquisa:focus-within {
+        width: 100%;
+    }
+
+    .barra-pesquisa {
+        width: 100%;
+    }
+
+    .filtrar-resultado,
+    .pesquisar-resultado {
+        flex: 1;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .navegacao nav:last-child {
+        justify-content: flex-end;
+    }
+
+    .cabecalho-secao {
+        margin-top: 28px;
+        margin-bottom: 20px;
+    }
+
+    .titulo-secao {
+        font-size: 1.3rem;
+    }
+
+    .subtitulo-secao {
+        font-size: 0.9rem;
+    }
+
+    .grade-cards {
+        grid-template-columns: 1fr;
+        padding: 0 4%;
+        gap: 14px;
+    }
+
+    .imagem-placeholder {
+        width: 90px;
+        min-width: 90px;
+    }
+
+    .titulo-imovel {
+        font-size: 0.95rem;
+    }
+
+    .conteudo-card {
+        padding: 12px;
+    }
+}
