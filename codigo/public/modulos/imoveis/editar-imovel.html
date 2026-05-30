@@ -24,20 +24,7 @@
         </nav>
     </header>
 
-    <div class="navegacao d-flex align-items-center justify-content-between flex-wrap">
-        <nav class="d-flex align-items-center justify-content-center gap-2">
-            <select name="Cidade" id="escolherCidade" class="selecao-localidade form-select"></select>
-            <div class="pesquisa d-flex align-items-center">
-                <svg class="lupa" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg>
-                <input class="barra-pesquisa" type="text" placeholder="Pesquise Denúncias...">
-            </div>
-            <a class="filtrar-resultado" href="filtro-denuncias.html"> Filtrar Resultados </a>
-            <button class="pesquisar-resultado"> Pesquisar Resultados </button>
-        </nav>
+    <div class="navegacao d-flex align-items-center justify-content-end flex-wrap">
         <nav class="d-flex align-items-center gap-2">
             <a class="adicionar-imovel align-items-center" href="imoveis.html"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                     height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -84,16 +71,20 @@
                         <option value="vendido">Vendido</option>
                         <option value="alugado">Alugado</option>
                     </select>
+                <div class="campo-formulario">
+                    <label for="tamanho">Tamanho do imóvel</label>
+                    <input type="text" id="tamanho-imovel" name="tamanho" required
+                        placeholder="115m²"></textarea>
                 </div>
                 <div class="campo-formulario">
                     <label for="descricao">Detalhes sobre o imóvel</label>
                     <textarea id="descricao" name="descricao" rows="2" required
-                        placeholder="Uma casa de 115m², com boa iluminação ..."></textarea>
+                        placeholder="Uma casa numa boa localização, com boa iluminação ..."></textarea>
                 </div>
                 <div class="botoes">
                     <button type="button" class="botao-cancelar" onclick="window.history.back()">Descartar
-                        Alterações</button>
-                    <button type="submit" class="botao-submit">Salvar Alterações</button>
+                        Cadastro</button>
+                    <button type="submit" class="botao-submit">Enviar Cadastro</button>
                 </div>
             </form>
         </section>
