@@ -85,18 +85,18 @@
   ],
   "properties": [
     {
-      "id": "za9GPlVvGQI",
       "nome": "Casa XX",
       "local": "Rua das Flores, 233",
       "cidade": "belohorizonte",
       "tipo": "aluguel",
       "preco": 240,
       "quartos": 3,
-      "banheiros": 0,
+      "banheiros": 1,
       "tamanho": "120m²",
       "descricao": "Teste",
       "fotos": [],
-      "dataCadastro": "30/05/2026"
+      "dataCadastro": "30/05/2026",
+      "id": "za9GPlVvGQI"
     },
     {
       "nome": "Apartamento YY",
