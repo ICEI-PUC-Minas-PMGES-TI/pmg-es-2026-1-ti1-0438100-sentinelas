@@ -108,6 +108,7 @@ function renderizarDetalhe(imovel) {
 
     </div>
   `;
+  document.getElementById("btn-editar-nav").href = `editar-imovel.html?id=${imovel.id}`;
 }
 
 carregarDetalhe();

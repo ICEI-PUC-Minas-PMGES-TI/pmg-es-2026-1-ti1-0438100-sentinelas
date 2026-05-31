@@ -69,6 +69,19 @@ header h2 {
   margin-right: 15vh;
 }
 
+.btn-editar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #236377;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.btn-editar-nav:hover {
+  color: #2c5d6d;
+}
+
 .container-detalhe {
     max-width: 800px;
     margin: 30px auto;
