@@ -30,18 +30,24 @@ escolherCidade.addEventListener('change', function () {
     2. HELPERS
    ============================================================ */
 
-function obterEtiquetaSeguranca(imovel) {
-    const valorOriginal = (imovel.seguranca ?? imovel.security ?? imovel.status ?? '').toString().toLowerCase();
+function obterEtiquetaStatus(imovel) {
+    const statusOriginal = (imovel.property_status ?? imovel.tipo ?? imovel.status ?? '').toString().toLowerCase();
 
-    if (valorOriginal.includes('segur') || valorOriginal === 'safe' || valorOriginal === 'low') {
-        return { classe: 'etiqueta-seguro', texto: 'Seguro' };
+    if (statusOriginal === 'available' || statusOriginal === 'venda' || statusOriginal === 'aluguel') {
+        return { classe: 'etiqueta-seguro', texto: statusOriginal === 'aluguel' ? 'Aluguel' : 'Disponível' };
     }
-    if (valorOriginal.includes('moder') || valorOriginal === 'moderate' || valorOriginal === 'medium') {
-        return { classe: 'etiqueta-moderado', texto: 'Moderado' };
+    if (statusOriginal === 'sold' || statusOriginal === 'vendido') {
+        return { classe: 'etiqueta-atencao', texto: 'Vendido' };
     }
-    if (valorOriginal.includes('aten') || valorOriginal === 'danger' || valorOriginal === 'high' || valorOriginal === 'urgent') {
-        return { classe: 'etiqueta-atencao', texto: 'Atenção' };
+    if (statusOriginal === 'rented' || statusOriginal === 'alugado') {
+        return { classe: 'etiqueta-moderado', texto: 'Alugado' };
     }
 
-    return { classe: 'etiqueta-moderado', texto: 'Moderado' };
+    return { classe: 'etiqueta-moderado', texto: 'Disponível' };
 }
+
+function formatarPreco(preco) {
+    if (!preco && preco !== 0) return '';
+    return preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
