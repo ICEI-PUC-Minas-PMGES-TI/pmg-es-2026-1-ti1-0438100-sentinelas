@@ -162,7 +162,7 @@ barraPesquisa.addEventListener('keydown', e => {
 });
 
 /* ============================================================
-    6. REGIÃO DO USUÁRIO (GPS)
+    . REGIÃO DO USUÁRIO (GPS)
    ============================================================ */
 
 function atualizarRegiaoGPS() {
@@ -191,7 +191,7 @@ function atualizarRegiaoGPS() {
 }
 
 /* ============================================================
-    7. INICIALIZAÇÃO
+    8. INICIALIZAÇÃO
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
