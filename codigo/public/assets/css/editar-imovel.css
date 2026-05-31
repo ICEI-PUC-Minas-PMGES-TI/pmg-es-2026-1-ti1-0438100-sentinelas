@@ -1,3 +1,4 @@
+/* Importa a fonte e reseta */
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
 
 * {
@@ -7,11 +8,13 @@
   box-sizing: border-box;
 }
 
+/* Define a cor base da página */
 html,
 body {
   background-color: #ecf5f8;
 }
 
+/* Cabeçalho */
 header {
   background-color: white;
   box-shadow: 1px 2px 2px rgb(173, 172, 172);
@@ -57,22 +60,17 @@ header h2 {
   gap: 10px;
 }
 
-.navegacao-main-esquerda {
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-left: 15vh;
-}
-
-.navegacao-main-direita {
-  gap: 15px;
-  margin-left: auto;
-  margin-right: 15vh;
-}
-
+/* Corpo da página */
 main {
   background-color: #ecf5f8;
 }
 
+.ver-todos-os-imoveis, .notificacoes {
+  color: #236377;
+  background-color: #ffffff;
+  border-radius: 7px;
+  padding: 4px 6px;
+}
 .editar-imovel {
   display: flex;
   flex-direction: column;
