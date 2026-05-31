@@ -85,47 +85,10 @@
   ],
   "properties": [
     {
-      "id": "1",
-      "street": "Avenida Getúlio Vargas, 1000",
-      "price": 450000,
-      "photos": [
-        "https://imobiliaria.com/property/1/foto1.jpg",
-        "https://imobiliaria.com/property/1/foto2.jpg",
-        "https://imobiliaria.com/property/1/foto3.jpg"
-      ],
-      "property_description": "Apartamento de 3 quartos com varanda, piscina e garagem",
-      "property_status": "available",
-      "agent_id": 1
-    },
-    {
-      "id": "2",
-      "street": "Rua Espírito Santo, 500",
-      "price": 650000,
-      "photos": [
-        "https://imobiliaria.com/property/2/foto1.jpg",
-        "https://imobiliaria.com/property/2/foto2.jpg"
-      ],
-      "property_description": "Casa sobrado com 4 quartos, jardim e piscina",
-      "property_status": "sold",
-      "agent_id": 2
-    },
-    {
-      "id": "3",
-      "street": "Avenida Brasil, 250",
-      "price": 350000,
-      "photos": [
-        "https://imobiliaria.com/property/3/foto1.jpg",
-        "https://imobiliaria.com/property/3/foto2.jpg",
-        "https://imobiliaria.com/property/3/foto3.jpg",
-        "https://imobiliaria.com/property/3/foto4.jpg"
-      ],
-      "property_description": "Apartamento com 2 quartos, sala, cozinha e banheiro",
-      "property_status": "available",
-      "agent_id": 1
-    },
-    {
+      "id": "za9GPlVvGQI",
       "nome": "Casa XX",
       "local": "Rua das Flores, 233",
+      "cidade": "belohorizonte",
       "tipo": "aluguel",
       "preco": 240,
       "quartos": 3,
@@ -133,8 +96,21 @@
       "tamanho": "120m²",
       "descricao": "Teste",
       "fotos": [],
-      "dataCadastro": "30/05/2026",
-      "id": "za9GPlVvGQI"
+      "dataCadastro": "30/05/2026"
+    },
+    {
+      "nome": "Apartamento YY",
+      "local": "Avenida Palmeiras, 77",
+      "cidade": "contagem",
+      "tipo": "aluguel",
+      "preco": 749,
+      "quartos": 4,
+      "banheiros": 1,
+      "tamanho": "140m²",
+      "descricao": "Apartamento em uma boa localização, bons vizinhos",
+      "fotos": [],
+      "dataCadastro": "31/05/2026",
+      "id": "LbR439VOEcI"
     }
   ],
   "change_password": [],

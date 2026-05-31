@@ -1,14 +1,16 @@
 const API_URL = "http://localhost:3000/properties";
 
+//Obtém os parâmetros da URL
 const params = new URLSearchParams(window.location.search);
 const imovelId = params.get("id");
 
+//Se não tem ID, redireciona pra exibição de imóveis
 if (!imovelId) {
   window.location.href = "exibicao-imoveis.html";
 }
 
 
-/*Cria labels com base na informação do JSON */
+//Cria labels com base na informação do JSON 
 const TIPO_LABEL = {
   venda:   "Venda",
   aluguel: "Aluguel",
@@ -16,6 +18,7 @@ const TIPO_LABEL = {
   alugado: "Alugado",
 };
 
+//Define cores por tipo de imóvel
 const TIPO_COR = {
   venda:   { bg: "#dbeafe", color: "#1e40af" },
   aluguel: { bg: "#d1fae5", color: "#065f46" },
@@ -23,7 +26,7 @@ const TIPO_COR = {
   alugado: { bg: "#fef3c7", color: "#92400e" },
 };
 
-
+//Carrega os detalhes
 async function carregarDetalhe() {
   try {
     const res = await fetch(`${API_URL}/${imovelId}`);
@@ -36,7 +39,7 @@ async function carregarDetalhe() {
   }
 }
 
-/*Renderiza as fotos e as labels */
+//Renderiza as fotos, infos e as labels 
 function renderizarDetalhe(imovel) {
   const cor = TIPO_COR[imovel.tipo] || TIPO_COR.venda;
   const label = TIPO_LABEL[imovel.tipo] || imovel.tipo;
@@ -47,7 +50,7 @@ function renderizarDetalhe(imovel) {
        </div>`
     : `<div class="detalhe-sem-foto">Sem fotos cadastradas</div>`;
 
-/*Cria o card dos detalhes do item com base nas funções que ele pegou em cima */
+//Cria o card dos detalhes do item com base nas funções que ele pegou em cima 
   document.getElementById("detalhe").innerHTML = `
     <div class="detalhe-card">
 

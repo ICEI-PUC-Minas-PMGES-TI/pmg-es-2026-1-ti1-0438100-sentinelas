@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- Cabeçalho fixo no topo com um layout responsivo -->
     <header class="header position-fixed w-100 d-flex justify-content-between align-items-center">
                 <a href="#"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
 
@@ -24,6 +25,7 @@
         </nav>
     </header>
 
+    <!-- Botôes do canto direito (abaixo do header) -->
     <div class="navegacao d-flex align-items-center justify-content-end flex-wrap">
         <nav class="d-flex align-items-center gap-2">
             <a class="ver-todos-os-imoveis align-items-center" href="exibicao-imoveis.html"><svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -41,6 +43,7 @@
         </nav>
     </div>
 
+    <!-- Formulário principal (Cadastro) -->
     <main>
         <section class="cadastro-imovel">
             <h1>Realizar cadastro de imóvel</h1>
@@ -54,7 +57,7 @@
                     <label for="local">Local do imóvel</label>
                     <div class="local">
                         <input type="text" id="local" name="local"
-                            placeholder="Rua exemplo, 123 - Cidade Bonita, Estado Legal" required>
+                            placeholder="Rua exemplo, 123" required>
                         <button type="button" class="botao-localizacao" onclick="getLocalizacao()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
@@ -63,6 +66,7 @@
                             </svg>
                         </button>
                     </div>
+                    <select id="cidade" name="cidade" required></select>
                 </div>
                 <div class="campo-formulario">
                     <label for="preco">Preço do imóvel (R$)</label>
@@ -108,5 +112,4 @@
     </main>
     <script src="../../assets/js/cadastro-de-imoveis.js"></script>
 </body>
-
 </html>

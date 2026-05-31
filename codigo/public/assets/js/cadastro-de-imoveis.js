@@ -1,11 +1,35 @@
+//URL da API onde vai fazer o registro do imóvel
 const API_URL = "http://localhost:3000/properties";
 
-document.getElementById("form-cadastro").addEventListener("submit", submitImovel);
+//Select de cidades
+async function popularCidades() {
+  const select = document.getElementById('cidade');
 
-document.querySelector(".botao-cancelar").addEventListener("click", () => {
-  window.location.href = "exibicao-imoveis.html";
-});
+  try {
+      const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados/MG/municipios');
+      const municipios = await res.json();
 
+      // Ordena os municípios em ordem alfabética
+      municipios.sort((a, b) => a.nome.localeCompare(b.nome));
+
+      municipios.forEach(m => {
+          const option = document.createElement('option');
+          // Value em lowercase sem espaços para facilitar filtragem
+          option.value = m.nome.toLowerCase().replace(/\s+/g, '');
+          option.textContent = m.nome;
+          select.appendChild(option);
+      });
+
+      // Belo Horizonte como cidade padrão
+      select.value = 'belohorizonte';
+
+  } catch {
+      // Fallback caso a API esteja indisponível
+      select.innerHTML = '<option value="belohorizonte">Belo Horizonte</option>';
+  }
+}
+
+//Pega a localização do usuário
 function getLocalizacao() {
   if (!navigator.geolocation) {
     alert("Geolocalização não suportada pelo seu navegador.");
@@ -29,9 +53,11 @@ function getLocalizacao() {
   );
 }
 
+//Envia o formulário (obtém os)
 async function submitImovel(event) {
   event.preventDefault();
 
+  //Obtém as fotos e transforma em string base64
   const arquivos = document.getElementById("foto").files;
   const fotos = await Promise.all(
     Array.from(arquivos).map((arquivo) => {
@@ -43,9 +69,11 @@ async function submitImovel(event) {
     })
   );
 
+  //Cria o objeto com base nos dados do imóvel
   const imovel = {
     nome: document.getElementById("nome").value.trim(),
     local: document.getElementById("local").value.trim(),
+    cidade: document.getElementById("cidade").value.toLowerCase(),
     tipo: document.getElementById("tipo").value,
     preco: parseFloat(document.getElementById("preco").value),
     quartos: parseInt(document.getElementById("quartos").value),
@@ -72,3 +100,17 @@ async function submitImovel(event) {
     console.error(err);
   }
 }
+
+
+//Inicialização
+document.addEventListener("DOMContentLoaded", () => {
+  //Carrega as cidades de MG
+  popularCidades();
+  //Quando o formulário for enviado, a função de submitImovel será executada
+  document.getElementById("form-cadastro").addEventListener("submit", submitImovel);
+
+  //Quando clica, redireciona paraa página de exibição de imóveis
+  document.querySelector(".botao-cancelar").addEventListener("click", () => {
+    window.location.href = "exibicao-imoveis.html";
+  });
+})

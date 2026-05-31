@@ -29,20 +29,11 @@ escolherCidade.addEventListener('change', function () {
 /* ============================================================
     2. HELPERS
    ============================================================ */
-
 function obterEtiquetaStatus(imovel) {
-    const statusOriginal = (imovel.property_status ?? imovel.tipo ?? imovel.status ?? '').toString().toLowerCase();
+    const tipo = (imovel.tipo ?? '').toString().toLowerCase();
 
-    if (statusOriginal === 'available' || statusOriginal === 'venda' || statusOriginal === 'aluguel') {
-        return { classe: 'etiqueta-seguro', texto: statusOriginal === 'aluguel' ? 'Aluguel' : 'Disponível' };
-    }
-    if (statusOriginal === 'sold' || statusOriginal === 'vendido') {
-        return { classe: 'etiqueta-atencao', texto: 'Vendido' };
-    }
-    if (statusOriginal === 'rented' || statusOriginal === 'alugado') {
-        return { classe: 'etiqueta-moderado', texto: 'Alugado' };
-    }
-
+    if (tipo === 'aluguel') return { classe: 'etiqueta-seguro', texto: 'Aluguel' };
+    if (tipo === 'venda')   return { classe: 'etiqueta-atencao', texto: 'Venda' };
     return { classe: 'etiqueta-moderado', texto: 'Disponível' };
 }
 
@@ -58,12 +49,18 @@ function formatarPreco(preco) {
 function renderizarCard(imovel) {
     const { classe, texto } = obterEtiquetaStatus(imovel);
 
-    const titulo    = imovel.street      ?? imovel.local      ?? imovel.endereco ?? 'Endereço não informado';
-    const descricao = imovel.property_description ?? imovel.descricao ?? imovel.description ?? '';
-    const preco     = imovel.price       ?? imovel.preco       ?? null;
-    const quartos   = imovel.quartos     ?? imovel.bedrooms    ?? null;
-    const banheiros = imovel.banheiros   ?? imovel.bathrooms   ?? null;
-    const tamanho   = imovel.tamanho     ?? imovel.area        ?? null;
+    const titulo    = imovel.nome      ?? 'Imóvel sem nome';
+    const endereco  = imovel.local     ?? 'Endereço não informado';
+    const descricao = imovel.descricao ?? '';
+    const preco     = imovel.preco     ?? null;
+    const quartos   = imovel.quartos   ?? null;
+    const banheiros = imovel.banheiros ?? null;
+    const tamanho   = imovel.tamanho   ?? null;
+
+    //Primeira foto do imóvel
+    const foto = Array.isArray(imovel.fotos) && imovel.fotos.length > 0
+    ? imovel.fotos[0]
+    : null;
 
     const infoComodos = [
         quartos   !== null ? `${quartos} quarto${quartos !== 1 ? 's' : ''}` : null,
@@ -85,13 +82,15 @@ function renderizarCard(imovel) {
             ${preco !== null ? `<p class="localizacao" style="font-weight:600;">${formatarPreco(preco)}</p>` : ''}
             <p class="descricao">${descricao}</p>
         </div>
-        <div class="imagem-placeholder"></div>
+        ${foto
+        ? `<div class="imagem-placeholder" style="background-image:url('${foto}');background-size:cover;background-position:center;"></div>`
+        : `<div class="imagem-placeholder"></div>`}
     `;
 
     card.style.cursor = 'pointer';
     card.addEventListener('click', () => {
         if (imovel.id) {
-            window.location.href = `editar-imovel.html?id=${imovel.id}`;
+            window.location.href = `detalhes-imovel.html?id=${imovel.id}`;
         }
     });
 
@@ -111,7 +110,7 @@ async function carregarImoveis(filtroStatus = null) {
     try {
         let url = 'http://localhost:3000/properties';
         if (filtroStatus) {
-            url += `?property_status=${encodeURIComponent(filtroStatus)}`;
+            url += `?cidade=${encodeURIComponent(filtroStatus)}`;
         }
 
         const resposta = await fetch(url);
