@@ -98,4 +98,108 @@ function renderizarCard(imovel) {
     return card;
 }
 
+/* ============================================================
+    4. CARREGAR IMÓVEIS DO JSON SERVER
+   ============================================================ */
+
+async function carregarImoveis(filtroStatus = null) {
+    const container = document.getElementById('imoveis-regiao');
+    if (!container) return;
+
+    container.innerHTML = '<p class="text-muted text-center" style="grid-column:1/-1;padding:20px;">Carregando imóveis...</p>';
+
+    try {
+        let url = 'http://localhost:3000/properties';
+        if (filtroStatus) {
+            url += `?property_status=${encodeURIComponent(filtroStatus)}`;
+        }
+
+        const resposta = await fetch(url);
+        if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
+
+        const imoveis = await resposta.json();
+
+        if (!Array.isArray(imoveis) || imoveis.length === 0) {
+            container.innerHTML = '<p class="text-muted text-center" style="grid-column:1/-1;padding:20px;">Nenhum imóvel encontrado.</p>';
+            return;
+        }
+
+        container.innerHTML = '';
+        imoveis.forEach(imovel => container.appendChild(renderizarCard(imovel)));
+
+    } catch (erro) {
+        console.error('Erro ao carregar imóveis:', erro);
+        container.innerHTML = `
+            <p class="text-danger text-center" style="grid-column:1/-1;padding:20px;">
+                Não foi possível carregar os imóveis. Verifique se o JSON Server está rodando
+                (<code>json-server --watch db.json</code>).
+            </p>
+        `;
+    }
+}
+
+/* ============================================================
+    5. PESQUISA EM TEMPO REAL (busca no texto dos cards)
+   ============================================================ */
+
+const barraPesquisa = document.querySelector('.barra-pesquisa');
+const botaoPesquisar = document.querySelector('.pesquisar-resultado');
+
+function pesquisarImoveis() {
+    const termo = barraPesquisa.value.trim().toLowerCase();
+    const cards = document.querySelectorAll('#imoveis-regiao .card-imovel');
+
+    cards.forEach(card => {
+        const textoCard = card.textContent.toLowerCase();
+        card.style.display = textoCard.includes(termo) ? '' : 'none';
+    });
+}
+
+barraPesquisa.addEventListener('input', pesquisarImoveis);
+botaoPesquisar.addEventListener('click', pesquisarImoveis);
+barraPesquisa.addEventListener('keydown', e => {
+    if (e.key === 'Enter') pesquisarImoveis();
+});
+
+/* ============================================================
+    6. REGIÃO DO USUÁRIO (GPS)
+   ============================================================ */
+
+function atualizarRegiaoGPS() {
+    const regiaoElement = document.getElementById('regiao-gps');
+    if (!regiaoElement) return;
+
+    if (!navigator.geolocation) {
+        regiaoElement.textContent = 'na sua região';
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            const { latitude, longitude } = position.coords;
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`)
+                .then(res => res.json())
+                .then(data => {
+                    const bairro = data.address?.neighbourhood ?? data.address?.suburb ?? '';
+                    const cidade = data.address?.city ?? data.address?.town ?? data.address?.village ?? '';
+                    regiaoElement.textContent = bairro ? `em ${bairro}, ${cidade}` : `em ${cidade}`;
+                })
+                .catch(() => { regiaoElement.textContent = 'na sua região'; });
+        },
+        () => { regiaoElement.textContent = 'na sua região'; }
+    );
+}
+
+/* ============================================================
+    7. INICIALIZAÇÃO
+   ============================================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarRegiaoGPS();
+    carregarImoveis();
+});
+
+
+
+
 
