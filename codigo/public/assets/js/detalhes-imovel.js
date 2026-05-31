@@ -84,14 +84,14 @@ function renderizarDetalhe(imovel) {
 
         <div class="detalhe-atributos">
           <div class="atributo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M3 2a1 1 0 0 0-1 1v1h12V3a1 1 0 0 0-1-1H3zM1 7v1h14V7H1zm0 2v4a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9H1z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
+              <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"/>
             </svg>
             <span>${imovel.quartos || 0} quartos</span>
           </div>
           <div class="atributo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm1 0v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-fill" viewBox="0 0 16 16">
+              <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6M6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13"/>
             </svg>
             <span>${imovel.banheiros || 0} banheiro${imovel.banheiros !== 1 ? "s" : ""}</span>
           </div>
@@ -108,6 +108,7 @@ function renderizarDetalhe(imovel) {
           <p>${imovel.descricao || "Sem descrição cadastrada."}</p>
         </div>
         <p class="detalhe-data">Cadastrado em ${imovel.dataCadastro || "—"}</p>
+        <div id="mapa-calor"></div>
         <button class="botao-voltar" onclick="document.location='exibicao-imoveis.html'">
            Voltar para imóveis
         </button>
