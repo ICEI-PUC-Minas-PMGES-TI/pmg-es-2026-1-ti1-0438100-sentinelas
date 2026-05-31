@@ -23,7 +23,7 @@
         <nav>
             <ul class="navegacao-header d-flex">
                 <li class="botao-header"><a href="#">Home</a></li>
-                <li class="botao-header"><a href="denuncias.html">Denúncias</a></li>
+                <li class="botao-header"><a href="../denuncias/denuncias.html">Denúncias</a></li>
                 <li id="barra"></li>
                 <li class="botao-header"><a href="#">Login</a></li>
             </ul>
@@ -46,20 +46,21 @@
                 <input class="barra-pesquisa" type="text" placeholder="Pesquise Imóveis...">
             </div>
 
-            <button class="filtrar-resultado">
+            <a href="../denuncias/filtro-denuncias.html" class="filtrar-resultado">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-sliders"
                     viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z" />
                 </svg>
                 Filtrar Imóveis
-            </button>
+            </a>
 
             <button class="pesquisar-resultado">Pesquisar</button>
         </nav>
 
         <nav class="d-flex align-items-center gap-2">
-            <a class="adicionar-imovel d-flex align-items-center gap-1" href="#">
+            <a href="../imoveis/cadastro-de-imoveis.html" class="adicionar-imovel d-flex align-items-center gap-1"
+                href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                     <path
@@ -88,128 +89,6 @@
             </div>
 
             <div class="grade-cards d-grid" id="imoveis-regiao">
-
-                <div class="card-imovel d-flex">
-                    <div class="conteudo-card">
-                        <div class="cabecalho-card d-flex align-items-center">
-                            <span class="etiqueta-seguro">Seguro</span>
-                            <span class="info-imovel">3 quartos • 2 banheiros</span>
-                        </div>
-                        <h2 class="titulo-imovel">Apartamento Savassi</h2>
-                        <p class="localizacao">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg>
-                            Rua Pernambuco, 481
-                        </p>
-                        <p class="descricao">Região tranquila com baixo índice de ocorrências nos últimos 6 meses...</p>
-                    </div>
-                    <div class="imagem-placeholder"></div>
-                </div>
-
-                <div class="card-imovel d-flex">
-                    <div class="conteudo-card">
-                        <div class="cabecalho-card d-flex align-items-center">
-                            <span class="etiqueta-moderado">Moderado</span>
-                            <span class="info-imovel">2 quartos • 1 banheiro</span>
-                        </div>
-                        <h2 class="titulo-imovel">Casa Santa Tereza</h2>
-                        <p class="localizacao">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg>
-                            Rua Oriente, 120
-                        </p>
-                        <p class="descricao">Bairro histórico com algumas ocorrências registradas na área central...</p>
-                    </div>
-                    <div class="imagem-placeholder"></div>
-                </div>
-
-                <div class="card-imovel d-flex">
-                    <div class="conteudo-card">
-                        <div class="cabecalho-card d-flex align-items-center">
-                            <span class="etiqueta-seguro">Seguro</span>
-                            <span class="info-imovel">4 quartos • 3 banheiros</span>
-                        </div>
-                        <h2 class="titulo-imovel">Casa Buritis</h2>
-                        <p class="localizacao">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg>
-                            Rua dos Otoni, 77
-                        </p>
-                        <p class="descricao">Condomínio fechado em área residencial com segurança 24h...</p>
-                    </div>
-                    <div class="imagem-placeholder"></div>
-                </div>
-
-                <div class="card-imovel d-flex">
-                    <div class="conteudo-card">
-                        <div class="cabecalho-card d-flex align-items-center">
-                            <span class="etiqueta-atencao">Atenção</span>
-                            <span class="info-imovel">2 quartos • 1 banheiro</span>
-                        </div>
-                        <h2 class="titulo-imovel">Apartamento Centro</h2>
-                        <p class="localizacao">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg>
-                            Av. Afonso Pena, 600
-                        </p>
-                        <p class="descricao">Região com alto fluxo e diversas denúncias registradas nos últimos meses...
-                        </p>
-                    </div>
-                    <div class="imagem-placeholder"></div>
-                </div>
-
-                <div class="card-imovel d-flex">
-                    <div class="conteudo-card">
-                        <div class="cabecalho-card d-flex align-items-center">
-                            <span class="etiqueta-seguro">Seguro</span>
-                            <span class="info-imovel">3 quartos • 2 banheiros</span>
-                        </div>
-                        <h2 class="titulo-imovel">Apartamento Lourdes</h2>
-                        <p class="localizacao">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg>
-                            Rua Bahia, 302
-                        </p>
-                        <p class="descricao">Bairro nobre com índice de segurança elevado e boa infraestrutura...</p>
-                    </div>
-                    <div class="imagem-placeholder"></div>
-                </div>
-
-                <div class="card-imovel d-flex">
-                    <div class="conteudo-card">
-                        <div class="cabecalho-card d-flex align-items-center">
-                            <span class="etiqueta-moderado">Moderado</span>
-                            <span class="info-imovel">2 quartos • 1 banheiro</span>
-                        </div>
-                        <h2 class="titulo-imovel">Casa Cidade Nova</h2>
-                        <p class="localizacao">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg>
-                            Rua Padre Eustáquio, 88
-                        </p>
-                        <p class="descricao">Bairro residencial tranquilo com algumas ocorrências registradas...</p>
-                    </div>
-                    <div class="imagem-placeholder"></div>
-                </div>
-
             </div>
         </section>
     </main>
@@ -219,6 +98,8 @@
     ============================================================ -->
     <footer>
     </footer>
+
+    <script src="../../assets/js/exibicao-imoveis.js"></script>
 
 </body>
 
