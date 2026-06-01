@@ -73,14 +73,20 @@
       "name": "Carlos Silva",
       "cpf": "987.654.321-00",
       "email": "carlos@imobiliaria.com",
-      "phone_number": "(31) 98888-8888"
+      "phone_number": "(31) 98888-8888",
+      "specialty": "Imóveis Residenciais",
+      "area_of_expertise": "Belo Horizonte e Região Metropolitana",
+      "experience": "8 anos de experiência no mercado imobiliário"
     },
     {
       "id": 2,
       "name": "Marina Costa",
       "cpf": "456.789.123-45",
       "email": "marina@imobiliaria.com",
-      "phone_number": "(31) 97777-7777"
+      "phone_number": "(31) 97777-7777",
+      "specialty": "Imóveis Comerciais",
+      "area_of_expertise": "Venda e locação de salas comerciais e galpões",
+      "experience": "5 anos de experiência em negociações corporativas"
     }
   ],
   "properties": [

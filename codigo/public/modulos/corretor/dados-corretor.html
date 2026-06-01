@@ -23,7 +23,13 @@
             </ul>
         </nav>
     </header>
+
+
     <main class="d-flex flex-column align-items-center gap-5">
+        <section id="edicao" class="d-flex gap-4">
+            <button id="btnEditar" class="modo-visualizacao">Editar</button>
+            <button id="btnSalvar" class="modo-edicao">Salvar</button>
+        </section>
         <section id="perfil-corretor" class="d-flex justify-content-center gap-5 p-4">
             <div class="avatar-wrapper">
                 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,73 +39,21 @@
                 </svg>
             </div>
             <div id="dados-corretor" class="d-flex flex-column gap-2 p-3">
-                <h3>Corretor</h3>
-                <ul>
-                    <li><strong>Especialidade</strong>: Imóveis Residenciais</li>
-                    <li><strong>Área de Atuação</strong>: Bairro Castelo</li>
-                    <li><strong>Experiência</strong>: 8 anos no mercado</li>
+                <h3 class="d-flex gap-2">Nome: <span id="nome-corretor" class="modo-visualizacao" ></span> <input id="nome-input" class="modo-edicao" type="text"></h3> 
+                <ul class="d-flex flex-column gap-3">
+                    <li class="d-flex gap-2"><strong>Especialidade:</strong> <span id="especialidade" class="modo-visualizacao" ></span> <input id="especialidade-input" class="modo-edicao" type="text"> </li>
+                    <li class="d-flex gap-2"><strong>Área de Atuação:</strong> <span id="area-atuacao" class="modo-visualizacao" ></span> <input id="area-atuacao-input" class="modo-edicao" type="text"> </li>
+                    <li class="d-flex gap-2"><strong>Experiência:</strong> <span id="experiencia" class="modo-visualizacao" ></span> <input id="experiencia-input" class="modo-edicao" type="text"> </li>
                 </ul>
-                <p>Contato: (31) 91234-5678</p>
+                <p class="d-flex gap-2">Contato: <span id="contato" class="modo-visualizacao" ></span> <input id="contato-input" class="modo-edicao" type="text"></p>
             </div>
         </section>
         <section id="imoveis" class="d-flex flex-column align-items-start p-2">
             <h5 class="mb-4">Imóveis Cadastrados por este corretor: </h5>
             <div class="grade-cards d-flex flex-column gap-3 p-3" id="imoveis-regiao">
-                <div class="card-imovel d-flex">
-                    <div class="conteudo-card">
-                        <div class="cabecalho-card d-flex align-items-center">
-                            <span class="info-imovel">3 quartos • 2 banheiros</span>
-                        </div>
-                        <h2 class="titulo-imovel">Casa - Castelo</h2>
-                        <p class="localizacao">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg>
-                            Rua Adolpho de Oliveira Portela, 127
-                        </p>
-                        <p class="descricao">Casa em lote de 210m² construído 143m² Castelo - Belo Horizonte - São 3 quartos e 2 banh...</p>
-                    </div>
-                    <div class="imagem-placeholder"></div>
-                </div>
-                <div class="card-imovel d-flex">
-                    <div class="conteudo-card">
-                        <div class="cabecalho-card d-flex align-items-center">
-                            <span class="info-imovel">4 quartos • 5 banheiros</span>
-                        </div>
-                        <h2 class="titulo-imovel">Apartamento - Castelo</h2>
-                        <p class="localizacao">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg>
-                            Rua Doutor Sylvio Menicucci, 923
-                        </p>
-                        <p class="descricao">Cobertura à venda com 4 quartos, 5 banheiros, 240 m² no Castelo, Belo Horizonte / MG...</p>
-                    </div>
-                    <div class="imagem-placeholder"></div>
-                </div>
-                <div class="card-imovel d-flex">
-                    <div class="conteudo-card">
-                        <div class="cabecalho-card d-flex align-items-center">
-                            <span class="info-imovel">2 quartos • 2 banheiros</span>
-                        </div>
-                        <h2 class="titulo-imovel">Apartamento - Castelo</h2>
-                        <p class="localizacao">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg>
-                            Rua Cecília Fonseca Coutinho, 331
-                        </p>
-                        <p class="descricao">Apartamento com 2 quartos e 131 m², localização privilegiada e estratégica próximo ao...</p>
-                    </div>
-                    <div class="imagem-placeholder"></div>
-                </div>
+            </div>
         </section>
     </main>
+    <script src="../../assets/js/detalhes-corretor.js"></script>
 </body>
 </html>
