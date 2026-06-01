@@ -67,16 +67,16 @@
     "phone_number": "(31) 99999-9999",
     "profile_pic_url": "https://s2.vigilare.com/profile/234249234"
   },
-  "agent": [
+  "agents": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Carlos Silva",
       "cpf": "987.654.321-00",
       "email": "carlos@imobiliaria.com",
       "phone_number": "(31) 98888-8888"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Marina Costa",
       "cpf": "456.789.123-45",
       "email": "marina@imobiliaria.com",
@@ -124,7 +124,7 @@
       "descricao": "Teste",
       "fotos": [],
       "dataCadastro": "01/06/2026",
-      "agentId": "1",
+      "agentId": 1,
       "id": "XbBQsn42lJk"
     }
   ],

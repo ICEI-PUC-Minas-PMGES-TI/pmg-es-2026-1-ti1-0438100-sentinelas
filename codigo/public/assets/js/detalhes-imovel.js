@@ -29,9 +29,17 @@ const TIPO_COR = {
 //Carrega os detalhes
 async function carregarDetalhe() {
   try {
-    const res = await fetch(`${API_URL}/${imovelId}?_expand=agent`);
+    const res = await fetch(`${API_URL}/${imovelId}`);
     if (!res.ok) throw new Error();
     const imovel = await res.json();
+    let agent = null;
+    if (imovel.agentId) {
+      const resAgent = await fetch(`http://localhost:3000/agents/${imovel.agentId}`);
+        if (resAgent.ok) {
+          agent = await resAgent.json();
+        }
+    }
+    imovel.agent = agent;
     renderizarDetalhe(imovel);
   } catch {
     document.getElementById("detalhe").innerHTML =
