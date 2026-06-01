@@ -1,19 +1,30 @@
 /* ─────────────────────────────────────────
-   filtro-denuncias.js  -  Vigilare
+   filtro-denuncias.js  –  Vigilare
    ───────────────────────────────────────── */
 
 (function () {
   'use strict';
 
-  /* HELPERS */
+  /* ── HELPERS ──────────────────────────── */
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-  /* LOCATION DROPDOWN
-     O <ul> agora e filho do .searchbar__location-wrap, nao do <button> */
-  const locationBtn      = $('#locationBtn');
-  const locationLabel    = $('#locationLabel');
-  const locationDropdown = $('#locationDropdown');
+  /* ── TOAST ────────────────────────────── */
+  function showToast(message, duration) {
+    duration = duration || 3000;
+    var toast = $('#vigilare-toast');
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(function () {
+      toast.classList.remove('is-visible');
+    }, duration);
+  }
+
+  /* ── LOCATION DROPDOWN ────────────────── */
+  var locationBtn      = $('#locationBtn');
+  var locationLabel    = $('#locationLabel');
+  var locationDropdown = $('#locationDropdown');
 
   function openDropdown() {
     locationDropdown.classList.add('is-open');
@@ -32,34 +43,54 @@
 
   $$('li', locationDropdown).forEach(function (item) {
     item.addEventListener('click', function () {
-      $$('li', locationDropdown).forEach(function (i) { i.classList.remove('is-selected'); });
+      $$('li', locationDropdown).forEach(function (i) {
+        i.classList.remove('is-selected');
+      });
       item.classList.add('is-selected');
       locationLabel.textContent = item.dataset.value;
       closeDropdown();
+      showToast('Localização: ' + item.dataset.value);
     });
   });
 
-  /* Fecha ao clicar fora */
   document.addEventListener('click', closeDropdown);
-
-  /* Fecha com Escape */
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeDropdown();
   });
 
-  /* FILTER TOGGLE */
+  /* Seleciona BH por padrão */
+  (function initLocation() {
+    var first = $('li[data-value="Belo Horizonte, MG"]', locationDropdown);
+    if (first) first.classList.add('is-selected');
+  })();
+
+  /* ── FILTER PANEL TOGGLE (mobile) ─────── */
   var filterToggleBtn = $('#filterToggleBtn');
+  var filterCloseBtn  = $('#filterCloseBtn');
   var filterPanel     = $('#filterPanel');
 
+  function openFilterPanel() {
+    filterPanel.classList.add('is-open');
+    filterToggleBtn.classList.add('is-active');
+    filterToggleBtn.setAttribute('aria-expanded', 'true');
+    filterPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function closeFilterPanel() {
+    filterPanel.classList.remove('is-open');
+    filterToggleBtn.classList.remove('is-active');
+    filterToggleBtn.setAttribute('aria-expanded', 'false');
+  }
+
   filterToggleBtn.addEventListener('click', function () {
-    var isActive = filterToggleBtn.classList.toggle('is-active');
-    filterToggleBtn.setAttribute('aria-expanded', String(isActive));
-    if (isActive) {
-      filterPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    filterPanel.classList.contains('is-open') ? closeFilterPanel() : openFilterPanel();
   });
 
-  /* DATE RANGE PLACEHOLDER */
+  if (filterCloseBtn) {
+    filterCloseBtn.addEventListener('click', closeFilterPanel);
+  }
+
+  /* ── DATE RANGE ───────────────────────── */
   var dataInicio      = $('#dataInicio');
   var dataFim         = $('#dataFim');
   var datePlaceholder = $('#datePlaceholder');
@@ -67,6 +98,7 @@
   function updateDatePlaceholder() {
     var start = dataInicio.value;
     var end   = dataFim.value;
+
     if (start || end) {
       datePlaceholder.classList.add('is-hidden');
       if (start) dataFim.min    = start;
@@ -79,27 +111,7 @@
   dataInicio.addEventListener('change', updateDatePlaceholder);
   dataFim.addEventListener('change',   updateDatePlaceholder);
 
-  /* TOAST */
-  function showToast(message, duration) {
-    duration = duration || 3000;
-    var toast = $('#vigilare-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'vigilare-toast';
-      toast.className = 'toast';
-      toast.setAttribute('role', 'status');
-      toast.setAttribute('aria-live', 'polite');
-      document.body.appendChild(toast);
-    }
-    toast.textContent = message;
-    toast.classList.add('is-visible');
-    clearTimeout(toast._timer);
-    toast._timer = setTimeout(function () {
-      toast.classList.remove('is-visible');
-    }, duration);
-  }
-
-  /* SEARCH BUTTON */
+  /* ── SEARCH ───────────────────────────── */
   var searchBtn   = $('#searchBtn');
   var searchInput = $('#searchInput');
 
@@ -110,53 +122,149 @@
       showToast('Digite algo para pesquisar.');
       return;
     }
-    showToast('Pesquisando: "' + query + '" ...');
+    performSearch(query);
   });
 
   searchInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') searchBtn.click();
   });
 
-  /* FILTER FORM SUBMIT */
-  var filterForm = $('#filterForm');
+  /* Busca sobre os cards existentes (client-side) */
+  function performSearch(query) {
+    var cards  = $$('.report-card', $('#resultsList'));
+    var lower  = query.toLowerCase();
+    var visible = 0;
+
+    cards.forEach(function (card) {
+      var text = card.textContent.toLowerCase();
+      var match = text.includes(lower);
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    updateCount(visible);
+    toggleEmpty(visible === 0);
+    showToast('Pesquisando: "' + query + '" — ' + visible + ' resultado(s)');
+  }
+
+  /* ── FILTER FORM ──────────────────────── */
+  var filterForm   = $('#filterForm');
+  var resetBtn     = $('#resetBtn');
+  var resultsList  = $('#resultsList');
+  var emptyState   = $('#emptyState');
+  var resultsCount = $('#resultsCount');
+  var allCards     = $$('.report-card', resultsList);
 
   filterForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     var filters = {
-      tipo:        $('#tipoDenuncia').value.trim(),
-      origem:      $('#origem').value.trim(),
-      relevancia:  $('#relevancia').value.trim(),
+      tipo:        $('#tipoDenuncia').value.trim().toLowerCase(),
+      origem:      $('#origem').value.trim().toLowerCase(),
+      relevancia:  $('#relevancia').value.trim().toLowerCase(),
       dataInicio:  dataInicio.value,
       dataFim:     dataFim.value,
-      testemunhas: $('#testemunhas').value.trim(),
-      location:    locationLabel.textContent
+      testemunhas: parseInt($('#testemunhas').value, 10)
     };
 
-    var active = Object.values(filters).filter(Boolean).length;
+    var active = Object.values(filters).filter(function (v) {
+      return v !== '' && v !== '' && !isNaN(v) ? true : typeof v === 'string' && v !== '';
+    }).length;
 
-    if (active === 0) {
+    /* Verifica se ao menos um campo preenchido */
+    var hasFilter = filters.tipo || filters.origem || filters.relevancia ||
+                    filters.dataInicio || filters.dataFim || !isNaN(filters.testemunhas);
+
+    if (!hasFilter) {
       showToast('Preencha ao menos um campo para filtrar.');
       return;
     }
 
-    console.log('Filtros aplicados:', filters);
-    showToast(active + ' filtro(s) aplicado(s) com sucesso!', 3500);
+    var visible = 0;
+
+    allCards.forEach(function (card) {
+      var show = true;
+
+      /* Tipo */
+      if (filters.tipo) {
+        var cardType = (card.dataset.type || '').toLowerCase();
+        if (!cardType.includes(filters.tipo)) show = false;
+      }
+
+      /* Origem */
+      if (show && filters.origem) {
+        var cardLoc = (card.dataset.location || '').toLowerCase();
+        if (!cardLoc.includes(filters.origem)) show = false;
+      }
+
+      /* Relevância */
+      if (show && filters.relevancia) {
+        var cardPrio = (card.dataset.priority || '').toLowerCase();
+        if (!cardPrio.includes(filters.relevancia)) show = false;
+      }
+
+      /* Data */
+      if (show && filters.dataInicio) {
+        if (card.dataset.date < filters.dataInicio) show = false;
+      }
+      if (show && filters.dataFim) {
+        if (card.dataset.date > filters.dataFim) show = false;
+      }
+
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    updateCount(visible);
+    toggleEmpty(visible === 0);
+
+    var count = Object.values(filters).filter(Boolean).length;
+    showToast(visible + ' denúncia(s) encontrada(s).', 3500);
   });
 
-  /* RESET */
-  var resetBtn = $('#resetBtn');
-
+  /* ── RESET ────────────────────────────── */
   resetBtn.addEventListener('click', function () {
     dataInicio.value = '';
     dataFim.value    = '';
     dataInicio.max   = '';
     dataFim.min      = '';
     datePlaceholder.classList.remove('is-hidden');
+    searchInput.value = '';
+
+    allCards.forEach(function (card) { card.style.display = ''; });
+    updateCount(allCards.length);
+    toggleEmpty(false);
     showToast('Filtros limpos.');
   });
 
-  /* NOTIFICATION */
+  /* ── SORT ─────────────────────────────── */
+  var sortSelect = $('#sortSelect');
+
+  sortSelect.addEventListener('change', function () {
+    var value  = sortSelect.value;
+    var list   = resultsList;
+    var cards  = $$('.report-card', list);
+
+    cards.sort(function (a, b) {
+      if (value === 'recente') {
+        return (b.dataset.date || '').localeCompare(a.dataset.date || '');
+      }
+      if (value === 'urgente') {
+        var order = { urgente: 0, moderado: 1, leve: 2 };
+        return (order[a.dataset.priority] || 9) - (order[b.dataset.priority] || 9);
+      }
+      if (value === 'az') {
+        var ta = ($('.report-card__title', a) || {}).textContent || '';
+        var tb = ($('.report-card__title', b) || {}).textContent || '';
+        return ta.localeCompare(tb, 'pt-BR');
+      }
+      return 0;
+    });
+
+    cards.forEach(function (c) { list.appendChild(c); });
+  });
+
+  /* ── NOTIFICATIONS ────────────────────── */
   var notifBtn   = $('#notifBtn');
   var notifBadge = $('#notifBadge');
   var notifCount = 3;
@@ -171,10 +279,30 @@
     }
   });
 
-  /* Seleciona Belo Horizonte no dropdown ao iniciar */
-  (function initLocation() {
-    var first = $('li[data-value="Belo Horizonte, MG"]', locationDropdown);
-    if (first) first.classList.add('is-selected');
-  })();
+  /* ── CARD CLICK (expansão simples) ────── */
+  $$('.report-card', resultsList).forEach(function (card) {
+    card.addEventListener('click', function () {
+      var title = ($('.report-card__title', card) || {}).textContent || 'Denúncia';
+      showToast('Abrindo: ' + title);
+    });
+  });
+
+  /* ── HELPERS INTERNOS ─────────────────── */
+  function updateCount(n) {
+    if (resultsCount) {
+      resultsCount.textContent = n + ' denúncia' + (n !== 1 ? 's' : '') + ' encontrada' + (n !== 1 ? 's' : '');
+    }
+  }
+
+  function toggleEmpty(show) {
+    if (emptyState) {
+      emptyState.style.display = show ? 'flex' : 'none';
+    }
+  }
+
+  /* ── STAGGERED CARD ANIMATION ─────────── */
+  $$('.report-card', resultsList).forEach(function (card, i) {
+    card.style.animationDelay = (i * 0.07) + 's';
+  });
 
 })();
