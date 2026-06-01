@@ -111,6 +111,21 @@
       "fotos": [],
       "dataCadastro": "31/05/2026",
       "id": "LbR439VOEcI"
+    },
+    {
+      "nome": "Casa ZZ",
+      "local": "Avenida Mangabeiras, 667",
+      "cidade": "belohorizonte",
+      "tipo": "venda",
+      "preco": 180000,
+      "quartos": 4,
+      "banheiros": 2,
+      "tamanho": "400m²",
+      "descricao": "Teste",
+      "fotos": [],
+      "dataCadastro": "01/06/2026",
+      "agentId": "1",
+      "id": "XbBQsn42lJk"
     }
   ],
   "change_password": [],
