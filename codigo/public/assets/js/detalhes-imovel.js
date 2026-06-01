@@ -1,53 +1,41 @@
 const API_URL = "http://localhost:3000/properties";
 
-//Obtém os parâmetros da URL
 const params = new URLSearchParams(window.location.search);
 const imovelId = params.get("id");
 
-//Se não tem ID, redireciona pra exibição de imóveis
 if (!imovelId) {
   window.location.href = "exibicao-imoveis.html";
 }
 
-
-//Cria labels com base na informação do JSON 
 const TIPO_LABEL = {
-  venda:   "Venda",
+  venda: "Venda",
   aluguel: "Aluguel",
   vendido: "Vendido",
   alugado: "Alugado",
 };
 
-//Define cores por tipo de imóvel
 const TIPO_COR = {
-  venda:   { bg: "#dbeafe", color: "#1e40af" },
+  venda: { bg: "#dbeafe", color: "#1e40af" },
   aluguel: { bg: "#d1fae5", color: "#065f46" },
   vendido: { bg: "#e5e7eb", color: "#374151" },
   alugado: { bg: "#fef3c7", color: "#92400e" },
 };
 
-//Carrega os detalhes
 async function carregarDetalhe() {
-  try {
-    const res = await fetch(`${API_URL}/${imovelId}`);
-    if (!res.ok) throw new Error();
-    const imovel = await res.json();
-    let agent = null;
-    if (imovel.agentId) {
-      const resAgent = await fetch(`http://localhost:3000/agents/${imovel.agentId}`);
-        if (resAgent.ok) {
-          agent = await resAgent.json();
-        }
+  const res = await fetch(`${API_URL}/${imovelId}`);
+  if (!res.ok) throw new Error();
+  const imovel = await res.json();
+  let agent = null;
+  if (imovel.agentId) {
+    const resAgent = await fetch(`http://localhost:3000/agents/${imovel.agentId}`);
+    if (resAgent.ok) {
+      agent = await resAgent.json();
     }
-    imovel.agent = agent;
-    renderizarDetalhe(imovel);
-  } catch {
-    document.getElementById("detalhe").innerHTML =
-      `<p class="erro">Não foi possível carregar o imóvel. Verifique se o JSON Server está rodando.</p>`;
   }
+  imovel.agent = agent;
+  renderizarDetalhe(imovel);
 }
 
-//Renderiza as fotos, infos e as labels 
 function renderizarDetalhe(imovel) {
   const cor = TIPO_COR[imovel.tipo] || TIPO_COR.venda;
   const label = TIPO_LABEL[imovel.tipo] || imovel.tipo;
@@ -58,10 +46,8 @@ function renderizarDetalhe(imovel) {
        </div>`
     : `<div class="detalhe-sem-foto">Sem fotos cadastradas</div>`;
 
-//Cria o card dos detalhes do item com base nas funções que ele pegou em cima 
   document.getElementById("detalhe").innerHTML = `
     <div class="detalhe-card">
-
       <div class="detalhe-topo">
         <span class="badge-tipo" style="background:${cor.bg}; color:${cor.color};">${label}</span>
         <div style="display:flex; align-items:center; gap:10px;">
@@ -89,7 +75,7 @@ function renderizarDetalhe(imovel) {
         </p>
 
         <p class="detalhe-preco">R$ ${(imovel.preco || 0).toLocaleString("pt-BR")}</p>
-        <p class="detalhe-corretor"><strong>Corretor:</strong>${ imovel.agent?.name || " Não Informado"}</p>
+        <p class="detalhe-corretor"><strong>Corretor:</strong>${imovel.agent?.name || " Não Informado"}</p>
 
         <div class="detalhe-atributos">
           <div class="atributo">
@@ -106,7 +92,7 @@ function renderizarDetalhe(imovel) {
           </div>
           <div class="atributo">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+              <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5$.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
             </svg>
             <span>${imovel.tamanho || "—"}</span>
           </div>
@@ -117,14 +103,116 @@ function renderizarDetalhe(imovel) {
           <p>${imovel.descricao || "Sem descrição cadastrada."}</p>
         </div>
         <p class="detalhe-data">Cadastrado em ${imovel.dataCadastro || "—"}</p>
-        <div id="mapa-calor"></div>
+        <div id="mapa-calor" style="width: 100%; height: 400px;"></div>
         <button class="botao-voltar" onclick="document.location='exibicao-imoveis.html'">
            Voltar para imóveis
         </button>
       </div>
-
     </div>
   `;
+
+  carregarMapaDeCalor(imovel);
+}
+
+async function buscarCoordenadas(local, city) {
+  const enderecoCompleto = `${local}, ${city}, MG, Brasil`;
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoCompleto)}&limit=1`;
+  const resposta = await fetch(url, { headers: { 'User-Agent': 'VigilareApp/1.0' } });
+
+  if (resposta.ok) {
+    const resultado = await resposta.json();
+    if (resultado && resultado.length > 0) {
+      return {
+        lat: parseFloat(resultado[0].lat),
+        lng: parseFloat(resultado[0].lon)
+      };
+    }
+  }
+  return null;
+}
+
+async function carregarMapaDeCalor(imovelAtual) {
+  const mapaContainer = document.getElementById('mapa-calor');
+  if (!mapaContainer || typeof ol === 'undefined') return;
+
+  const resposta = await fetch('http://localhost:3000/properties');
+  if (!resposta.ok) return;
+  const propriedades = await resposta.json();
+
+  const features = [];
+  let coordenadasImovelAtual = null;
+
+  if (Array.isArray(propriedades)) {
+    for (const prop of propriedades) {
+      if (prop.local && prop.cidade) {
+        const coords = await buscarCoordenadas(prop.local, prop.cidade);
+        if (coords) {
+          const pontoProj = ol.proj.fromLonLat([coords.lng, coords.lat]);
+
+          const pontoCalor = new ol.Feature({
+            geometry: new ol.geom.Point(pontoProj),
+            weight: 1
+          });
+          features.push(pontoCalor);
+
+          if (prop.id === imovelAtual.id) {
+            coordenadasImovelAtual = pontoProj;
+          }
+        }
+      }
+    }
+  }
+
+  const fonteVetor = new ol.source.Vector({
+    features: features
+  });
+
+  const camadaCalor = new ol.layer.Heatmap({
+    source: fonteVetor,
+    blur: 22,
+    radius: 20,
+    gradient: ['#2a9d8f', '#a8dadc', '#f4a261', '#e76f51', '#c1121f']
+  });
+
+  const camadaBaseOSM = new ol.layer.Tile({
+    source: new ol.source.OSM()
+  });
+
+  const mapa = new ol.Map({
+    target: 'mapa-calor',
+    layers: [camadaBaseOSM, camadaCalor],
+    view: new ol.View({
+      center: coordenadasImovelAtual || ol.proj.fromLonLat([-43.926384, -19.919393]),
+      zoom: coordenadasImovelAtual ? 15 : 12
+    }),
+    interactions: ol.interaction.defaults.defaults({
+      mouseWheelZoom: false
+    })
+  });
+
+  if (coordenadasImovelAtual) {
+    const marcadorImovel = new ol.Feature({
+      geometry: new ol.geom.Point(coordenadasImovelAtual)
+    });
+
+    marcadorImovel.setStyle(new ol.style.Style({
+      image: new ol.style.Circle({
+        radius: 8,
+        fill: new ol.style.Fill({ color: '#c1121f' }),
+        stroke: new ol.style.Stroke({ color: '#ffffff', width: 2 })
+      })
+    }));
+
+    const fonteMarcador = new ol.source.Vector({
+      features: [marcadorImovel]
+    });
+
+    const camadaMarcador = new ol.layer.Vector({
+      source: fonteMarcador
+    });
+
+    mapa.addLayer(camadaMarcador);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", carregarDetalhe);
