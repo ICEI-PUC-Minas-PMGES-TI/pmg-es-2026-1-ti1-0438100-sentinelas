@@ -52,6 +52,7 @@ async function carregarImovel() {
     document.getElementById("tipo").value          = imovel.tipo      ?? "";
     document.getElementById("tamanho-imovel").value = imovel.tamanho  ?? "";
     document.getElementById("descricao").value     = imovel.descricao ?? "";
+    document.getElementById("agent_id").value = imovel.agentId ?? "";
 
     // Popula cidades e seleciona a cidade salva
     await popularCidades(imovel.cidade ?? "");
@@ -123,7 +124,8 @@ async function salvarAlteracoes(event) {
     tamanho:     document.getElementById("tamanho-imovel").value.trim(),
     descricao:   document.getElementById("descricao").value.trim(),
     fotos:       fotos,
-    dataCadastro: window._dataCadastro, // mantém a data original
+    dataCadastro: window._dataCadastro,
+    agentId: String(document.getElementById("agent_id").value),
   };
 
   try {

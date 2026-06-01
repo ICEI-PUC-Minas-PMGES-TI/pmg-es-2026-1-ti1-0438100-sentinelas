@@ -29,7 +29,7 @@ const TIPO_COR = {
 //Carrega os detalhes
 async function carregarDetalhe() {
   try {
-    const res = await fetch(`${API_URL}/${imovelId}`);
+    const res = await fetch(`${API_URL}/${imovelId}?_expand=agent`);
     if (!res.ok) throw new Error();
     const imovel = await res.json();
     renderizarDetalhe(imovel);
@@ -81,6 +81,7 @@ function renderizarDetalhe(imovel) {
         </p>
 
         <p class="detalhe-preco">R$ ${(imovel.preco || 0).toLocaleString("pt-BR")}</p>
+        <p class="detalhe-corretor"><strong>Corretor:</strong>${ imovel.agent?.name || " Não Informado"}</p>
 
         <div class="detalhe-atributos">
           <div class="atributo">

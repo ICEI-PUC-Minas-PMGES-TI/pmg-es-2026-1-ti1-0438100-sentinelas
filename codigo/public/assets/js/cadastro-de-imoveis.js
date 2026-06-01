@@ -82,6 +82,7 @@ async function submitImovel(event) {
     descricao: document.getElementById("descricao").value.trim(),
     fotos: fotos,
     dataCadastro: new Date().toLocaleDateString("pt-BR"),
+    agentId: String(document.getElementById("agent_id").value),
   };
 
   try {
