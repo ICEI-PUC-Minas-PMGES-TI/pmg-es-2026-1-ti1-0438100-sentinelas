@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Denúncia</title>
+    <link rel="stylesheet" href="denuncias.css">
+</head>
+
+<body>
+
+    <header class="topo">
+        <div class="logo">VIGILARE</div>
+        <nav class="menu">
+            <a href="#">Home</a>
+            <a href="#">Denúncias</a>
+            <a href="#">Usuário Teste</a>
+        </nav>
+        <div class="acoes">
+            <button class="btn">Filtrar Resultados</button>
+            <button class="btn destaque">Registrar Denúncia</button>
+            <span class="icone">🔔</span>
+            <span class="icone">👤</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="detalhes">
+            <h1>Detalhes da Denúncia</h1>
+            <p class="id"><strong>ID:</strong> #12345</p>
+            <div class="fotos">
+                <img src="https://via.placeholder.com/200" alt="Foto 1">
+                <img src="https://via.placeholder.com/200" alt="Foto 2">
+                <img src="https://via.placeholder.com/200" alt="Foto 3">
+            </div>
+            <div class="descricao">
+                <h3>Descrição</h3>
+                <p>Lixo acumulado em via pública causando mau cheiro e risco à saúde.</p>
+            </div>
+            <div class="local">
+                <h3>Local</h3>
+                <p>Rua Exemplo, 123 - São Paulo, SP</p>
+            </div>
+            <div class="mapa">
+                <h3>Mapa</h3>
+                <iframe
+                    src="https://www.google.com/maps?q=Sao+Paulo&output=embed"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <section class="forum">
+                <h2 class="forum-titulo">Fórum de Comentários</h2>
+                <p class="forum-subtitulo">Os comentários são anônimos. Seja respeitoso.</p>
+                <div class="feed-comentarios" id="feed-comentarios">
+                    <div class="comentario">
+                        <div class="comentario-topo">
+                            <span class="autor-anonimo">Anônimo</span>
+                            <span class="comentario-hora">há 2 horas</span>
+                        </div>
+                        <p class="comentario-texto">Essa rua está horrível há meses, já caí aqui de bicicleta.</p>
+                    </div>
+                    <div class="comentario">
+                        <div class="comentario-topo">
+                            <span class="autor-anonimo">Anônimo</span>
+                            <span class="comentario-hora">há 5 horas</span>
+                        </div>
+                        <p class="comentario-texto">Já liguei para a prefeitura mas não tiveram retorno até agora.</p>
+                    </div>
+                </div>
+                <div class="formulario-comentario">
+                    <h3 class="forum-titulo-form">Deixe seu comentário</h3>
+                    <textarea
+                        id="input-comentario"
+                        class="campo-comentario"
+                        placeholder="Escreva seu comentário aqui..."
+                        rows="4"
+                        maxlength="500"
+                    ></textarea>
+                    <div class="rodape-formulario">
+                        <span class="contador-chars"><span id="char-count">0</span>/500</span>
+                        <button class="btn destaque btn-enviar" id="btn-enviar">Enviar Comentário</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="barra-rodape">
+        © 2023 VIGILARE. Todos os direitos reservados.
+    </div>
+
+    <script src="forum.js"></script>
+
+</body>
+
+</html>

@@ -73,6 +73,114 @@ main{
 
 .modo-edicao { display: none; }
 
+#perfil-corretor {
+    padding: 10px;
+    background-color: #f0f6f8;
+    border-radius: 12px;
+    border: #666 1px solid;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    width: 100%;
+    max-width: 750px;
+}
+
+
+#edicao {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 750px;
+}
+
+#btnEditar, #btnSalvar {
+    padding: 8px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#btnEditar {
+    background-color: transparent;
+    color: #2d6e7e;
+    border: 1.5px solid #2d6e7e;
+}
+
+#btnEditar:hover {
+    background-color: #2d6e7e;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(45, 110, 126, 0.2);
+}
+
+#btnSalvar {
+    background-color: #2d6e7e;
+    color: #ffffff;
+    border: 1.5px solid #2d6e7e;
+}
+
+#btnSalvar:hover {
+    background-color: #235663;
+    border-color: #235663;
+    box-shadow: 0 4px 8px rgba(45, 110, 126, 0.3);
+}
+
+.modo-edicao[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 4px 10px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #212529;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.modo-edicao[type="text"]:focus {
+    border-color: #2d6e7e;
+    outline: 0;
+    box-shadow: 0 0 0 4px rgba(45, 110, 126, 0.25);
+}
+
+#dados-corretor h3,
+#dados-corretor li,
+#dados-corretor p {
+    align-items: center;
+    min-height: 38px;
+}
+
+#dados-corretor ul {
+    
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#dados-corretor li {
+    border-radius: 5px;
+    border: #666 1px solid;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+#dados-corretor li strong {
+    width: 140px;
+    text-align: left;
+}
+#dados-corretor li span {
+    flex: 1;
+}
+
+#nome-input {
+    font-size: 20px;
+    font-weight: 600;
+}
+
 
 /* ============================================================
     4. CARD IMÓVEIS
@@ -129,6 +237,18 @@ main{
     width: 120px;
     min-width: 120px;
     background-color: #236377;
+}
+#imoveis {
+    width: 100%;
+    max-width: 750px;
+}
+
+#imoveis-regiao {
+    width: 100%;
+}
+
+#imoveis-regiao .card-imovel {
+    width: 100%;
 }
 
 /* ============================================================
