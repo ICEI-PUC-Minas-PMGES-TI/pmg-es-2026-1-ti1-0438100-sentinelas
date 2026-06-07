@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #ecf5f8;
+}
+
+header {
+  background-color: white;
+  box-shadow: 1px 2px 2px rgb(173, 172, 172);
+  padding: 4vh;
+  top: 0;
+  z-index: 1000;
+}
+
+header h2 {
+  margin: 0;
+}
+
+.imagem-header {
+  gap: 15px;
+}
+
+.navegacao-header {
+  list-style: none;
+  gap: 50px;
+  margin: 0;
+}
+
+.navegacao-header .botao-header a {
+  text-decoration: none;
+  color: black;
+}
+
+.navegacao-header .botao-header:hover {
+  font-weight: bold;
+  transition: 0.1s;
+}
+
+#barra {
+  border-left: solid black 1px;
+  height: 30px;
+}
+
+.navegacao-main-esquerda {
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-left: 15vh;
+}
+
+.navegacao-main-direita {
+  gap: 15px;
+  margin-left: auto;
+  margin-right: 15vh;
+}
+
+.btn-editar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #236377;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.btn-editar-nav:hover {
+  color: #2c5d6d;
+}
+
+.container-detalhe {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  
+  .detalhe-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(35, 99, 119, 0.1);
+  }
+  
+/* Estende o fundo para o resto do body */
+main {
+  min-height: 100vh;
+  padding-top: 20vh;
+  background-color: #ecf5f8;
+}
+  /* Topo: badge + botão editar */
+  .detalhe-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .badge-tipo {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+  
+  .btn-editar-detalhe {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: #236377;
+    border: 1px solid #236377;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  
+  .btn-editar-detalhe:hover {
+    background: #ecf5f8;
+    color: #236377;
+  }
+  
+  /* Fotos */
+  .detalhe-fotos {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px;
+    overflow-x: auto;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .detalhe-fotos img {
+    width: 220px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  
+  .detalhe-sem-foto {
+    padding: 24px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 14px;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  /* Informações */
+  .detalhe-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .detalhe-nome {
+    font-size: 22px;
+    font-weight: 600;
+    color: #071013;
+    margin: 0;
+    font-family: "Instrument Serif", serif;
+  }
+  
+  .detalhe-local {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #236377;
+    margin: 0;
+  }
+  
+  .detalhe-preco {
+    font-size: 24px;
+    font-weight: 700;
+    color: #236377;
+    margin: 0;
+  }
+  
+  /* Quartos, banheiros, tamanho */
+  .detalhe-atributos {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .atributo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #374151;
+    background: #f3f4f6;
+    padding: 8px 14px;
+    border-radius: 8px;
+  }
+  
+  /* Descrição */
+  .detalhe-descricao h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #071013;
+    margin-bottom: 6px;
+  }
+  
+  .detalhe-descricao p {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .detalhe-data {
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0;
+  }
+  
+  /* Botão voltar */
+  .botao-voltar {
+    align-self: flex-start;
+    background: transparent;
+    color: #236377;
+    border: 1px solid #236377;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  
+  .botao-voltar:hover {
+    background: #ecf5f8;
+  }
+  
+  .erro {
+    text-align: center;
+    color: #991b1b;
+    padding: 40px 0;
+  }

@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #e9eff2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 55px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.destaque {
+    background-color: #2f6f77;
+    color: white;
+    border: none;
+}
+
+.icone {
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    margin-top: 40px;
+}
+
+.detalhes {
+    background: white;
+    padding: 30px;
+    width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.detalhes h1 {
+    font-family: "Times New Roman", serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.id {
+    margin-bottom: 20px;
+}
+
+.fotos {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.fotos img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.descricao, .local, .mapa {
+    margin-bottom: 20px;
+}
+
+.descricao h3,
+.local h3,
+.mapa h3 {
+    margin-bottom: 5px;
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+    border-radius: 6px;
+}
+
+.barra-rodape {
+    background-color: #2f6f77;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* ============================================================
+   FÓRUM DE COMENTÁRIOS
+   ============================================================ */
+
+.forum {
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 2px solid #e9eff2;
+}
+
+.forum-titulo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.forum-subtitulo {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 24px;
+}
+
+.feed-comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.comentario {
+    background-color: #e9eff2;
+    border-radius: 8px;
+    padding: 14px 16px;
+    border-left: 3px solid #2f6f77;
+}
+
+.comentario-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.autor-anonimo {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #2f6f77;
+}
+
+.comentario-hora {
+    font-size: 0.78rem;
+    color: #999;
+}
+
+.comentario-texto {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.formulario-comentario {
+    border-top: 2px solid #e9eff2;
+    padding-top: 20px;
+}
+
+.forum-titulo-form {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.campo-comentario {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #333;
+    background: white;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: Arial, sans-serif;
+}
+
+.campo-comentario:focus {
+    border-color: #2f6f77;
+}
+
+.rodape-formulario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.contador-chars {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.btn-enviar {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+/* STATUS DENÚNCIA */
+.status-denuncia {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.status-pendente {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+.status-resolvido {
+    color: green;
+    font-weight: bold;
+}

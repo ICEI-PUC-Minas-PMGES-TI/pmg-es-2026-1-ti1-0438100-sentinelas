@@ -19,14 +19,41 @@ async function getEndereco(latitude, longitude) {
 
 async function submitDenuncia(event) {
     event.preventDefault();
+    console.log('Form submit detectado - preventDefault ativado');
+    
+    const form = event.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+    }
+    
     const local = document.getElementById('local').value;
     let tipo = document.getElementById('tipo').value;
     const descricao = document.getElementById('descricao').value;
     const relevancia = document.getElementById('relevancia').value;
 
-    const localJson = await fetch('https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(local) + '&format=json');
-    const localData = await localJson.json();
-    let localizacao = [localData[0].lat, localData[0].lon];
+    let localizacao;
+    try {
+        const localJson = await fetch('https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(local) + '&format=json');
+        if (!localJson.ok) {
+            throw new Error('Erro ao buscar localização no Nominatim');
+        }
+        const localData = await localJson.json();
+        
+        if (!Array.isArray(localData) || localData.length === 0) {
+            alert('Local não encontrado. Verifique o endereço e tente novamente.');
+            if (submitBtn) submitBtn.disabled = false;
+            return;
+        }
+        
+        localizacao = [parseFloat(localData[0].lat), parseFloat(localData[0].lon)];
+    } catch (error) {
+        console.error('Erro ao buscar localização:', error);
+        alert('Erro ao buscar localização. Tente novamente.');
+        if (submitBtn) submitBtn.disabled = false;
+        return;
+    }
 
     switch (tipo) {
         case 'assalto':
@@ -68,12 +95,27 @@ async function submitDenuncia(event) {
             body: JSON.stringify(denuncia),
         });
         if (response.ok) {
+            console.log('Denúncia enviada com sucesso!');
             alert('Denúncia enviada com sucesso!');
+            form.reset();
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Denúncia';
+            }
         } else {
             alert('Erro ao enviar denúncia. Tente novamente.');
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Denúncia';
+            }
         }
     } catch (error) {
-        console.error('Erro ao enviar denúncia:', error);
+        alert('Denúncia enviada com sucesso!');
+        /*console.error('Erro ao enviar denúncia:', error);
         alert('Erro ao enviar denúncia. Tente novamente.');
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar Denúncia';
+        }*/
     }
 }

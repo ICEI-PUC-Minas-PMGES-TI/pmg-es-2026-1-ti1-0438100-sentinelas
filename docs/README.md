@@ -2,15 +2,16 @@
 
 Informações básicas do projeto.
 
-* **Projeto:** Vigilare
-* **Repositório GitHub:** [Github](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-sentinelas/tree/master)
-* **Membros da equipe:**
-  * [Arthur Estevão](https://github.com/ArthurEstevaoST)
-  * [Bernardo Ramos](https://github.com/bernardorf5)
-  * [Francisco Filipe](https://github.com/franciscofilipeee)
-  * [Gabriel de Oliveira](https://github.com/Biels2w)
-  * [João Pedro](https://github.com/)
-  * [Victor Dante](https://github.com/victordante666)
+- **Projeto:** Vigilare
+- **Repositório GitHub:** [Github](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-sentinelas/tree/master)
+- **Membros da equipe:**
+  - [Arthur Estevão](https://github.com/ArthurEstevaoST)
+  - [Bernardo Ramos](https://github.com/bernardorf5)
+  - [Francisco Filipe](https://github.com/franciscofilipeee)
+  - [Gabriel de Oliveira](https://github.com/Biels2w)
+  - [João Pedro](https://github.com/jpommoura)
+  - [Sophia Nicole](https://github.com/sophiaferreira1a)
+  - [Victor Dante](https://github.com/victordante666)
 
 ## Sumário
 
@@ -39,11 +40,8 @@ Informações básicas do projeto.
   - [Gerenciamento do Projeto](#gerenciamento-do-projeto)
 - [Solução Implementada](#solução-implementada)
   - [Vídeo do Projeto](#vídeo-do-projeto)
-  - [Funcionalidades](#funcionalidades)
-        - [Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️](#funcionalidade-1---cadastro-de-contatos-️-exemplo-️)
-  - [Estruturas de Dados](#estruturas-de-dados)
-        - [Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---contatos---️-exemplo-️)
-        - [Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---usuários--️-exemplo-️)
+  - [Funcionalidades](#funcionalidades) - [Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️](#funcionalidade-1---cadastro-de-contatos-️-exemplo-️)
+  - [Estruturas de Dados](#estruturas-de-dados) - [Estrutura de Dados - Contatos ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---contatos---️-exemplo-️) - [Estrutura de Dados - Usuários ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---usuários--️-exemplo-️)
   - [Módulos e APIs](#módulos-e-apis)
 - [Referências](#referências)
 
@@ -171,7 +169,6 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 | Morador/Comerciante  | Visualizar mapa de calor (mapa de cores)                      | Identificar áreas perigosas e definir rotas mais seguras |
 | Corretora de imóveis | Checar áreas residenciais mais seguras                        | Indicar os melhores bairros para seus clientes           |
 
-
 ##
 
 !['Personas + proposta de valor](images/personas.jpg)
@@ -215,7 +212,7 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 Os wireframes foram desenvolvidos utilizando ferramentas de prototipagem (Excalidraw e Figma), representando as principais telas da aplicação:
 
 - **Homepage:** Apresenta a proposta de valor e opções de login/cadastro
-  
+
   ![Homepage](images/homepage.png)
 
 - **Realizar Denúncia:** Formulário para preenchimento de dados de denúncia com geolocalização
@@ -274,7 +271,6 @@ Divisão de papéis no grupo e apresentação da estrutura da ferramenta de cont
 
 ---
 
-
 # Solução Implementada
 
 Esta seção apresenta todos os detalhes da solução criada no projeto.
@@ -299,12 +295,12 @@ Esta seção apresenta as funcionalidades da solução.Info
 
 Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
-* **Instruções de acesso:**
-  * Abra o site e efetue o login
-  * Acesse o menu principal e escolha a opção Cadastros
-  * Em seguida, escolha a opção Contatos
-* **Tela da funcionalidade**:
+- **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+- **Instruções de acesso:**
+  - Abra o site e efetue o login
+  - Acesse o menu principal e escolha a opção Cadastros
+  - Em seguida, escolha a opção Contatos
+- **Tela da funcionalidade**:
 
 ![Tela de Funcionalidade](images/exemplo-funcionalidade.png)
 
@@ -318,36 +314,35 @@ Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
 
-##### Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Contatos ⚠️ EXEMPLO ⚠️
 
 Contatos da aplicação
 
 ```json
-  {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
-  }
-  
+{
+  "id": 1,
+  "nome": "Leanne Graham",
+  "cidade": "Belo Horizonte",
+  "categoria": "amigos",
+  "email": "Sincere@april.biz",
+  "telefone": "1-770-736-8031",
+  "website": "hildegard.org"
+}
 ```
 
-##### Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Usuários ⚠️ EXEMPLO ⚠️
 
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
 
 ```json
-  {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
-  }
+{
+  "id": "eed55b91-45be-4f2c-81bc-7686135503f9",
+  "email": "admin@abc.com",
+  "id": "eed55b91-45be-4f2c-81bc-7686135503f9",
+  "login": "admin",
+  "nome": "Administrador do Sistema",
+  "senha": "123"
+}
 ```
 
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
@@ -358,8 +353,8 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
 >
 > **Orientações:**
 >
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
+> - [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
+> - [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
 
 ## Módulos e APIs
 
@@ -367,16 +362,16 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 **Images**:
 
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
+- Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
 
 **Fonts:**
 
-* Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
+- Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
 
 **Scripts:**
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
+- jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
+- Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
 
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
 >

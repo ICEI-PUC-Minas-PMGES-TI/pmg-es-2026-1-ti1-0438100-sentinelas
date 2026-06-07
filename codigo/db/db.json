@@ -67,6 +67,73 @@
     "phone_number": "(31) 99999-9999",
     "profile_pic_url": "https://s2.vigilare.com/profile/234249234"
   },
+  "agents": [
+    {
+      "id": 1,
+      "name": "Carlos Silva",
+      "cpf": "987.654.321-00",
+      "email": "carlos@imobiliaria.com",
+      "phone_number": "(31) 98888-8888",
+      "specialty": "Imóveis Residenciais",
+      "area_of_expertise": "Belo Horizonte e Região Metropolitana",
+      "experience": "8 anos de experiência no mercado imobiliário"
+    },
+    {
+      "id": 2,
+      "name": "Marina Costa",
+      "cpf": "456.789.123-45",
+      "email": "marina@imobiliaria.com",
+      "phone_number": "(31) 97777-7777",
+      "specialty": "Imóveis Comerciais",
+      "area_of_expertise": "Venda e locação de salas comerciais e galpões",
+      "experience": "5 anos de experiência em negociações corporativas"
+    }
+  ],
+  "properties": [
+    {
+      "nome": "Casa XX",
+      "local": "Rua das Flores, 233",
+      "cidade": "belohorizonte",
+      "tipo": "aluguel",
+      "preco": 240,
+      "quartos": 3,
+      "banheiros": 1,
+      "tamanho": "120m²",
+      "descricao": "Teste",
+      "fotos": [],
+      "dataCadastro": "30/05/2026",
+      "id": "za9GPlVvGQI"
+    },
+    {
+      "nome": "Apartamento YY",
+      "local": "Avenida Palmeiras, 77",
+      "cidade": "contagem",
+      "tipo": "aluguel",
+      "preco": 749,
+      "quartos": 4,
+      "banheiros": 1,
+      "tamanho": "140m²",
+      "descricao": "Apartamento em uma boa localização, bons vizinhos",
+      "fotos": [],
+      "dataCadastro": "31/05/2026",
+      "id": "LbR439VOEcI"
+    },
+    {
+      "nome": "Casa ZZ",
+      "local": "Avenida Mangabeiras, 667",
+      "cidade": "belohorizonte",
+      "tipo": "venda",
+      "preco": 180000,
+      "quartos": 4,
+      "banheiros": 2,
+      "tamanho": "400m²",
+      "descricao": "Teste",
+      "fotos": [],
+      "dataCadastro": "01/06/2026",
+      "agentId": 1,
+      "id": "XbBQsn42lJk"
+    }
+  ],
   "change_password": [],
   "profile_delete": [],
   "$schema": "./node_modules/json-server/schema.json"
