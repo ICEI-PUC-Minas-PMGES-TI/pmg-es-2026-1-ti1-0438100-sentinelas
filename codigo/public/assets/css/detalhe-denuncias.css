@@ -231,3 +231,20 @@ body {
     cursor: pointer;
     border-radius: 4px;
 }
+/* STATUS DENÚNCIA */
+.status-denuncia {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.status-pendente {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+.status-resolvido {
+    color: green;
+    font-weight: bold;
+}
