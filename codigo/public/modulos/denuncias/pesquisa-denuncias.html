@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Denúncias - Vigilare</title>
+    <!-- CSS Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/denuncias.css">
+    <style>
+        /* Ajustes finos para a página de pesquisa mantendo a consistência */
+        .filter-section {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 5%;
+        }
+
+        .filter-section.active {
+            display: block;
+        }
+
+        .results-info {
+            padding: 0 5%;
+            margin-top: 30px;
+        }
+
+        .search-header {
+            margin-top: 5vh;
+        }
+
+        .loc-text {
+            margin-left: 5px;
+        }
+
+        /* Garantindo que o input de pesquisa dentro da div.pesquisa não tenha bordas próprias */
+        .pesquisa input.barra-pesquisa {
+            border: none;
+            flex: 1;
+        }
+
+        /* Ajuste do botão de filtro para se comportar como o da página base */
+        #btnFilter {
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header position-fixed w-100 d-flex justify-content-between align-items-center">
+        <a href="../../index.html"><img src="../../assets/images/logo_without_bg.png" width="72"
+                alt="Logo do vigilare"></a>
+
+        <nav>
+            <ul class="navegacao-header d-flex">
+                <li class="botao-header"><a href="denuncias.html">Home</a></li>
+                <li class="botao-header"><a href="denuncias.html">Denúncias</a></li>
+                <li id="barra"></li>
+                <li class="botao-header"><a href="../login/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="navegacao d-flex align-items-center justify-content-between flex-wrap">
+        <nav class="d-flex align-items-center justify-content-center gap-2">
+            <div class="pesquisa d-flex align-items-center">
+                <svg class="lupa" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+                <input class="barra-pesquisa" type="text" id="searchInput"
+                    placeholder="Pesquise por descrição ou tipo...">
+            </div>
+            <a class="filtrar-resultado" id="btnFilter" href="javascript:void(0)"> Filtrar Resultados </a>
+            <button class="pesquisar-resultado" id="btnSearch"> Pesquisar Resultados </button>
+        </nav>
+        <nav class="d-flex align-items-center gap-2">
+            <a class="adicionar-denuncia align-items-center" href="cadastro-denuncias.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                </svg>
+            </a>
+
+            <a href="../notificacoes/notificacoes.html" class="notificacoes">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-bell-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="search-header text-center">
+            <h3 class="d-flex justify-content-center border-0">Pesquisar Denúncias</h3>
+            <h4 class="d-flex justify-content-center">Encontre ocorrências em sua região</h4>
+        </section>
+
+        <!-- Seção de Filtros -->
+        <section id="filterSection" class="filter-section">
+            <h5 class="mb-3" style="color: #236377;">Filtros Avançados</h5>
+            <form id="filterForm" class="row g-3">
+                <div class="col-md-4">
+                    <label for="filterType" class="form-label">Tipo de Denúncia</label>
+                    <select id="filterType" class="form-select selecao-localidade w-100">
+                        <option value="">Todos</option>
+                        <option value="theft">Furto</option>
+                        <option value="robbery">Roubo</option>
+                        <option value="vandalism">Vandalismo</option>
+                        <option value="assault">Assalto</option>
+                        <option value="harassment">Assédio</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="filterRelevancy" class="form-label">Urgência</label>
+                    <select id="filterRelevancy" class="form-select selecao-localidade w-100">
+                        <option value="">Todas</option>
+                        <option value="urgent">Urgente</option>
+                        <option value="high">Alta</option>
+                        <option value="moderate">Moderada</option>
+                        <option value="low">Baixa</option>
+                        <option value="informative">Informativa</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="filterStatus" class="form-label">Status</label>
+                    <select id="filterStatus" class="form-select selecao-localidade w-100">
+                        <option value="">Todos</option>
+                        <option value="open">Aberto</option>
+                        <option value="closed">Fechado</option>
+                    </select>
+                </div>
+                <div class="col-12 d-flex justify-content-end gap-2 mt-4">
+                    <button type="reset" class="btn btn-light" style="border-radius: 10px;">Limpar</button>
+                    <button type="submit" class="pesquisar-resultado" style="width: auto; padding: 5px 20px;">Aplicar
+                        Filtros</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="results-info d-flex justify-content-between align-items-center mb-3">
+            <h4 id="resultsCount" class="m-0">Encontradas 0 denúncias</h4>
+            <div class="dropdown">
+                <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    style="color: #236377; font-weight: bold;">
+                    Ordenar por
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#" data-sort="newest">Mais recentes</a></li>
+                    <li><a class="dropdown-item" href="#" data-sort="oldest">Mais antigas</a></li>
+                    <li><a class="dropdown-item" href="#" data-sort="witness">Mais testemunhas</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <div id="resultsList" class="grade-cards d-grid">
+            <div class="text-center py-5 w-100" style="grid-column: 1 / -1;">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Carregando...</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container text-white text-center">
+            <p class="mb-0">&copy; 2026 Vigilare - Sistema de Monitoramento Comunitário</p>
+        </div>
+    </footer>
+
+    <!-- JS Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../../assets/js/pesquisa-denuncias.js"></script>
+</body>
+
+</html>

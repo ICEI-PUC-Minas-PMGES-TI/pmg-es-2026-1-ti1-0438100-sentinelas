@@ -248,6 +248,7 @@ function carregarDenuncias() {
 
 function atualizarRegiaoGPS() {
     const regiaoElement = document.getElementById('regiao-gps');
+    if (!regiaoElement) return;
     if (!navigator.geolocation) {
         regiaoElement.textContent = 'Geolocalização não é suportada pelo seu navegador.';
         return;
@@ -387,4 +388,3 @@ async function carregarDenunciasRegiao() {
 }
 
 carregarDenunciasRegiao();
-
