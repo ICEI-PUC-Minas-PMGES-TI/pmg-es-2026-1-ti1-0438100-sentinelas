@@ -3,39 +3,52 @@
         const btnSearch = document.querySelector('.pesquisar-resultado');
         const inputSearch = document.querySelector('.barra-pesquisa');
 
-        if (window.location.pathname.includes('pesquisa-denuncias.html')) {
-            return;
-        }
+        if (!btnSearch || !inputSearch) return;
 
-        if (btnSearch && inputSearch) {
-            const performSearch = () => {
-                const query = inputSearch.value.trim();
-                
-                let targetPath = 'pesquisa-denuncias.html';
-                
-                if (!window.location.pathname.includes('/modulos/denuncias/')) {
+        const performSearch = () => {
+            const query = inputSearch.value.trim();
+            const placeholder = inputSearch.placeholder.toLowerCase();
+            const isPropertySearch = placeholder.includes('imóveis') || placeholder.includes('imovel');
+            
+            let targetPath;
+            let currentPath = window.location.pathname;
+
+            if (isPropertySearch) {
+                if (currentPath.includes('exibicao-imoveis.html')) {
+                    return;
+                }
+                targetPath = 'exibicao-imoveis.html';
+                if (!currentPath.includes('/modulos/imoveis/')) {
+                    targetPath = '../imoveis/exibicao-imoveis.html';
+                }
+            } else {
+                if (currentPath.includes('pesquisa-denuncias.html')) {
+                    return;
+                }
+                targetPath = 'pesquisa-denuncias.html';
+                if (!currentPath.includes('/modulos/denuncias/')) {
                     targetPath = '../denuncias/pesquisa-denuncias.html';
                 }
-
-                window.location.href = `${targetPath}${query ? '?search=' + encodeURIComponent(query) : ''}`;
-            };
-
-            if (btnSearch.tagName === 'A') {
-                btnSearch.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    performSearch();
-                });
-            } else {
-                btnSearch.addEventListener('click', performSearch);
             }
 
-            inputSearch.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    performSearch();
-                }
+            window.location.href = `${targetPath}${query ? '?search=' + encodeURIComponent(query) : ''}`;
+        };
+
+        if (btnSearch.tagName === 'A') {
+            btnSearch.addEventListener('click', (e) => {
+                e.preventDefault();
+                performSearch();
             });
+        } else {
+            btnSearch.addEventListener('click', performSearch);
         }
+
+        inputSearch.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
     }
 
     if (document.readyState === 'loading') {

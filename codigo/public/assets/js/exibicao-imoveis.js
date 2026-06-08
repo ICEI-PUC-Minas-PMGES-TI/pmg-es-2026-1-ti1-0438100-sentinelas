@@ -1,5 +1,5 @@
 /* ============================================================
-    1. SELECIONAR CIDADE (API IBGE — igual ao denuncias.js)
+    1. SELECIONAR CIDADE (API IBGE)
    ============================================================ */
 
 const escolherCidade = document.getElementById('escolherCidade');
@@ -57,10 +57,9 @@ function renderizarCard(imovel) {
     const banheiros = imovel.banheiros ?? null;
     const tamanho   = imovel.tamanho   ?? null;
 
-    //Primeira foto do imóvel
     const foto = Array.isArray(imovel.fotos) && imovel.fotos.length > 0
-    ? imovel.fotos[0]
-    : null;
+        ? imovel.fotos[0]
+        : null;
 
     const infoComodos = [
         quartos   !== null ? `${quartos} quarto${quartos !== 1 ? 's' : ''}` : null,
@@ -83,8 +82,8 @@ function renderizarCard(imovel) {
             <p class="descricao">${descricao}</p>
         </div>
         ${foto
-        ? `<div class="imagem-placeholder" style="background-image:url('${foto}');background-size:cover;background-position:center;"></div>`
-        : `<div class="imagem-placeholder"></div>`}
+            ? `<div class="imagem-placeholder" style="background-image:url('${foto}');background-size:cover;background-position:center;"></div>`
+            : `<div class="imagem-placeholder"></div>`}
     `;
 
     card.style.cursor = 'pointer';
@@ -101,6 +100,8 @@ function renderizarCard(imovel) {
     4. CARREGAR IMÓVEIS DO JSON SERVER
    ============================================================ */
 
+let listaImoveisGlobal = [];
+
 async function carregarImoveis(filtroStatus = null) {
     const container = document.getElementById('imoveis-regiao');
     if (!container) return;
@@ -116,16 +117,9 @@ async function carregarImoveis(filtroStatus = null) {
         const resposta = await fetch(url);
         if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
 
-        const imoveis = await resposta.json();
+        listaImoveisGlobal = await resposta.json();
 
-        if (!Array.isArray(imoveis) || imoveis.length === 0) {
-            container.innerHTML = '<p class="text-muted text-center" style="grid-column:1/-1;padding:20px;">Nenhum imóvel encontrado.</p>';
-            return;
-        }
-
-        container.innerHTML = '';
-        imoveis.forEach(imovel => container.appendChild(renderizarCard(imovel)));
-
+        renderizarListaFiltrada();
     } catch (erro) {
         console.error('Erro ao carregar imóveis:', erro);
         container.innerHTML = `
@@ -138,30 +132,54 @@ async function carregarImoveis(filtroStatus = null) {
 }
 
 /* ============================================================
-    5. PESQUISA EM TEMPO REAL (busca no texto dos cards)
+    5. PESQUISA (Filtragem acionada apenas por eventos específicos)
    ============================================================ */
 
 const barraPesquisa = document.querySelector('.barra-pesquisa');
 const botaoPesquisar = document.querySelector('.pesquisar-resultado');
 
-function pesquisarImoveis() {
-    const termo = barraPesquisa.value.trim().toLowerCase();
-    const cards = document.querySelectorAll('#imoveis-regiao .card-imovel');
+function renderizarListaFiltrada() {
+    const container = document.getElementById('imoveis-regiao');
+    if (!container) return;
 
-    cards.forEach(card => {
-        const textoCard = card.textContent.toLowerCase();
-        card.style.display = textoCard.includes(termo) ? '' : 'none';
+    const termo = barraPesquisa ? barraPesquisa.value.trim().toLowerCase() : '';
+
+    const imoveisFiltrados = listaImoveisGlobal.filter(imovel => {
+        const titulo = (imovel.nome ?? '').toLowerCase();
+        const descricao = (imovel.descricao ?? '').toLowerCase();
+        const endereco = (imovel.local ?? '').toLowerCase();
+
+        return titulo.includes(termo) || descricao.includes(termo) || endereco.includes(termo);
+    });
+
+    container.innerHTML = '';
+
+    if (!Array.isArray(imoveisFiltrados) || imoveisFiltrados.length === 0) {
+        container.innerHTML = '<p class="text-muted text-center" style="grid-column:1/-1;padding:20px;">Nenhum imóvel corresponde à sua busca.</p>';
+        return;
+    }
+
+    imoveisFiltrados.forEach(imovel => container.appendChild(renderizarCard(imovel)));
+}
+
+if (botaoPesquisar) {
+    botaoPesquisar.addEventListener('click', (e) => {
+        e.preventDefault();
+        renderizarListaFiltrada();
     });
 }
 
-barraPesquisa.addEventListener('input', pesquisarImoveis);
-botaoPesquisar.addEventListener('click', pesquisarImoveis);
-barraPesquisa.addEventListener('keydown', e => {
-    if (e.key === 'Enter') pesquisarImoveis();
-});
+if (barraPesquisa) {
+    barraPesquisa.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            renderizarListaFiltrada();
+        }
+    });
+}
 
 /* ============================================================
-    . REGIÃO DO USUÁRIO (GPS)
+    6. REGIÃO DO USUÁRIO (GPS)
    ============================================================ */
 
 function atualizarRegiaoGPS() {
@@ -190,15 +208,17 @@ function atualizarRegiaoGPS() {
 }
 
 /* ============================================================
-    8. INICIALIZAÇÃO
+    7. INICIALIZAÇÃO
    ============================================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     atualizarRegiaoGPS();
-    carregarImoveis();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+    if (searchParam && barraPesquisa) {
+        barraPesquisa.value = searchParam;
+    }
+
+    await carregarImoveis();
 });
-
-
-
-
-
