@@ -54,3 +54,34 @@ h4 {
 main {
     padding: 20px;
 }
+
+.pesquisar-resultado {
+  background-color: #236377;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  width: 170px;
+  text-wrap: nowrap;
+  text-decoration: none;
+}
+
+.barra-pesquisa {
+  color: #000000;
+  background-color: transparent;
+  padding: 5px;
+  width: 270px;
+  outline: none;
+}
+
+.barra-pesquisa input {
+  border: none;
+  outline: none;
+}
+
+.barra-pesquisa::placeholder {
+  color: #236377;
+}
+
+.barra-pesquisa {
+    width: calc(100% - 40px);
+}
