@@ -69,7 +69,7 @@
   },
   "agents": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Carlos Silva",
       "cpf": "987.654.321-00",
       "email": "carlos@imobiliaria.com",
@@ -79,7 +79,7 @@
       "experience": "8 anos de experiência no mercado imobiliário"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Marina Costa",
       "cpf": "456.789.123-45",
       "email": "marina@imobiliaria.com",
@@ -99,10 +99,9 @@
       "quartos": 3,
       "banheiros": 1,
       "tamanho": "120m²",
-      "descricao": "a",
+      "descricao": "Teste",
       "fotos": [],
       "dataCadastro": "30/05/2026",
-      "agentId": "1",
       "id": "za9GPlVvGQI"
     },
     {
