@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigilare – Denúncias</title>
+
+  <link rel="stylesheet" href="../../assets/css/filtro-denuncias.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar__brand">
+      <div class="navbar__logo">
+        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" stroke="#2c6e7f" stroke-width="2"/>
+          <ellipse cx="24" cy="24" rx="10" ry="22" stroke="#2c6e7f" stroke-width="1.5"/>
+          <line x1="2" y1="24" x2="46" y2="24" stroke="#2c6e7f" stroke-width="1.5"/>
+          <path d="M12 10 Q24 18 36 10" stroke="#2c6e7f" stroke-width="1.2" fill="none"/>
+          <path d="M12 38 Q24 30 36 38" stroke="#2c6e7f" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <span class="navbar__name">VIGILARE</span>
+    </div>
+
+    <nav class="navbar__links">
+      <a href="#" class="navbar__link">Home</a>
+      <a href="#" class="navbar__link navbar__link--active">Denúncias</a>
+      <a href="#" class="navbar__link">Imóveis</a>
+    </nav>
+
+    <div class="navbar__user">
+      <span class="navbar__divider"></span>
+      <span class="navbar__username">Usuário Teste</span>
+    </div>
+  </header>
+
+  <!-- SEARCHBAR -->
+  <section class="searchbar">
+    <div class="searchbar__inner">
+
+      <!-- LOCATION DROPDOWN -->
+      <div class="searchbar__location-wrap">
+        <button class="searchbar__location" id="locationBtn" aria-haspopup="listbox" aria-expanded="false">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#2c6e7f"/>
+          </svg>
+          <span id="locationLabel">Belo Horizonte, MG</span>
+          <svg class="searchbar__caret" width="12" height="8" viewBox="0 0 12 8" fill="none">
+            <path d="M1 1l5 5 5-5" stroke="#2c6e7f" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <ul class="location-dropdown" id="locationDropdown" role="listbox">
+          <li data-value="Belo Horizonte, MG" role="option">Belo Horizonte, MG</li>
+          <li data-value="São Paulo, SP" role="option">São Paulo, SP</li>
+          <li data-value="Rio de Janeiro, RJ" role="option">Rio de Janeiro, RJ</li>
+          <li data-value="Curitiba, PR" role="option">Curitiba, PR</li>
+          <li data-value="Salvador, BA" role="option">Salvador, BA</li>
+          <li data-value="Brasília, DF" role="option">Brasília, DF</li>
+        </ul>
+      </div>
+
+      <!-- INPUT -->
+      <div class="searchbar__input-wrap">
+        <svg class="searchbar__search-icon" width="18" height="18" viewBox="0 0 20 20" fill="none">
+          <circle cx="9" cy="9" r="6.5" stroke="#2c6e7f" stroke-width="1.8"/>
+          <line x1="14" y1="14" x2="19" y2="19" stroke="#2c6e7f" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="searchbar__input" id="searchInput" placeholder="Pesquise denúncias..." autocomplete="off"/>
+      </div>
+
+      <!-- BOTÕES -->
+      <button class="searchbar__btn searchbar__btn--outline" id="filterToggleBtn" aria-expanded="false" aria-controls="filterPanel">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6h16M7 12h10M10 18h4" stroke="#2c6e7f" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Filtrar
+      </button>
+
+      <button class="searchbar__btn searchbar__btn--solid" id="searchBtn">Pesquisar</button>
+
+      <!-- ÍCONES -->
+      <div class="searchbar__actions">
+        <button class="searchbar__icon-btn" title="Nova denúncia">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="11" fill="#2c6e7f"/>
+            <line x1="12" y1="7" x2="12" y2="17" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            <line x1="7" y1="12" x2="17" y2="12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <button class="searchbar__icon-btn" id="notifBtn" title="Notificações">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="11" fill="#2c6e7f"/>
+            <path d="M12 6a4 4 0 0 1 4 4v3l1.5 2H6.5L8 13V10a4 4 0 0 1 4-4z" fill="#fff"/>
+            <circle cx="12" cy="18" r="1.3" fill="#fff"/>
+          </svg>
+          <span class="notif-badge" id="notifBadge">3</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- FILTROS (painel lateral) -->
+    <aside class="filters" id="filterPanel">
+      <div class="filters__header">
+        <h2 class="filters__title">Filtros</h2>
+        <button class="filters__close" id="filterCloseBtn" title="Fechar filtros">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6l12 12" stroke="#2c6e7f" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <form class="filter-form" id="filterForm" novalidate>
+
+        <div class="filter-field">
+          <label class="filter-field__label" for="tipoDenuncia">Tipo de denúncia</label>
+          <input type="text" class="filter-field__input" id="tipoDenuncia" placeholder="Furto, roubo..." />
+        </div>
+
+        <div class="filter-field">
+          <label class="filter-field__label" for="origem">Origem</label>
+          <input type="text" class="filter-field__input" id="origem" placeholder="Belo Horizonte..." />
+        </div>
+
+        <div class="filter-field">
+          <label class="filter-field__label" for="relevancia">Relevância</label>
+          <div class="filter-field__select-wrap">
+            <select class="filter-field__input filter-field__select" id="relevancia">
+              <option value="">Todas</option>
+              <option value="urgente">Urgente</option>
+              <option value="moderado">Moderado</option>
+              <option value="leve">Leve</option>
+              <option value="informativo">Informativo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <label class="filter-field__label">Data da ocorrência</label>
+          <div class="filter-field__date-wrap">
+            <div class="filter-field__date-field">
+              <span class="filter-field__date-placeholder" id="datePlaceholder">De &nbsp;–&nbsp; Até</span>
+              <input type="date" class="filter-field__input filter-field__input--date" id="dataInicio" />
+              <input type="date" class="filter-field__input filter-field__input--date" id="dataFim" />
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <label class="filter-field__label" for="testemunhas">Testemunhas</label>
+          <input type="number" min="0" class="filter-field__input" id="testemunhas" placeholder="3, 4..." />
+        </div>
+
+        <div class="filter-form__actions">
+          <button type="reset" class="filter-form__btn filter-form__btn--reset" id="resetBtn">Limpar</button>
+          <button type="submit" class="filter-form__btn filter-form__btn--apply">Aplicar</button>
+        </div>
+
+      </form>
+    </aside>
+
+    <!-- RESULTADOS -->
+    <section class="results">
+
+      <div class="results__header">
+        <div>
+          <h1 class="results__title">Resultados</h1>
+          <span class="results__count" id="resultsCount">12 denúncias encontradas</span>
+        </div>
+
+        <div class="results__sort">
+          <label class="results__sort-label" for="sortSelect">Ordenar:</label>
+          <select class="results__sort-select" id="sortSelect">
+            <option value="recente">Mais recente</option>
+            <option value="urgente">Urgência</option>
+            <option value="az">A – Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results__list" id="resultsList">
+
+        <!-- CARD -->
+        <article class="report-card" data-type="Roubo" data-priority="urgente" data-location="Belo Horizonte, MG" data-date="2026-03-05">
+          <div class="report-card__top">
+            <span class="report-card__tag">Roubo</span>
+            <span class="report-card__priority report-card__priority--urgente">Urgente</span>
+          </div>
+          <h3 class="report-card__title">Roubo em região central</h3>
+          <p class="report-card__description">Denúncia registrada envolvendo roubo próximo à praça central, com relato de três vítimas.</p>
+          <div class="report-card__meta">
+            <span class="report-card__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#6a97a3"/><circle cx="12" cy="9" r="2.5" fill="#eef4f6"/></svg>
+              Belo Horizonte, MG
+            </span>
+            <span>05/03/2026</span>
+          </div>
+        </article>
+
+        <!-- CARD -->
+        <article class="report-card" data-type="Furto" data-priority="moderado" data-location="São Paulo, SP" data-date="2026-03-06">
+          <div class="report-card__top">
+            <span class="report-card__tag">Furto</span>
+            <span class="report-card__priority report-card__priority--moderado">Moderado</span>
+          </div>
+          <h3 class="report-card__title">Furto de veículo</h3>
+          <p class="report-card__description">Automóvel furtado durante a madrugada em estacionamento público no centro da cidade.</p>
+          <div class="report-card__meta">
+            <span class="report-card__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#6a97a3"/><circle cx="12" cy="9" r="2.5" fill="#eef4f6"/></svg>
+              São Paulo, SP
+            </span>
+            <span>06/03/2026</span>
+          </div>
+        </article>
+
+        <!-- CARD -->
+        <article class="report-card" data-type="Agressão" data-priority="leve" data-location="Curitiba, PR" data-date="2026-03-08">
+          <div class="report-card__top">
+            <span class="report-card__tag">Agressão</span>
+            <span class="report-card__priority report-card__priority--leve">Leve</span>
+          </div>
+          <h3 class="report-card__title">Discussão em via pública</h3>
+          <p class="report-card__description">Relato de agressão verbal e tumulto em área comercial de grande movimento.</p>
+          <div class="report-card__meta">
+            <span class="report-card__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#6a97a3"/><circle cx="12" cy="9" r="2.5" fill="#eef4f6"/></svg>
+              Curitiba, PR
+            </span>
+            <span>08/03/2026</span>
+          </div>
+        </article>
+
+        <!-- CARD -->
+        <article class="report-card" data-type="Vandalismo" data-priority="leve" data-location="Belo Horizonte, MG" data-date="2026-03-10">
+          <div class="report-card__top">
+            <span class="report-card__tag">Vandalismo</span>
+            <span class="report-card__priority report-card__priority--leve">Leve</span>
+          </div>
+          <h3 class="report-card__title">Pichação em patrimônio público</h3>
+          <p class="report-card__description">Monumento histórico danificado por pichações durante a madrugada.</p>
+          <div class="report-card__meta">
+            <span class="report-card__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#6a97a3"/><circle cx="12" cy="9" r="2.5" fill="#eef4f6"/></svg>
+              Belo Horizonte, MG
+            </span>
+            <span>10/03/2026</span>
+          </div>
+        </article>
+
+        <!-- CARD -->
+        <article class="report-card" data-type="Roubo" data-priority="urgente" data-location="Rio de Janeiro, RJ" data-date="2026-03-11">
+          <div class="report-card__top">
+            <span class="report-card__tag">Roubo</span>
+            <span class="report-card__priority report-card__priority--urgente">Urgente</span>
+          </div>
+          <h3 class="report-card__title">Assalto a estabelecimento comercial</h3>
+          <p class="report-card__description">Grupo armado rendeu funcionários e clientes em farmácia no bairro Centro.</p>
+          <div class="report-card__meta">
+            <span class="report-card__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#6a97a3"/><circle cx="12" cy="9" r="2.5" fill="#eef4f6"/></svg>
+              Rio de Janeiro, RJ
+            </span>
+            <span>11/03/2026</span>
+          </div>
+        </article>
+
+        <!-- CARD -->
+        <article class="report-card" data-type="Furto" data-priority="moderado" data-location="Salvador, BA" data-date="2026-03-12">
+          <div class="report-card__top">
+            <span class="report-card__tag">Furto</span>
+            <span class="report-card__priority report-card__priority--moderado">Moderado</span>
+          </div>
+          <h3 class="report-card__title">Furto em transporte coletivo</h3>
+          <p class="report-card__description">Passageira teve celular e carteira subtraídos durante o percurso em ônibus da linha 402.</p>
+          <div class="report-card__meta">
+            <span class="report-card__location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#6a97a3"/><circle cx="12" cy="9" r="2.5" fill="#eef4f6"/></svg>
+              Salvador, BA
+            </span>
+            <span>12/03/2026</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div class="results__empty" id="emptyState" style="display:none;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="8" stroke="#c8dde3" stroke-width="1.5"/>
+          <path d="M21 21l-4.35-4.35" stroke="#c8dde3" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M8 11h6M11 8v6" stroke="#c8dde3" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p>Nenhuma denúncia encontrada.</p>
+        <span>Tente ajustar os filtros ou ampliar a busca.</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- TOAST -->
+  <div class="toast" id="vigilare-toast" role="status" aria-live="polite"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer__copy">© 2026 Vigilare · Todos os direitos reservados</span>
+  </footer>
+
+  <script src="../../assets/js/filtro-denuncias.js"></script>
+
+</body>
+</html>
