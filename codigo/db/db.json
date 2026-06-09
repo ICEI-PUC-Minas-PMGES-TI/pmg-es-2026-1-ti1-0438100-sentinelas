@@ -74,6 +74,7 @@
       "cpf": "987.654.321-00",
       "email": "carlos@imobiliaria.com",
       "phone_number": "(31) 98888-8888",
+      "senha": "Senha123",
       "specialty": "Imóveis Residenciais",
       "area_of_expertise": "Belo Horizonte e Região Metropolitana",
       "experience": "8 anos de experiência no mercado imobiliário"
@@ -84,6 +85,7 @@
       "cpf": "456.789.123-45",
       "email": "marina@imobiliaria.com",
       "phone_number": "(31) 97777-7777",
+      "senha": "Senha123",
       "specialty": "Imóveis Comerciais",
       "area_of_expertise": "Venda e locação de salas comerciais e galpões",
       "experience": "5 anos de experiência em negociações corporativas"
@@ -133,8 +135,18 @@
       "agentId": 1,
       "id": "XbBQsn42lJk"
     }
+
+  ],
+  "usuarios" :[
+    {
+      "usuario": "João Pedro",
+      "email": "joao@teste.com",
+      "numero": "(31) 99999-9999",
+      "senha": "senha123"
+    }
   ],
   "change_password": [],
   "profile_delete": [],
   "$schema": "./node_modules/json-server/schema.json"
+
 }
