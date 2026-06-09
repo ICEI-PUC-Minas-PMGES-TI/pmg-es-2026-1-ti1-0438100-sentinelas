@@ -23,5 +23,17 @@ if(inputSenha.type === "password"){
     }
 
     document.getElementById('erro-geral').style.display = 'none'
+
+    try {
+    const respostaUsuarios = await fetch('http://localhost:3000/usuarios')
+    const usuarios = await respostaUsuarios.json()
+
+    const respostaAgentes = await fetch('http://localhost:3000/agents')
+    const agentes = await respostaAgentes.json()
+
+} catch (erro) {
+    document.getElementById('erro-geral').textContent = 'Erro ao conectar com o servidor.'
+    document.getElementById('erro-geral').style.display = 'block'
+}
     })
 
