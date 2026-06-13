@@ -1,5 +1,131 @@
 * {
     padding: 0;
-    border: 0;
     margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ecf5f8;
+    height: 100vh;
+    display: flex;
+}
+
+.pagina-login {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.lado-esquerdo {
+    background-color: #236377;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+}
+
+.lado-esquerdo h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.lado-esquerdo p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.lado-direito {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ecf5f8;
+}
+
+.caixa-login {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #00000053;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.titulo {
+    font-size: 1.5rem;
+    color: #236377;
+    margin-bottom: 8px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.rotulo {
+    font-size: 0.9rem;
+    color: #236377;
+    font-weight: 600;
+}
+
+.entrada {
+    padding: 10px 14px;
+    border: 2px solid #236377;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.entrada:focus {
+    border-color: #1a4d5c;
+}
+
+.campo-senha {
+    display: flex;
+    align-items: center;
+    border: 2px solid #236377;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.campo-senha .entrada {
+    border: none;
+    flex: 1;
+}
+
+.botao-olho {
+    background: transparent;
+    padding: 0 12px;
+    cursor: pointer;
+    color: #236377;
+}
+
+.erro {
+    color: red;
+    font-size: 0.8rem;
+    display: none;
+}
+
+.botao-entrar {
+    background-color: #236377;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 8px;
+}
+
+.botao-entrar:hover {
+    background-color: #1a4d5c;
 }
