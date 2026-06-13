@@ -44,7 +44,7 @@ const agenteEncontrado = agentes.find(a =>
 )
 
 if (usuarioEncontrado || agenteEncontrado) {
-    window.location.href = 'denuncias.html'
+    window.location.href = '../../modulos/denuncias/denuncias.html'
 } else {
     document.getElementById('erro-geral').textContent = 'Dados incorretos.'
     document.getElementById('erro-geral').style.display = 'block'
