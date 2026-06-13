@@ -129,3 +129,7 @@ body {
 .botao-entrar:hover {
     background-color: #1a4d5c;
 }
+
+.logo {
+    width: 100px;
+}
