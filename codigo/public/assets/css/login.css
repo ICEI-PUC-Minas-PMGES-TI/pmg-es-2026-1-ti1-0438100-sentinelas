@@ -149,3 +149,51 @@ body {
     background-color: #236377;
     color: white;
 }
+
+/* Tablet (< 768px) */
+@media (max-width: 768px) {
+    .lado-esquerdo {
+        display: none;
+    }
+
+    .lado-direito {
+        flex: 1;
+    }
+
+    .caixa-login {
+        margin: 20px;
+        max-width: 100%;
+        border: #236377 2px solid;
+    }
+}
+
+/* Mobile (< 480px) */
+@media (max-width: 480px) {
+    body {
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .lado-direito {
+        align-items: flex-start;
+        padding: 30px 16px;
+    }
+
+    .caixa-login {
+        margin: 0;
+        padding: 24px 20px;
+        border-radius: 8px;
+        box-shadow: none;
+        border: #236377 2px solid;
+    }
+
+    .titulo {
+        font-size: 1.3rem;
+    }
+
+    .botao-entrar,
+    .botao-registrar {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+}

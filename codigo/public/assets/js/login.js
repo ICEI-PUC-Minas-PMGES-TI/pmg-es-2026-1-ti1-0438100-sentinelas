@@ -43,11 +43,14 @@ const agenteEncontrado = agentes.find(a =>
     a.senha === senha
 )
 
-if (usuarioEncontrado || agenteEncontrado) {
+if (usuarioEncontrado) {
+    localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado))
+    localStorage.setItem('tipoUsuario', 'usuario')
     window.location.href = '../../modulos/denuncias/denuncias.html'
-} else {
-    document.getElementById('erro-geral').textContent = 'Dados incorretos.'
-    document.getElementById('erro-geral').style.display = 'block'
+} else if (agenteEncontrado) {
+    localStorage.setItem('usuarioLogado', JSON.stringify(agenteEncontrado))
+    localStorage.setItem('tipoUsuario', 'agente')
+    window.location.href = '../../modulos/denuncias/denuncias.html'
 }
 
     } catch (erro) {
