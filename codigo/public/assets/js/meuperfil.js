@@ -3,6 +3,24 @@ const campoCpf = document.getElementById('cpf');
 const campoNome = document.getElementById('nome');
 const campoEmail = document.getElementById('email');
 const btnSalvar = document.querySelector('.btn-salvar');
+const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'))
+const tipoUsuario = localStorage.getItem('tipoUsuario')
+
+if (!usuarioLogado) {
+    window.location.href = '../../modulos/login/login.html'
+}
+
+if (tipoUsuario === 'usuario') {
+    campoNome.value = usuarioLogado.usuario || ''
+    campoEmail.value = usuarioLogado.email || ''
+    campoTelefone.value = usuarioLogado.numero || ''
+    campoCpf.value = usuarioLogado.cpf || ''
+} else if (tipoUsuario === 'agente') {
+    campoNome.value = usuarioLogado.name || ''
+    campoEmail.value = usuarioLogado.email || ''
+    campoTelefone.value = usuarioLogado.phone_number || ''
+    campoCpf.value = usuarioLogado.cpf || ''
+}
 
 campoTelefone.addEventListener('input', () => {
     let v = campoTelefone.value.replace(/\D/g, '').slice(0, 11);
