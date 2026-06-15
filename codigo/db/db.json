@@ -10,6 +10,7 @@
       },
       "date": "2026-04-17T12:00:00Z",
       "witness_count": 4,
+      "testemunhas": [],
       "relevancy": "urgent",
       "user_id": 1,
       "status": "open"
@@ -24,6 +25,7 @@
       },
       "date": "2026-04-16T18:30:00Z",
       "witness_count": 2,
+      "testemunhas": [],
       "relevancy": "informative",
       "user_id": 2,
       "status": "open"
@@ -139,6 +141,7 @@
   ],
   "usuarios" :[
     {
+      "id": 1,
       "usuario": "João Pedro",
       "email": "joao@teste.com",
       "numero": "(31) 99999-9999",

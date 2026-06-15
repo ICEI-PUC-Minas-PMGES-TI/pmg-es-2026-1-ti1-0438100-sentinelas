@@ -28,7 +28,7 @@
     <main class="container">
         <div class="detalhes">
             <h1>Detalhes da Denúncia</h1>
-            <p class="id"><strong>ID:</strong> #12345</p>
+            <p class="id" data-denuncia-id="1"><strong>ID:</strong> #12345</p>
 
             <div class="fotos">
                 <img src="https://via.placeholder.com/200">
@@ -53,8 +53,14 @@
 
             <!-- NOVO: STATUS + BOTÃO -->
             <div class="status-denuncia">
-                <span id="status-texto" class="status-pendente">Status: Pendente</span>
-                <button id="btn-resolver" class="btn destaque">Resolver Denúncia</button>
+                <div class="status-left">
+                    <span id="status-texto" class="status-pendente">Status: Pendente</span>
+                    <span id="witness-count" class="testemunhas-badge">0 testemunhas</span>
+                </div>
+                <div class="status-buttons">
+                    <button id="btn-testemunhar" class="btn">Testemunhar</button>
+                    <button id="btn-resolver" class="btn destaque">Resolver Denúncia</button>
+                </div>
             </div>
 
             <!-- FÓRUM -->
@@ -87,6 +93,23 @@
             </section>
         </div>
     </main>
+
+    <div id="popup-testemunha" class="popup-overlay" aria-hidden="true">
+        <div class="popup">
+            <button type="button" class="popup-close" id="btn-fechar-popup" aria-label="Fechar depoimento">×</button>
+            <h2>Enviar depoimento</h2>
+            <p>Seu depoimento será salvo em testes e apenas o contador de testemunhas será exibido publicamente.</p>
+            <textarea id="input-depoimento" class="campo-comentario" placeholder="Escreva seu depoimento..." maxlength="500"></textarea>
+            <div class="popup-footer">
+                <span class="contador-chars"><span id="char-count-depoimento">0</span>/500</span>
+                <div class="popup-actions">
+                    <button type="button" class="btn btn-cancelar" id="btn-cancelar-depoimento">Cancelar</button>
+                    <button type="button" class="btn destaque" id="btn-enviar-depoimento">Enviar depoimento</button>
+                </div>
+            </div>
+            <p id="popup-error" class="popup-error"></p>
+        </div>
+    </div>
 
     <div class="barra-rodape">
         © 2023 VIGILARE.
