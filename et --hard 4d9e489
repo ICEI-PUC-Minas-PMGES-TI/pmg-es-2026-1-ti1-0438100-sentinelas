@@ -1,0 +1,92 @@
+[33m4d9e489[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/Dante[m[33m)[m feat: corrigir os links CSS e JS e juncao com o codigo do Joao
+[33mf847491[m feat: add botão imóveis + link nos botões
+[33mde090f6[m Merge branch 'master' of https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-sentinelas # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit.
+[33m55f5263[m chore: resolve merge com origin/master
+[33m5fa86a2[m feat: adiciona novo botão no header de cadastro, edição e detalhes do imóvel e da página de notificações
+[33m930c134[m feat: implementa mapa de calor com base na região do imóvel
+[33mde179b9[m feat: implementa edição do corretor
+[33m33a69f0[m feat: implementa exclusão do corretor
+[33m3528ff2[m feat: implementa javascript do cadastro do corretor
+[33m996d668[m fix: remove tela duplicada
+[33m8cd3de8[m fix: atualiza nome da tela de detalhes de denúncia (faltava o .html no final)
+[33ma7855a2[m JS do fórum de denúncias
+[33m4c06110[m Integração css do fórum aos detalhes da denúncia
+[33m86eaab6[m Integração do fórum aos detalhes da denúncia
+[33m7e1a825[m feat (dados-corretor): estilização layout página + sincronização dos imóveis do corretor com JSON server
+[33me614fc7[m git commit -m "chore: resolve merge e corrige exibição do corretor"
+[33maab2c11[m fix(properties): corrige exibição do corretor nos detalhes do imóvel
+[33mbc1380e[m Merge branch 'bernardo'
+[33m06993ec[m chore: merge da funcionalidade de vínculo entre imóvel e corretor
+[33mde5c1c7[m[33m ([m[1;31morigin/bernardo[m[33m)[m feat: implementa leitura e atualizacao do corretor com json-server via PUT
+[33m0e0a6ec[m feat(properties): adiciona relacionamento com corretor via agent_id e exibe nome nos detalhes
+[33m92909c7[m[33m ([m[1;31morigin/gabriel[m[33m)[m remove botão filtrar da tela de exibição de imóveis e adiciona redirecionamento no botão home
+[33m2ca7ae0[m feat(detalhe-imovel): atualiza ícones e adiciona estrutura para mapa de calor
+[33mdc89d4b[m feat(imoveis): implementa edição de imóvel com persistência
+[33m72ba159[m feat(detalhes-imovel): melhora layout e estilização da página de detalhes
+[33m84444ea[m feat(imoveis): padroniza dados e corrige filtro por cidade
+[33m448f305[m merge: atualiza com mudanças da master
+[33m4935dfb[m style: ajusta estilo dos botões da navbar para padrão do sistema
+[33m17ae2fd[m feat: ajustes na exibição de imóveis
+[33m8507866[m merge: integra atualizações da master em gabriel - traz arquivo db.json e demais mudanças recentes
+[33meed4e70[m feat: adiciona GPS e inicialização de imóveis - cria função atualizarRegiaoGPS para mostrar localização do usuário - usa API Nominatim para converter coordenadas em bairro/cidade - define fallback 'na sua região' em caso de falha - inicializa região e carregamento de imóveis no DOMContentLoaded
+[33mc7b67bb[m feat: integra carregamento dinâmico de imóveis e pesquisa - implementa função carregarImoveis para buscar dados do JSON Server - adiciona pesquisa em tempo real nos cards via barra de busca - remove cards fixos do HTML, mantendo apenas a div container
+[33mda31ac3[m feat: adiciona função para renderizar cards de imóveis
+[33me251e4f[m feat: altera helpers para status e preço do imóvel - substitui função obterEtiquetaSeguranca por obterEtiquetaStatus - mapeia corretamente status do imóvel (Disponível, Vendido, Alugado) - adiciona função formatarPreco para exibir valores em moeda brasileira
+[33m60bce80[m feat: substitui botão de adicionar por edição na navbar de detalhes do imóvel
+[33m57ef459[m feat: cria página de detalhes e ajusta navegação e idiomas
+[33ma86cb72[m feat: implementa cadastro e edição de imóveis com suporte a imagens
+[33m63eceba[m feat: adiciona helper para etiqueta de segurança - implementa função obterEtiquetaSeguranca para mapear status do imóvel - retorna classe e texto conforme nível de segurança (Seguro, Moderado, Atenção) - define fallback padrão como Moderado
+[33md27a3d4[m feat: atualiza tela de cadastro de imóveis
+[33mee7523d[m feat: criação do JS da página exibicao-imoveis - linka o JS no html - implementação da API IBGE para seleção de municípios de Minas Gerais
+[33mc5addca[m fix: altera localização dados-corretor.html
+[33m5d1135c[m Update paths for CSS and JS files in forum.html
+[33m83d7b38[m CSS do fórum
+[33m4662345[m JS do fórum de denúncias
+[33ma427a13[m Criação do fórum de denúncias
+[33m4a44827[m fix: corrige o db.json, adicionando o id do corretor
+[33mfce94e6[m feat: implementa crud do corretor
+[33mb1aa2a7[m feat: HTML + CSS + Responsividade página dados corretor
+[33m6b14ce1[m style: adiciona responsividade mobile para tela de imóveis
+[33m957ee84[m style: ajuste nos botões filtrar e pesquisar
+[33m0660906[m refactor: organização do CSS
+[33m1372e36[m fix: corrige informações do HTML de denúncias para imóveis
+[33me73ee03[m feat: adição dos cards de denúncias e organização do código html completo
+[33m39340c0[m Integra estilos padrão da página para botões de denúncia e notificações
+[33m2149eb7[m Adiciona header e navegação padrão à página de exibição de imóveis
+[33md4e1ce7[m Criação da estrutura inicial da página de exibição de imóveis com HTML e CSS base
+[33mb031884[m feat: adiciona tela de edição de imóveis e aplica estilos css
+[33mabd058e[m feat: adiciona tela de cadastro de imóveis e aplica estilos css
+[33ma2bd9d2[m fix: correção icon notificações
+[33m7e8efcd[m fix: resolve a documentacao do projeto
+[33m6a3e20c[m fix: corrige alerta pós envio do formulário
+[33m383616c[m feat: adiciona botao para adicionar as denuncias e ir para as notificacoes
+[33m73359fc[m feat: implementa mapa de calor e funções baseadas no json server
+[33m301ad7f[m fix: padroniza os htmls e move as suas devidas páginas
+[33m271fa08[m[33m ([m[1;31morigin/joao-pedro[m[33m)[m Merge branch 'master' into joao-pedro
+[33mc5edfd4[m Merge branch 'master' into gabriel
+[33mccf9574[m Merge branch 'master' of https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-sentinelas
+[33mcddbcd7[m Resolve merge css
+[33mfd44791[m Alteração pequena no js
+[33m0c8c63f[m Limpa no arquivo
+[33m347b35d[m fix: modifica o get na rota de heatmap
+[33m863a80b[m feat: função js carregarHeatmap
+[33m43ec29f[m feat: adiciona seleção dinâmica de cidades via API do IBGE e ajusta layout da área
+[33mb23bf70[m fix: path style css
+[33mf49516a[m fix: resolve conflitos de merge e mantém alterações locais de estilização
+[33me88761a[m fix: estruturação e estilização de butões e mapa
+[33md7d9d5d[m limpa nas linhas vazias e alinhamento
+[33m6694b4e[m atualização do alinhamento
+[33m2ea8831[m feat: implementa o post do formulário de cadastro das denúncias + get automático de localização pela api do openstreetmap
+[33m1f11293[m feat: estiliza o html do cadastro de denúncias
+[33mbbe440d[m chore: setup inicial do html do cadastro de denuncias
+[33m49b53d7[m feat: implementa get ao banco de dados e apresentação das denúncias na tela
+[33mac2dd07[m feat: move os arquivos aos devidos diretórios
+[33mabe8bbe[m fix: move os arquivos aos devidos diretórios
+[33m95b4d26[m feat: atualiza a base de dados, simplificando ela
+[33mc341171[m Merge branch 'master' of https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0438100-sentinelas into bernardo
+[33m36cc099[m fix: remove espaço no id da div do modal que estava fazendo o background ficar transparente
+[33mc70dcd0[m feat: cria e implementa JS do modal de filtro
+[33mc86a303[m feat: criação e implementação do JS do modal de filtro
+[33mf167f70[m style: finaliza estilização do modal de filtro de denúncias
+[33m4c6fb41[m feat: cria modal de filtro de denúncias
+[33mf1485f1[m Aba de notificaçõ
