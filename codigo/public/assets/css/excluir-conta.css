@@ -1,0 +1,149 @@
+/* ─────────────────────────────────────────
+   excluir-conta.css – Vigilare
+   Depende das variáveis de :root definidas
+   em filtro-denuncias.css
+   ───────────────────────────────────────── */
+
+/* ─── LAYOUT CENTRAL ──────────────────── */
+.account {
+  flex: 1;
+  width: 100%;
+  max-width: 640px;
+  margin: 64px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.account__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  line-height: 1.1;
+  color: var(--clr-text);
+  margin-bottom: 16px;
+}
+
+.account__subtitle {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.12rem;
+  line-height: 1.55;
+  color: var(--clr-muted);
+  max-width: 520px;
+  margin-bottom: 44px;
+}
+
+/* ─── FORM ────────────────────────────── */
+.account__form {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.account__label {
+  font-family: 'Crimson Text', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--clr-muted);
+  letter-spacing: .02em;
+  margin-bottom: 8px;
+}
+
+.account__input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--clr-border);
+  border-radius: 8px;
+  padding: 0 16px;
+  background: var(--clr-white);
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  color: var(--clr-text);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.account__input::placeholder {
+  color: var(--clr-faint);
+  font-style: italic;
+}
+
+.account__input:focus {
+  outline: none;
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px rgba(44,110,127,.12);
+}
+
+.account__input.is-invalid {
+  border-color: var(--clr-urgent);
+  box-shadow: 0 0 0 3px rgba(192,57,43,.12);
+}
+
+/* mensagem de erro */
+.account__error {
+  font-family: 'Crimson Text', serif;
+  font-size: .9rem;
+  color: var(--clr-urgent);
+  margin-top: 8px;
+  min-height: 1.1em;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.account__error.is-visible {
+  opacity: 1;
+}
+
+/* ─── BOTÕES ──────────────────────────── */
+.account__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.btn {
+  min-width: 150px;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.btn--ghost {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text);
+}
+
+.btn--ghost:hover {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+  background: var(--clr-primary-lt);
+}
+
+.btn--danger {
+  background: var(--clr-primary-dk);
+  color: var(--clr-white);
+}
+
+.btn--danger:hover {
+  background: #163e4d;
+  box-shadow: 0 4px 14px rgba(29,80,99,.3);
+}
+
+/* ─── RESPONSIVO ──────────────────────── */
+@media (max-width: 540px) {
+  .account { margin: 40px auto; }
+  .account__title { font-size: 2.1rem; }
+  .account__actions { flex-direction: column-reverse; }
+  .btn { width: 100%; }
+}

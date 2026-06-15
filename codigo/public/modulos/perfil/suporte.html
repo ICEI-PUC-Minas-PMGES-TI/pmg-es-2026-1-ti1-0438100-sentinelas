@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigilare – Suporte ao cliente</title>
+
+  <link rel="stylesheet" href="../../assets/css/filtro-denuncias.css" />
+  <link rel="stylesheet" href="../../assets/css/suporte.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar__brand">
+      <div class="navbar__logo">
+        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" stroke="#2c6e7f" stroke-width="2"/>
+          <ellipse cx="24" cy="24" rx="10" ry="22" stroke="#2c6e7f" stroke-width="1.5"/>
+          <line x1="2" y1="24" x2="46" y2="24" stroke="#2c6e7f" stroke-width="1.5"/>
+          <path d="M12 10 Q24 18 36 10" stroke="#2c6e7f" stroke-width="1.2" fill="none"/>
+          <path d="M12 38 Q24 30 36 38" stroke="#2c6e7f" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <span class="navbar__name">VIGILARE</span>
+    </div>
+
+    <nav class="navbar__links">
+      <a href="#" class="navbar__link">Home</a>
+      <a href="#" class="navbar__link">Denúncias</a>
+      <a href="#" class="navbar__link">Imóveis</a>
+    </nav>
+
+    <div class="navbar__user">
+      <span class="navbar__divider"></span>
+      <span class="navbar__username">Usuário Teste</span>
+    </div>
+  </header>
+
+  <!-- SEARCHBAR -->
+  <section class="searchbar">
+    <div class="searchbar__inner">
+
+      <!-- LOCATION DROPDOWN -->
+      <div class="searchbar__location-wrap">
+        <button class="searchbar__location" id="locationBtn" aria-haspopup="listbox" aria-expanded="false">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#2c6e7f"/>
+          </svg>
+          <span id="locationLabel">Belo Horizonte, MG</span>
+          <svg class="searchbar__caret" width="12" height="8" viewBox="0 0 12 8" fill="none">
+            <path d="M1 1l5 5 5-5" stroke="#2c6e7f" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <ul class="location-dropdown" id="locationDropdown" role="listbox">
+          <li data-value="Belo Horizonte, MG" role="option">Belo Horizonte, MG</li>
+          <li data-value="São Paulo, SP" role="option">São Paulo, SP</li>
+          <li data-value="Rio de Janeiro, RJ" role="option">Rio de Janeiro, RJ</li>
+          <li data-value="Curitiba, PR" role="option">Curitiba, PR</li>
+          <li data-value="Salvador, BA" role="option">Salvador, BA</li>
+          <li data-value="Brasília, DF" role="option">Brasília, DF</li>
+        </ul>
+      </div>
+
+      <!-- INPUT -->
+      <div class="searchbar__input-wrap">
+        <svg class="searchbar__search-icon" width="18" height="18" viewBox="0 0 20 20" fill="none">
+          <circle cx="9" cy="9" r="6.5" stroke="#2c6e7f" stroke-width="1.8"/>
+          <line x1="14" y1="14" x2="19" y2="19" stroke="#2c6e7f" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="searchbar__input" id="searchInput" placeholder="Pesquise denúncias..." autocomplete="off"/>
+      </div>
+
+      <!-- BOTÕES -->
+      <button class="searchbar__btn searchbar__btn--outline" id="filterToggleBtn" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6h16M7 12h10M10 18h4" stroke="#2c6e7f" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Filtrar Resultados
+      </button>
+
+      <button class="searchbar__btn searchbar__btn--solid" id="searchBtn">Pesquisar Resultados</button>
+
+      <!-- ÍCONES -->
+      <div class="searchbar__actions">
+        <button class="searchbar__icon-btn" title="Nova denúncia">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="11" fill="#2c6e7f"/>
+            <line x1="12" y1="7" x2="12" y2="17" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            <line x1="7" y1="12" x2="17" y2="12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <button class="searchbar__icon-btn" id="notifBtn" title="Notificações">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="11" fill="#2c6e7f"/>
+            <path d="M12 6a4 4 0 0 1 4 4v3l1.5 2H6.5L8 13V10a4 4 0 0 1 4-4z" fill="#fff"/>
+            <circle cx="12" cy="18" r="1.3" fill="#fff"/>
+          </svg>
+          <span class="notif-badge" id="notifBadge">3</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="support">
+
+    <div class="support__head">
+      <h1 class="support__title">Suporte ao cliente</h1>
+      <p class="support__subtitle">
+        Conte o que aconteceu. Nossa equipe responde em até 48 horas úteis.
+      </p>
+    </div>
+
+    <div class="support__card">
+      <form class="support__form" id="supportForm" novalidate>
+
+        <div class="support__grid">
+          <div class="field">
+            <label class="field__label" for="supName">Nome</label>
+            <input type="text" class="field__input" id="supName" placeholder="Seu nome completo" />
+            <span class="field__error" data-error-for="supName">Informe seu nome.</span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="supEmail">E-mail</label>
+            <input type="email" class="field__input" id="supEmail" placeholder="seuemail@gmail.com" autocomplete="email" />
+            <span class="field__error" data-error-for="supEmail">Informe um e-mail válido.</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="supCategory">Categoria</label>
+          <div class="field__select-wrap">
+            <select class="field__input field__select" id="supCategory">
+              <option value="">Selecione um assunto</option>
+              <option value="conta">Conta e acesso</option>
+              <option value="denuncias">Denúncias</option>
+              <option value="imoveis">Imóveis</option>
+              <option value="tecnico">Problema técnico</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <span class="field__error" data-error-for="supCategory">Escolha uma categoria.</span>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="supSubject">Assunto</label>
+          <input type="text" class="field__input" id="supSubject" placeholder="Resumo do seu pedido" />
+          <span class="field__error" data-error-for="supSubject">Informe um assunto.</span>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="supMessage">Mensagem</label>
+          <textarea class="field__input field__textarea" id="supMessage" rows="6" maxlength="600" placeholder="Descreva o que aconteceu com o máximo de detalhes."></textarea>
+          <div class="field__foot">
+            <span class="field__error" data-error-for="supMessage">Descreva o seu problema.</span>
+            <span class="field__counter" id="msgCounter">0 / 600</span>
+          </div>
+        </div>
+
+        <div class="support__actions">
+          <button type="reset" class="btn btn--ghost" id="supCancel">Cancelar</button>
+          <button type="submit" class="btn btn--solid" id="supSend">Enviar mensagem</button>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+
+  <!-- TOAST -->
+  <div class="toast" id="vigilare-toast" role="status" aria-live="polite"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer__copy">© 2026 Vigilare · Todos os direitos reservados</span>
+  </footer>
+
+  <script src="../../assets/js/suporte.js"></script>
+
+</body>
+</html>

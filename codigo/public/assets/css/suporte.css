@@ -1,0 +1,217 @@
+/* ─────────────────────────────────────────
+   suporte.css – Vigilare
+   Depende das variáveis de :root definidas
+   em filtro-denuncias.css
+   ───────────────────────────────────────── */
+
+/* ─── LAYOUT ──────────────────────────── */
+.support {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+
+.support__head {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.support__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  color: var(--clr-text);
+  margin-bottom: 12px;
+}
+
+.support__subtitle {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--clr-muted);
+}
+
+/* ─── CARD ────────────────────────────── */
+.support__card {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 32px;
+  animation: fadeUp .35s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.support__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.support__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ─── FIELDS ──────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field__label {
+  font-family: 'Crimson Text', serif;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--clr-muted);
+  letter-spacing: .02em;
+  margin-bottom: 6px;
+}
+
+.field__input {
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--clr-border);
+  border-radius: 8px;
+  padding: 0 12px;
+  background: var(--clr-white);
+  font-family: 'Crimson Text', serif;
+  font-size: 1rem;
+  color: var(--clr-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.field__input::placeholder { color: var(--clr-faint); }
+
+.field__input:focus {
+  outline: none;
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px rgba(44,110,127,.12);
+}
+
+.field__input.is-invalid {
+  border-color: var(--clr-urgent);
+  box-shadow: 0 0 0 3px rgba(192,57,43,.12);
+}
+
+/* Textarea */
+.field__textarea {
+  height: auto;
+  min-height: 130px;
+  padding: 12px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+/* Select */
+.field__select-wrap { position: relative; }
+
+.field__select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 32px;
+}
+
+.field__select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--clr-primary);
+  pointer-events: none;
+}
+
+/* Erro + contador */
+.field__error {
+  font-family: 'Crimson Text', serif;
+  font-size: .85rem;
+  color: var(--clr-urgent);
+  margin-top: 6px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity var(--transition);
+}
+
+.field__error.is-visible {
+  opacity: 1;
+  height: auto;
+}
+
+.field__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.field__counter {
+  margin-top: 6px;
+  margin-left: auto;
+  font-family: 'Lato', sans-serif;
+  font-size: .8rem;
+  color: var(--clr-faint);
+  white-space: nowrap;
+}
+
+/* ─── BOTÕES ──────────────────────────── */
+.support__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.btn {
+  min-width: 140px;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Crimson Text', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.btn--ghost {
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-muted);
+}
+
+.btn--ghost:hover {
+  background: var(--clr-border);
+}
+
+.btn--solid {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+}
+
+.btn--solid:hover {
+  background: var(--clr-primary-dk);
+  box-shadow: 0 4px 12px rgba(44,110,127,.25);
+}
+
+/* ─── RESPONSIVO ──────────────────────── */
+@media (max-width: 600px) {
+  .support__card { padding: 24px; }
+  .support__grid { grid-template-columns: 1fr; }
+  .support__title { font-size: 2rem; }
+  .support__actions { flex-direction: column-reverse; }
+  .btn { width: 100%; }
+}
