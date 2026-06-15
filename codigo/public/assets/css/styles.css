@@ -1,87 +1,244 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"); 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
+/* ============================================================
+    GLOBAL STYLES & VARIABLES
+   ============================================================ */
+:root {
+    --clr-primary:    #236377;
+    --clr-primary-dk: #1a4a5a;
+    --clr-primary-lt: #ecf5f8;
+    --clr-secondary:  #ff7645;
+    --clr-bg:         #f8f9fa;
+    --clr-white:      #ffffff;
+    --clr-border:     #c1c1c1;
+    --clr-text:       #000000;
+    --clr-muted:      #4a6e77;
+    --clr-faint:      #6a97a3;
+    --radius:         10px;
+    --transition:     .3s ease;
+    --shadow-card:    0 2px 4px rgba(0,0,0,0.1);
+}
+
 h3 {
     color: #093070;
-    border-bottom: 1px solid #c1c1c1;
+    border-bottom: 1px solid var(--clr-border);
 }
 h4 {
-    color: #ff7645;
+    color: var(--clr-secondary);
 }
 
 .banner img {
     width: 100%;
 }
 
-.barra-info {
-    height: 2em;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: space-between;
-}
-
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu li {
-    display: inline;
-    margin: 0px;
-    padding: 0.5em 1em; 
-    height: 2em;
-    line-height: 2em;
-}
-
-.menu li a {
-    text-decoration: none;
-    color: #ff7645;
-    font-weight: bold;
-}
-
-.menu li:hover {
-    background-color: darkblue;
-    color: white;
-}
-
-.dados-usuario {
-    height: 2em;
-    line-height: 2em;
-    margin-right: 20px;
-}
-
 main {
     padding: 20px;
 }
 
-.pesquisar-resultado {
-  background-color: #236377;
-  color: white;
-  border-radius: 10px;
-  padding: 5px;
-  width: 170px;
-  text-wrap: nowrap;
-  text-decoration: none;
+/* ============================================================
+    STANDARD COMPONENTS (HEADER, NAV, FOOTER)
+   ============================================================ */
+
+/* Header */
+.standard-header {
+    background-color: white;
+    box-shadow: 1px 2px 2px rgb(173, 172, 172);
+    padding: 2vh 4vw;
+    top: 0;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.barra-pesquisa {
-  color: #000000;
-  background-color: transparent;
-  padding: 5px;
-  width: 270px;
-  outline: none;
+.standard-header-nav {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
 
-.barra-pesquisa input {
-  border: none;
-  outline: none;
+.standard-header-nav-item a {
+    text-decoration: none;
+    padding: 8px 15px;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-.barra-pesquisa::placeholder {
-  color: #236377;
+.standard-header-nav-item:hover {
+    background-color: #236377;
+    transition: 0.4s;
+    border-radius: 5px;
 }
 
-.barra-pesquisa {
-    width: calc(100% - 40px);
+.standard-header-nav-item:hover a {
+    color: white;
+}
+
+.standard-header-nav-divider {
+    border-left: solid black 1px;
+    height: 30px;
+}
+
+/* Sub-Navigation Bar (Search & Filters) */
+.standard-sub-nav {
+    margin-top: 15vh;
+    padding: 12px 15px;
+    background-color: #ecf5f8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.standard-sub-nav-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.standard-select {
+    background-color: #ffffff;
+    color: #236377;
+    border-radius: 10px;
+    padding: 8px 12px;
+    width: 175px;
+    border: 2px solid #2c5d6d;
+    outline: none;
+    cursor: pointer;
+}
+
+.standard-search-container {
+    border: solid #236377 2px;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.standard-search-container:focus-within {
+    width: 380px;
+}
+
+.standard-search-icon {
+    margin-left: 10px;
+    color: #236377;
+}
+
+.standard-search-input {
+    color: #000000;
+    background-color: transparent;
+    padding: 8px;
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+.standard-search-input::placeholder {
+    color: #236377;
+}
+
+.standard-search-button {
+    background-color: #236377;
+    color: white;
+    border-radius: 10px;
+    padding: 8px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.standard-search-button:hover {
+    background-color: #1a4a5a;
+}
+
+.standard-sub-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.standard-nav-action {
+    color: #236377;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.standard-nav-action:hover {
+    background-color: #f0f0f0;
+}
+
+/* Footer */
+.standard-footer {
+    background-color: #236377;
+    padding: 8vh;
+    margin-top: 8vh;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    .standard-header {
+        padding: 2vh 3vw;
+    }
+    .standard-search-container {
+        width: 240px;
+    }
+    .standard-search-container:focus-within {
+        width: 280px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .standard-header {
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 10px;
+        position: static;
+    }
+    
+    .standard-sub-nav {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .standard-sub-nav-left {
+        flex-direction: column;
+    }
+
+    .standard-select, .standard-search-container, .standard-search-button {
+        width: 100%;
+    }
+
+    .standard-header-nav-divider {
+        display: none;
+    }
+    
+    .standard-header-nav {
+        gap: 15px;
+    }
 }
