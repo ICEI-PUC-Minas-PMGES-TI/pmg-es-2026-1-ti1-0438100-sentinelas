@@ -177,6 +177,7 @@ body {
     .lado-direito {
         align-items: flex-start;
         padding: 30px 16px;
+        flex-direction: column;
     }
 
     .caixa-login {
