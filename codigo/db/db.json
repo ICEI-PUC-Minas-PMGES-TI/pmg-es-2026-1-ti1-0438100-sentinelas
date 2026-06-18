@@ -64,6 +64,7 @@
     "name": "João Pedro",
     "cpf": "123.456.789-01",
     "email": "joao@teste.com",
+    "password": "senha123",
     "phone_number": "(31) 99999-9999",
     "profile_pic_url": "https://s2.vigilare.com/profile/234249234"
   },
@@ -73,6 +74,7 @@
       "name": "Carlos Silva",
       "cpf": "987.654.321-00",
       "email": "carlos@imobiliaria.com",
+      "password": "senha123",
       "phone_number": "(31) 98888-8888",
       "senha": "Senha123",
       "specialty": "Imóveis Residenciais",
@@ -84,6 +86,7 @@
       "name": "Marina Costa",
       "cpf": "456.789.123-45",
       "email": "marina@imobiliaria.com",
+      "password": "senha123",
       "phone_number": "(31) 97777-7777",
       "senha": "Senha123",
       "specialty": "Imóveis Comerciais",
