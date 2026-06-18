@@ -20,12 +20,18 @@
       <div class="caixa-login">
         <h2 class="titulo">Entrar na sua conta</h2>
 
-        <select id="perfil">
-          <option value="">Selecione um perfil</option>
-          <option value="admin">Administrador</option>
-          <option value="cliente">Cidadão</option>
-          <option value="funcionario">Corretor</option>
-        </select>
+        <div class="campo select-login">
+          <label class="rotulo">Perfil</label>
+          <select id="perfil" class="entrada">
+            <option value="">Selecione um perfil</option>
+            <option value="admin">Administrador</option>
+            <option value="cliente">Cidadão</option>
+            <option value="funcionario">Corretor</option>
+          </select>
+          <svg class="seta-select" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+            <path fill="#236377" d="M6 8L1 3h10z" />
+          </svg>
+        </div>
 
         <div class="campo">
           <label class="rotulo">Nome</label>

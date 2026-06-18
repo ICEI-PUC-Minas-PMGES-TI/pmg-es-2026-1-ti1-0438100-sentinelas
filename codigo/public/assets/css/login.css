@@ -150,6 +150,24 @@ body {
     color: white;
 }
 
+.select-login {
+    position: relative;
+}
+
+.seta-select {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    pointer-events: none;
+}
+
+.select-login .entrada {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-right: 36px;
+}
+
 /* Tablet (< 768px) */
 @media (max-width: 768px) {
     .lado-esquerdo {
