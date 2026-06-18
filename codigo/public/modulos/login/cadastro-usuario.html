@@ -11,19 +11,31 @@
   <div class="pagina-login">
 
     <div class="lado-esquerdo">
-      <img src="../../assets/images/logo_without_bg.png" alt="Logo Vigilare" class="logo">
-      <h1>Vigilare</h1>
+      <img src="../../../assets/images/all-white-logo-2.svg" alt="Logo Vigilare" alt="Logo Vigilare" class="logo">
       <p>Sentinelas da sua comunidade</p>
     </div>
 
     <div class="lado-direito">
       <div class="caixa-login">
         <h2 class="titulo">Cadastrar uma conta</h2>
+        
+        <select id="perfil">
+          <option value ="">Selecione um perfil</option>
+          <option value="admin">Administrador</option>
+          <option value="cliente">Cidadão</option>
+          <option value="funcionario">Corretor</option>
+        </select>
 
         <div class="campo">
           <label class="rotulo">Nome</label>
           <input class="entrada" type="text" id="nome" placeholder="Nome...">
           <p class="erro" id="erro-nome">Preencha este campo.</p>
+        </div>
+
+        <div class="campo">
+          <label class="rotulo">CPF</label>
+          <input class="entrada" type="text" id="cpf" placeholder="403...">
+          <p class="erro" id="erro-cpf">Preencha este campo.</p>
         </div>
 
         <div class="campo">
@@ -43,7 +55,7 @@
           <label class="rotulo">Senha</label>
           <div class="campo-senha">
             <input class="entrada" type="password" id="senha" placeholder="••••••••">
-            <button class="botao-olho" id="botao-olho" type="button">
+            <button class="botao-olho" type="button" onclick="toggleSenha('senha', this)">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash"
                 viewBox="0 0 16 16">
                 <path
@@ -55,15 +67,13 @@
               </svg>
             </button>
           </div>
-          <p class="erro" id="erro-senha">Preencha este campo.</p>
+          <p class="erro" id="erro-senha"></p>
         </div>
-
-
         <div class="campo">
           <label class="rotulo">Confirme sua senha</label>
           <div class="campo-senha">
-            <input class="entrada" type="password" id="senha" placeholder="••••••••">
-            <button class="botao-olho" id="botao-olho" type="button">
+            <input class="entrada" type="password" id="confirmarSenha" placeholder="••••••••">
+            <button class="botao-olho" type="button" onclick="toggleSenha('confirmarSenha', this)">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash"
                 viewBox="0 0 16 16">
                 <path
@@ -75,12 +85,12 @@
               </svg>
             </button>
           </div>
-          <p class="erro" id="erro-senha">Preencha este campo.</p>
+          <p class="erro" id="erro-confirmar"></p>
         </div>
 
         <p class="erro" id="erro-geral"></p>
-        <button class="botao-entrar" id="botao-entrar" type="button">Cadastrar</button>
-        <button class="botao-registrar" id="botao-registrar" type="button" onclick="window.location.href='login.html'">Login</button>
+        <button class="botao-entrar" id="botao-cadastrar" type="button" onclick="cadastrar()">Cadastrar</button>
+        <button class="botao-registrar" id="botao-login" type="button" onclick="window.location.href='login.html'">Login</button>
       </div>
     </div>
 
