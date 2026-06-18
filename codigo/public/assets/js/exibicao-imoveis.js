@@ -135,8 +135,8 @@ async function carregarImoveis(filtroStatus = null) {
     5. PESQUISA (Filtragem acionada apenas por eventos específicos)
    ============================================================ */
 
-const barraPesquisa = document.querySelector('.barra-pesquisa');
-const botaoPesquisar = document.querySelector('.pesquisar-resultado');
+const barraPesquisa = document.querySelector('.pesquisa-denuncias');
+const botaoPesquisar = document.querySelector('.botao-denuncias');
 
 function renderizarListaFiltrada() {
     const container = document.getElementById('imoveis-regiao');

@@ -1,7 +1,7 @@
 (function() {
     function initSearchRedirect() {
-        const btnSearch = document.querySelector('.pesquisar-resultado');
-        const inputSearch = document.querySelector('.barra-pesquisa');
+        const btnSearch = document.querySelector('.botao-denuncias');
+        const inputSearch = document.querySelector('.pesquisa-denuncias');
 
         if (!btnSearch || !inputSearch) return;
 
@@ -22,12 +22,12 @@
                     targetPath = '../imoveis/exibicao-imoveis.html';
                 }
             } else {
-                if (currentPath.includes('pesquisa-denuncias.html')) {
+                if (currentPath.includes('filtro-denuncias.html')) {
                     return;
                 }
-                targetPath = 'pesquisa-denuncias.html';
+                targetPath = 'filtro-denuncias.html';
                 if (!currentPath.includes('/modulos/denuncias/')) {
-                    targetPath = '../denuncias/pesquisa-denuncias.html';
+                    targetPath = '../denuncias/filtro-denuncias.html';
                 }
             }
 
