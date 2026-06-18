@@ -150,6 +150,14 @@ body {
     color: white;
 }
 
+#perfil {
+    color: gray;
+}
+
+#perfil option {
+    color: black;
+}
+
 .select-login {
     position: relative;
 }
