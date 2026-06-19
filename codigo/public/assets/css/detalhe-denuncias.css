@@ -346,3 +346,11 @@ body {
     color: green;
     font-weight: bold;
 }
+
+
+.sem-comentarios {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9rem;
+    padding: 20px 0;
+}
