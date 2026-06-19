@@ -181,6 +181,10 @@ function carregarDenuncias() {
             ultimasDenuncias.forEach(denuncia => {
                 const item = document.createElement('article');
                 item.classList.add('cartao-denuncia', 'd-flex', 'justify-content-between');
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', () => {
+                    window.location.href = `detalhe-denuncias.html?id=${denuncia.id}`;
+                });
                 const rawRelevancy = denuncia.relevancy ?? denuncia.relevancy ?? denuncia.relevancia;
                 let relevancia = translateRelevancy(rawRelevancy);
                 const titulo = translateType(denuncia.type) || (denuncia.title ?? 'Denúncia');
@@ -326,6 +330,10 @@ async function carregarDenunciasRegiao() {
     proximas.forEach(d => {
         const card = document.createElement('div');
         card.className = 'card-denuncia d-flex';
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            window.location.href = `detalhe-denuncias.html?id=${d.id}`;
+        });
 
         const rawRelevancy = d.relevancy ?? d.relevancia ?? '';
         const relevancia = translateRelevancy(rawRelevancy);
