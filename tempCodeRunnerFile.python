@@ -1,0 +1,11 @@
+def entrada():
+    nome = input("Digite seu nome: ")
+    sobrenome = input("Digite seu sobrenome: ")
+    return nome, sobrenome
+
+def formatar_nome(nome, sobrenome):
+    return (nome + ' ' + sobrenome).upper()
+
+nome, sobrenome = entrada()
+nome_completo = formatar_nome(nome, sobrenome)
+print(nome_completo)

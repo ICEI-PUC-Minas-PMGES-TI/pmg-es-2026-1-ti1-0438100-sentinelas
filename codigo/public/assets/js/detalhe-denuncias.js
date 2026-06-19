@@ -1,4 +1,3 @@
-// ELEMENTOS
 const feedComentarios = document.getElementById('feed-comentarios');
 const inputComentario = document.getElementById('input-comentario');
 const btnEnviar = document.getElementById('btn-enviar');
@@ -21,12 +20,67 @@ const denunciaId = getDenunciaId();
 
 function getDenunciaId() {
     const params = new URLSearchParams(window.location.search);
-    if (params.has('id')) {
-        return params.get('id');
-    }
-
+    if (params.has('id')) return params.get('id');
     const idElement = document.querySelector('.id');
     return idElement?.dataset.denunciaId || '1';
+}
+
+const TIPOS = {
+    theft: 'Furto',
+    robbery: 'Roubo',
+    assault: 'Agressão',
+    vandalism: 'Vandalismo',
+    drug_dealing: 'Tráfico',
+    suspicious: 'Suspeito',
+    other: 'Outro'
+};
+
+const RELEVANCIA = {
+    urgent: 'Urgente',
+    moderate: 'Moderado',
+    informative: 'Informativo'
+};
+
+async function carregarDenuncia() {
+    try {
+        const response = await fetch(`http://localhost:3000/denuncias/${denunciaId}`);
+        if (!response.ok) throw new Error('Denúncia não encontrada.');
+
+        const d = await response.json();
+
+        document.querySelector('.detalhes h1').textContent =
+            TIPOS[d.type] || d.type || 'Detalhes da Denúncia';
+
+        const idEl = document.querySelector('.id');
+        idEl.innerHTML = `<strong>ID:</strong> #${d.id}`;
+
+        document.querySelector('.descricao p').textContent =
+            d.description || 'Sem descrição.';
+
+        document.querySelector('.local p').textContent =
+            d.address || `Lat: ${d.location?.lat}, Lng: ${d.location?.lng}`;
+
+        if (d.location?.lat && d.location?.lng) {
+            const iframe = document.querySelector('.mapa iframe');
+            iframe.src = `https://www.google.com/maps?q=${d.location.lat},${d.location.lng}&output=embed`;
+        }
+
+        if (d.status === 'closed') {
+            statusTexto.textContent = 'Status: Resolvida ✅';
+            statusTexto.classList.remove('status-pendente');
+            statusTexto.classList.add('status-resolvido');
+            btnResolver.textContent = 'Resolvida';
+            btnResolver.style.backgroundColor = 'green';
+            btnResolver.disabled = true;
+        }
+
+        const count = d.witness_count ?? (Array.isArray(d.testemunhas) ? d.testemunhas.length : 0);
+        witnessCount.textContent = formatarTestemunhas(count);
+
+    } catch (erro) {
+        console.error('Erro ao carregar denúncia:', erro);
+        document.querySelector('.detalhes h1').textContent = 'Denúncia não encontrada';
+    }
 }
 
 function formatarTestemunhas(count) {
@@ -103,13 +157,8 @@ async function enviarDepoimento() {
 
         const patchResponse = await fetch(`http://localhost:3000/denuncias/${denunciaId}`, {
             method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                testemunhas,
-                witness_count: testemunhas.length
-            })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ testemunhas, witness_count: testemunhas.length })
         });
 
         if (!patchResponse.ok) throw new Error('Falha ao salvar depoimento.');
@@ -123,13 +172,9 @@ async function enviarDepoimento() {
     }
 }
 
-// CONTADOR DE CARACTERES
 inputComentario.addEventListener('input', () => {
     charCount.textContent = inputComentario.value.length;
-
-    if (inputComentario.value.trim() !== '') {
-        inputComentario.style.borderColor = '';
-    }
+    if (inputComentario.value.trim() !== '') inputComentario.style.borderColor = '';
 });
 
 inputDepoimento.addEventListener('input', () => {
@@ -140,11 +185,9 @@ inputDepoimento.addEventListener('input', () => {
     }
 });
 
-// CRIAR COMENTÁRIO
 function criarElementoComentario(texto) {
     const div = document.createElement('div');
     div.classList.add('comentario');
-
     div.innerHTML = `
         <div class="comentario-topo">
             <span class="autor-anonimo">Anônimo</span>
@@ -152,48 +195,37 @@ function criarElementoComentario(texto) {
         </div>
         <p class="comentario-texto">${texto}</p>
     `;
-
     return div;
 }
 
-// ENVIAR COMENTÁRIO
 btnEnviar.addEventListener('click', () => {
     const texto = inputComentario.value.trim();
-
     if (texto === '') {
         inputComentario.style.borderColor = '#c0392b';
         inputComentario.focus();
         return;
     }
-
     inputComentario.style.borderColor = '';
     feedComentarios.appendChild(criarElementoComentario(texto));
-
     inputComentario.value = '';
     charCount.textContent = '0';
 });
 
-// BOTÃO TESTEMUNHAR
 btnTestemunhar.addEventListener('click', abrirPopupTestemunha);
-
 btnFecharPopup.addEventListener('click', fecharPopupTestemunha);
 btnCancelarDepoimento.addEventListener('click', fecharPopupTestemunha);
 popupOverlay.addEventListener('click', event => {
-    if (event.target === popupOverlay) {
-        fecharPopupTestemunha();
-    }
+    if (event.target === popupOverlay) fecharPopupTestemunha();
 });
 btnEnviarDepoimento.addEventListener('click', enviarDepoimento);
 
-// BOTÃO RESOLVER
 btnResolver.addEventListener('click', () => {
     statusTexto.textContent = 'Status: Resolvida ✅';
     statusTexto.classList.remove('status-pendente');
     statusTexto.classList.add('status-resolvido');
-
     btnResolver.textContent = 'Resolvida';
     btnResolver.style.backgroundColor = 'green';
     btnResolver.disabled = true;
 });
 
-carregarContadorTestemunhas();
+carregarDenuncia();
