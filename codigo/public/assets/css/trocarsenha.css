@@ -139,7 +139,8 @@ select {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 48px;
+  padding: 2px 48px;
+  height: 44px;
   border-bottom: 1px solid var(--color-border);
   background-color: var(--color-surface);
   gap: 12px;
@@ -325,8 +326,6 @@ main.pagina {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
   padding: 14px 0;
 }
 
@@ -341,15 +340,16 @@ main.pagina {
 
 .campo-email input {
   width: 100%;
-  border: none;
-  background: transparent;
+  border: 1.5px solid #4a7c8c;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
   font-family: var(--font-body);
   font-size: 1rem;
   font-style: italic;
   color: var(--color-brand);
   outline: none;
-  padding: 2px 0;
-  transition: color var(--transition);
+  padding: 10px 14px;
+  transition: border-color var(--transition);
 }
 
 .campo-email input::placeholder {
@@ -358,7 +358,7 @@ main.pagina {
 }
 
 .campo-email input:focus {
-  color: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
 }
 
 /* ── BOTÕES ─────────────────────────────────────────── */
