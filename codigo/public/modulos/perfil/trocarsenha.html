@@ -3,76 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Trocar senha</title>
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link rel="stylesheet" href="trocarsenha.css">
+    <link rel="stylesheet" href="../../assets/css/trocarsenha.css">
 </head>
 <body>
 
-    <header class="standard-header">
-        <a href="#"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-topo">
+            <a href="#"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
+            <nav>
+                <ul class="navegacao-header">
+                    <li class="botao-header"><a href="#">Home</a></li>
+                    <li class="botao-header"><a href="denuncias.html">Denúncias</a></li>
+                    <li id="barra"></li>
+                    <li class="botao-header"><a href="#">Usuário Teste</a></li>
+                </ul>
+            </nav>
+        </div>
 
-        <nav>
-            <ul class="standard-header-nav">
-                <li class="standard-header-nav-item"><a href="../denuncias/denuncias.html">Home</a></li>
-                <li class="standard-header-nav-item"><a href="../denuncias/denuncias.html">Denúncias</a></li>
-                <li class="standard-header-nav-item"><a href="../imoveis/exibicao-imoveis.html">Imóveis</a></li>
-                <li class="standard-header-nav-divider"></li>
-                <li class="standard-header-nav-item"><a href="#">Login</a></li>
-            </ul>
-        </nav>
+        <div class="navegacao">
+            <nav class="nav-esquerda">
+                <select name="Cidade" id="escolherCidade" class="selecao-localidade">
+                    <option>Belo Horizonte, MG</option>
+                </select>
+                <div class="pesquisa">
+                    <svg class="lupa" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                    <input class="barra-pesquisa" type="text" placeholder="Pesquisar denúncias...">
+                </div>
+                <a class="filtrar-resultado" href="../denuncias/filtro-denuncias.html">Filtrar Resultados</a>
+                <button class="pesquisar-resultado">Pesquisar Resultados</button>
+            </nav>
+            <nav class="nav-direita">
+                <a class="adicionar-denuncia" href="../denuncias/cadastro-denuncias.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                    </svg>
+                </a>
+                <a href="../notificacoes/notificacoes.html" class="notificacoes">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+                    </svg>
+                </a>
+            </nav>
+        </div>
     </header>
 
-    <div class="standard-sub-nav">
-        <nav class="standard-sub-nav-left">
-            <select name="Cidade" id="escolherCidade" class="standard-select"></select>
-            <div class="standard-search-container">
-                <svg class="standard-search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg>
-                <input class="standard-search-input" type="text" placeholder="Pesquise...">
-            </div>
-            <button class="standard-search-button" id="btnSearchMain"> Pesquisar Resultados </button>
-        </nav>
-        <nav class="standard-sub-nav-right">
-            <a class="standard-nav-action" href="../denuncias/cadastro-denuncias.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
-                </svg>
-            </a>
-
-            <a href="../notificacoes/notificacoes.html" class="standard-nav-action">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
-                </svg>
-            </a>
-        </nav>
-    </div>
-
     <!-- CONTEÚDO -->
-    <main class="container">
+    <main class="pagina" id="pagina">
         <div class="form-area">
             <h1>Trocar a senha</h1>
-            <p>
-                Confirme seu email abaixo. Se estiver correto,enviaremos um email <br>
-                para recriar sua senha 
-            </p>
-        <div class="campo-email">
-            <label>Digite seu email</label>
-            <input type="email" placeholder="usuario@gmail.com">
-        </div>
-
-            <div class="botoes">
-                <button class="cancelar">Cancelar</button>
-                <button class="enviar">Enviar e-mail</button>
+            <p>Confirme seu email abaixo. Se estiver correto, enviaremos um email<br>para recriar sua senha.</p>
+            <div class="campo-email">
+                <label for="email">Digite seu e-mail:</label>
+                <input id="email" type="email" placeholder="usuario@gmail.com">
             </div>
-            
-
+            <div class="botoes">
+                <button class="cancelar" onclick="history.back()">Voltar</button>
+                <button class="enviar">Confirmar</button>
+            </div>
         </div>
-
     </main>
-    <footer class="standard-footer"></footer>
-    <script src="../../assets/js/search-redirect.js"></script>
+
+    <div class="barra-rodape">© 2023 VIGILARE. Todos os direitos reservados.</div>
+
+    <script>
+        // Ajusta o margin-top do main automaticamente com base na altura real do header
+        function ajustarMargin() {
+            const header = document.getElementById('header');
+            const pagina = document.getElementById('pagina');
+            pagina.style.marginTop = header.offsetHeight + 'px';
+        }
+        ajustarMargin();
+        window.addEventListener('resize', ajustarMargin);
+    </script>
+    <script src="../../assets/js/trocarsenha.js"></script>
+
 </body>
 </html>

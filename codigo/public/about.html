@@ -1,30 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <script src="./assets/js/login.js"></script>
+    <title>Sobre nós - Vigilare</title>
+    <link rel="stylesheet" href="assets/css/about.css">
 </head>
 <body>
-    <header>
-        <div class="banner"><img src="./assets/images/banner_ti.png" alt=""></div>
-        <div class="barra-info">
-            <nav class="menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Sobre nós</a></li>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-topo">
+            <a href="index.html"><img src="assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
+            <nav>
+                <ul class="navegacao-header">
+                    <li class="botao-header"><a href="index.html">Home</a></li>
+                    <li class="botao-header"><a href="modulos/denuncias/denuncias.html">Denúncias</a></li>
+                    <li id="barra"></li>
+                    <li class="botao-header"><a href="about.html" class="ativo">Sobre nós</a></li>
                 </ul>
             </nav>
-            <div class="dados-usuario">
-                <span id="userInfo"></span>
-            </div>
         </div>
     </header>
-    <main>
-        <h1>Sobre nós</h1>
-        <p>Página com informações sobre o site.</p>
+
+    <!-- HERO -->
+    <section class="hero-about">
+        <div class="hero-about__linha">
+            <img class="hero-about__brasao" src="assets/images/brasao-pucminas.png" alt="Brasão PUC Minas">
+
+            <div class="hero-about__titulo">
+                <h1>Sentinelas da sua comunidade</h1>
+            </div>
+
+            <img class="hero-about__logo" src="assets/images/all-white-logo-2.svg" alt="Logo Vigilare">
+        </div>
+    </section>
+
+    <!-- CONTEÚDO -->
+    <main class="pagina-about">
+        <div class="about-conteudo">
+
+            <div class="about-bloco">
+                <p class="about-bloco__eyebrow">Quem somos</p>
+                <h2>Os Sentinelas</h2>
+                <p>
+                    Somos uma equipe formada por estudantes do curso de Engenharia de Software da PUC Minas.
+                    Nosso projeto, o site Vigilare, foi desenvolvido com a proposta de melhorar a segurança
+                    geral e a colaboração de bairros e cidades.
+                </p>
+                <p>
+                    O Vigilare é uma ferramenta de avaliação de riscos, planejamento e contribuição para a
+                    segurança do próximo, através de denúncias e mapeamento.
+                </p>
+            </div>
+
+            <div class="about-bloco">
+                <p class="about-bloco__eyebrow">Equipe</p>
+                <h2>Nossa equipe é formada por</h2>
+                <div class="equipe">
+                    <div class="equipe__membro">
+                        <div class="equipe__avatar">A</div>
+                        <div>
+                            <div class="equipe__nome">Arthur Estevão</div>
+                        </div>
+                    </div>
+                    <div class="equipe__membro">
+                        <div class="equipe__avatar">B</div>
+                        <div>
+                            <div class="equipe__nome">Bernardo Ramos</div>
+                        </div>
+                    </div>
+                    <div class="equipe__membro">
+                        <div class="equipe__avatar">F</div>
+                        <div>
+                            <div class="equipe__nome">Francisco Felipe</div>
+                        </div>
+                    </div>
+                    <div class="equipe__membro">
+                        <div class="equipe__avatar">G</div>
+                        <div>
+                            <div class="equipe__nome">Gabriel de Oliveira</div>
+                        </div>
+                    </div>
+                    <div class="equipe__membro">
+                        <div class="equipe__avatar">J</div>
+                        <div>
+                            <div class="equipe__nome">João Pedro</div>
+                        </div>
+                    </div>
+                    <div class="equipe__membro">
+                        <div class="equipe__avatar">V</div>
+                        <div>
+                            <div class="equipe__nome">Victor Dante</div>
+                        </div>
+                    </div>
+                    <div class="equipe__membro">
+                        <div class="equipe__avatar">S</div>
+                        <div>
+                            <div class="equipe__nome">Sophia Nicole</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
+
+    <div class="barra-rodape">© 2023 VIGILARE. Todos os direitos reservados.</div>
+
 </body>
 </html>
