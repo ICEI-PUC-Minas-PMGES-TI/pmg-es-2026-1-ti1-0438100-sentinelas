@@ -10,9 +10,12 @@
       },
       "date": "2026-04-17T12:00:00Z",
       "witness_count": 4,
+      "testemunhas": [],
       "relevancy": "urgent",
       "user_id": 1,
-      "status": "open"
+      "status": "open",
+      "comentarios": [],
+      "verificado": false
     },
     {
       "id": "2",
@@ -24,9 +27,29 @@
       },
       "date": "2026-04-16T18:30:00Z",
       "witness_count": 2,
+      "testemunhas": [],
       "relevancy": "informative",
       "user_id": 2,
-      "status": "open"
+      "status": "open",
+      "comentarios": [],
+      "verificado": false
+    },
+    {
+      "id": "3",
+      "type": "vandalism",
+      "description": "Vandalismo na praça central durante a madrugada",
+      "location": {
+        "lat": -19.908,
+        "lng": -43.996
+      },
+      "date": "2026-04-15T03:00:00Z",
+      "witness_count": 0,
+      "testemunhas": [],
+      "relevancy": "moderate",
+      "user_id": 3,
+      "status": "open",
+      "comentarios": [],
+      "verificado": true
     }
   ],
   "heatmap": {
@@ -64,6 +87,7 @@
     "name": "João Pedro",
     "cpf": "123.456.789-01",
     "email": "joao@teste.com",
+    "password": "senha123",
     "phone_number": "(31) 99999-9999",
     "profile_pic_url": "https://s2.vigilare.com/profile/234249234"
   },
@@ -73,6 +97,7 @@
       "name": "Carlos Silva",
       "cpf": "987.654.321-00",
       "email": "carlos@imobiliaria.com",
+      "password": "senha123",
       "phone_number": "(31) 98888-8888",
       "senha": "Senha123",
       "specialty": "Imóveis Residenciais",
@@ -84,6 +109,7 @@
       "name": "Marina Costa",
       "cpf": "456.789.123-45",
       "email": "marina@imobiliaria.com",
+      "password": "senha123",
       "phone_number": "(31) 97777-7777",
       "senha": "Senha123",
       "specialty": "Imóveis Comerciais",
@@ -135,18 +161,54 @@
       "agentId": 1,
       "id": "XbBQsn42lJk"
     }
-
   ],
-  "usuarios" :[
+  "usuarios": [
     {
+      "id": 1,
       "usuario": "João Pedro",
       "email": "joao@teste.com",
       "numero": "(31) 99999-9999",
       "senha": "senha123"
+    },
+    {
+      "id": 2,
+      "usuario": "Maria Santos",
+      "email": "maria@teste.com",
+      "numero": "(31) 98888-8888",
+      "senha": "senha123"
+    },
+    {
+      "id": 3,
+      "usuario": "Carlos Oliveira",
+      "email": "carlos@teste.com",
+      "numero": "(31) 97777-7777",
+      "senha": "senha123"
+    }
+  ],
+  "denuncia_testemunhas": [
+    {
+      "id": 1,
+      "denuncia_id": "1",
+      "usuario_id": 2,
+      "depoimento": "Vi o furto acontecer por volta do meio-dia. O carro estava estacionado na rua.",
+      "enviadoEm": "2026-04-17T13:00:00Z"
+    },
+    {
+      "id": 2,
+      "denuncia_id": "1",
+      "usuario_id": 3,
+      "depoimento": "Estava passando na rua e presenciei tudo. Anotei a placa do veículo suspeito.",
+      "enviadoEm": "2026-04-17T14:30:00Z"
+    },
+    {
+      "id": 3,
+      "denuncia_id": "2",
+      "usuario_id": 1,
+      "depoimento": "Ouvi os gritos e vi o assalto da minha janela. Eram dois homens em uma moto.",
+      "enviadoEm": "2026-04-16T19:00:00Z"
     }
   ],
   "change_password": [],
   "profile_delete": [],
   "$schema": "./node_modules/json-server/schema.json"
-
 }

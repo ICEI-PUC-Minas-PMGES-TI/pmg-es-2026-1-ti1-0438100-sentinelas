@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+
+<body>
+    <header class="standard-header">
+        <a href="../home/home.html"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
+
+        <nav>
+            <ul class="standard-header-nav">
+                <li class="standard-header-nav-item"><a href="../home/home.html">Home</a></li>
+                <li class="standard-header-nav-item"><a href="../denuncias/denuncias.html">Denúncias</a></li>
+                <li class="standard-header-nav-item"><a href="../imoveis/exibicao-imoveis.html">Imóveis</a></li>
+                <li class="standard-header-nav-divider"></li>
+                <li class="standard-header-nav-item"><a href="../login/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="admin-titulo">
+        <h1>Painel Administrativo</h1>
+        <p>Revise e gerencie as denúncias cadastradas no sistema.</p>
+    </div>
+
+    <div class="admin-filtros">
+        <label for="filtro-status">Filtrar:</label>
+        <select id="filtro-status">
+            <option value="pendentes">Pendentes</option>
+            <option value="todas">Todas</option>
+            <option value="verificadas">Verificadas</option>
+        </select>
+        <span class="admin-contador" id="contador">0 denúncias</span>
+    </div>
+
+    <main class="admin-lista" id="lista-denuncias">
+        <div class="admin-vazio">
+            <h3>Carregando...</h3>
+        </div>
+    </main>
+
+    <footer class="standard-footer"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../../assets/js/admin.js"></script>
+</body>
+
+</html>
