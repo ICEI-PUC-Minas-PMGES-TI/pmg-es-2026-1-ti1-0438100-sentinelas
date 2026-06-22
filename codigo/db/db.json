@@ -14,7 +14,8 @@
       "relevancy": "urgent",
       "user_id": 1,
       "status": "open",
-      "comentarios": []
+      "comentarios": [],
+      "verificado": false
     },
     {
       "id": "2",
@@ -30,7 +31,25 @@
       "relevancy": "informative",
       "user_id": 2,
       "status": "open",
-      "comentarios": []
+      "comentarios": [],
+      "verificado": false
+    },
+    {
+      "id": "3",
+      "type": "vandalism",
+      "description": "Vandalismo na praça central durante a madrugada",
+      "location": {
+        "lat": -19.908,
+        "lng": -43.996
+      },
+      "date": "2026-04-15T03:00:00Z",
+      "witness_count": 0,
+      "testemunhas": [],
+      "relevancy": "moderate",
+      "user_id": 3,
+      "status": "open",
+      "comentarios": [],
+      "verificado": true
     }
   ],
   "heatmap": {
@@ -150,6 +169,43 @@
       "email": "joao@teste.com",
       "numero": "(31) 99999-9999",
       "senha": "senha123"
+    },
+    {
+      "id": 2,
+      "usuario": "Maria Santos",
+      "email": "maria@teste.com",
+      "numero": "(31) 98888-8888",
+      "senha": "senha123"
+    },
+    {
+      "id": 3,
+      "usuario": "Carlos Oliveira",
+      "email": "carlos@teste.com",
+      "numero": "(31) 97777-7777",
+      "senha": "senha123"
+    }
+  ],
+  "denuncia_testemunhas": [
+    {
+      "id": 1,
+      "denuncia_id": "1",
+      "usuario_id": 2,
+      "depoimento": "Vi o furto acontecer por volta do meio-dia. O carro estava estacionado na rua.",
+      "enviadoEm": "2026-04-17T13:00:00Z"
+    },
+    {
+      "id": 2,
+      "denuncia_id": "1",
+      "usuario_id": 3,
+      "depoimento": "Estava passando na rua e presenciei tudo. Anotei a placa do veículo suspeito.",
+      "enviadoEm": "2026-04-17T14:30:00Z"
+    },
+    {
+      "id": 3,
+      "denuncia_id": "2",
+      "usuario_id": 1,
+      "depoimento": "Ouvi os gritos e vi o assalto da minha janela. Eram dois homens em uma moto.",
+      "enviadoEm": "2026-04-16T19:00:00Z"
     }
   ],
   "change_password": [],
