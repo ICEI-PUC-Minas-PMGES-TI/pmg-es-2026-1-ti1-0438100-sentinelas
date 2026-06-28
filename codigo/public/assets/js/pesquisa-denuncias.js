@@ -24,7 +24,7 @@ function capitalizeWords(str) {
 
 function translateType(type) {
     if (!type) return 'Denúncia';
-    switch(type.toString().toLowerCase()) {
+    switch (type.toString().toLowerCase()) {
         case 'theft': return 'Furto';
         case 'vandalism': return 'Vandalismo';
         case 'assault': return 'Assalto';
@@ -88,7 +88,7 @@ function renderResults(denuncias) {
         const descricao = d.description || '';
         const testemunhas = d.witness_count || 0;
         const dataTexto = timeAgo(d.date);
-        
+
         const hasCoords = d.location && typeof d.location.lat === 'number' && typeof d.location.lng === 'number';
         const displayLoc = hasCoords ? `${d.location.lat.toFixed(5)}, ${d.location.lng.toFixed(5)}` : 'Local não informado';
 
@@ -154,9 +154,9 @@ function applyFilters(updateUrl = true) {
     }
 
     filteredDenuncias = allDenuncias.filter(d => {
-        const matchesSearch = !searchTerm || 
-                             d.description?.toLowerCase().includes(searchTerm) || 
-                             d.type?.toLowerCase().includes(searchTerm);
+        const matchesSearch = !searchTerm ||
+            d.description?.toLowerCase().includes(searchTerm) ||
+            d.type?.toLowerCase().includes(searchTerm);
         const matchesType = !typeFilter || d.type === typeFilter;
         const matchesRelevancy = !relevancyFilter || d.relevancy === relevancyFilter;
         const matchesStatus = !statusFilter || d.status === statusFilter;
@@ -195,8 +195,8 @@ document.querySelectorAll('[data-sort]').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const sortType = e.target.getAttribute('data-sort');
-        
-        switch(sortType) {
+
+        switch (sortType) {
             case 'newest':
                 filteredDenuncias.sort((a, b) => new Date(b.date) - new Date(a.date));
                 break;
@@ -217,20 +217,20 @@ document.querySelectorAll('[data-sort]').forEach(link => {
 
 async function init() {
     try {
-        const resp = await fetch('http://localhost:3000/denuncias');
+        const resp = await fetch('http://localhost:3000/denuncias?verificado=true');
         if (!resp.ok) throw new Error('Falha ao carregar dados');
-        
+
         allDenuncias = await resp.json();
-        
+
         const urlParams = new URLSearchParams(window.location.search);
         const searchParam = urlParams.get('search');
-        
+
         if (searchParam) {
             searchInput.value = searchParam;
         }
 
         applyFilters(false);
-        
+
     } catch (err) {
         console.error(err);
         resultsList.innerHTML = `<div class="alert alert-danger w-100">Erro ao carregar denúncias. Verifique se o servidor está rodando.</div>`;

@@ -19,59 +19,16 @@ body {
 }
 
 /* ============================================================
-    2. HEADER
-   ============================================================ */
-header {
-    background-color: white;
-    box-shadow: 1px 2px 2px rgb(173, 172, 172);
-    padding: 4vh;
-    top: 0;
-    z-index: 1000;
-}
-
-header h2 {
-    margin: 0;
-}
-
-.navegacao-header {
-    list-style: none;
-    gap: 50px;
-    margin: 0;
-}
-
-.navegacao-header .botao-header a {
-    text-decoration: none;
-    padding: 10px 10px;
-    color: black;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.navegacao-header .botao-header:hover {
-    background-color: #236377;
-    transition: 0.1s;
-    border-radius: 5px;
-}
-
-.navegacao-header .botao-header:hover a {
-    color: white;
-    transition: 0.1s;
-}
-
-#barra {
-    border-left: solid black 1px;
-    height: 30px;
-}
-
-/* ============================================================
     3. MAIN
    ============================================================ */
 
-main{
+main {
     margin-top: 20vh;
 }
 
-.modo-edicao { display: none; }
+.modo-edicao {
+    display: none;
+}
 
 #perfil-corretor {
     padding: 10px;
@@ -90,7 +47,8 @@ main{
     max-width: 750px;
 }
 
-#btnEditar, #btnSalvar {
+#btnEditar,
+#btnSalvar {
     padding: 8px 24px;
     font-size: 15px;
     font-weight: 600;
@@ -152,7 +110,7 @@ main{
 }
 
 #dados-corretor ul {
-    
+
     width: 100%;
     padding: 0;
     margin: 0;
@@ -172,6 +130,7 @@ main{
     width: 140px;
     text-align: left;
 }
+
 #dados-corretor li span {
     flex: 1;
 }
@@ -238,6 +197,7 @@ main{
     min-width: 120px;
     background-color: #236377;
 }
+
 #imoveis {
     width: 100%;
     max-width: 750px;

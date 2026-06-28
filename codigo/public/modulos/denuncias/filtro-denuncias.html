@@ -18,33 +18,29 @@
 </head>
 
 <body>
-
-  <header class="standard-header">
+  <header class="header w-100 d-flex justify-content-between align-items-center">
     <a href="#"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
-
     <nav>
-      <ul class="standard-header-nav">
-        <li class="standard-header-nav-item"><a href="../denuncias/denuncias.html">Home</a></li>
-        <li class="standard-header-nav-item"><a href="../denuncias/denuncias.html">Denúncias</a></li>
-        <li class="standard-header-nav-item"><a href="../imoveis/exibicao-imoveis.html">Imóveis</a></li>
-        <li class="standard-header-nav-divider"></li>
-        <li class="standard-header-nav-item"><a href="#">Login</a></li>
+      <ul class="navegacao-header d-flex">
+        <li class="botao-header"><a href="../denuncias/denuncias.html">Denúncias</a></li>
+        <li class="botao-header"><a href="../imoveis/exibicao-imoveis.html">Imóveis</a></li>
+        <li id="barra"></li>
+        <li class="botao-header"><a href="../login/login.html">Login</a></li>
       </ul>
     </nav>
   </header>
 
   <div class="standard-sub-nav">
     <nav class="standard-sub-nav-left">
-      <select name="Cidade" id="escolherCidade" class="standard-select"></select>
+
       <div class="standard-search-container">
-        <svg class="standard-search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          viewBox="0 0 16 16">
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+
         </svg>
-        <input class="standard-search-input barra-pesquisa" type="text" id="searchInput" placeholder="Pesquise...">
+        <input class="standard-search-input barra-pesquisa pesquisa-denuncias" type="text" id="searchInput"
+          placeholder="Pesquise denúncias...">
       </div>
-      <button class="standard-search-button pesquisar-resultado" id="searchBtn"> Pesquisar Resultados </button>
+      <button class="standard-search-button pesquisar-resultado botao-denuncias" id="searchBtn"> Pesquisar Resultados
+      </button>
     </nav>
     <nav class="standard-sub-nav-right">
       <button class="standard-nav-action" id="filterToggleBtn" title="Filtros">
@@ -67,33 +63,28 @@
   </div>
 
   <!-- MAIN -->
-  <main class="main-with-filters">
-
-    <!-- FILTROS (painel lateral) -->
+  <main class="main">
     <aside class="filters" id="filterPanel">
-      <div class="filters__header">
-        <h2 class="filters__title">Filtros</h2>
-        <button class="filters__close" id="filterCloseBtn" title="Fechar filtros">
-          <i class="bi bi-x-lg"></i>
-        </button>
+      <div class="filtersHeader">
+        <h2 class="filtersTitle">Filtros</h2>
       </div>
 
-      <form class="filter-form" id="filterForm" novalidate>
+      <form class="filterForm" id="filterForm" novalidate>
 
-        <div class="filter-field">
-          <label class="filter-field__label" for="tipoDenuncia">Tipo de denúncia</label>
-          <input type="text" class="filter-field__input" id="tipoDenuncia" placeholder="Furto, roubo..." />
+        <div class="filterField">
+          <label class="filterFieldLabel" for="tipoDenuncia">Tipo de denúncia</label>
+          <input type="text" class="filterFieldInput" id="tipoDenuncia" placeholder="Furto, roubo..." />
         </div>
 
-        <div class="filter-field">
-          <label class="filter-field__label" for="origem">Origem</label>
-          <input type="text" class="filter-field__input" id="origem" placeholder="Belo Horizonte..." />
+        <div class="filterField">
+          <label class="filterFieldLabel" for="origem">Origem</label>
+          <input type="text" class="filterFieldInput" id="origem" placeholder="Belo Horizonte..." />
         </div>
 
-        <div class="filter-field">
-          <label class="filter-field__label" for="relevancia">Relevância</label>
-          <div class="filter-field__select-wrap">
-            <select class="filter-field__input filter-field__select" id="relevancia">
+        <div class="filterField">
+          <label class="filterFieldLabel" for="relevancia">Relevância</label>
+          <div class="filterFieldSelectWrap">
+            <select class="filterFieldInput filterFieldSelect" id="relevancia">
               <option value="">Todas</option>
               <option value="urgente">Urgente</option>
               <option value="moderado">Moderado</option>
@@ -103,25 +94,22 @@
           </div>
         </div>
 
-        <div class="filter-field">
-          <label class="filter-field__label">Data da ocorrência</label>
-          <div class="filter-field__date-wrap">
-            <div class="filter-field__date-field">
-              <span class="filter-field__date-placeholder" id="datePlaceholder">De &nbsp;–&nbsp; Até</span>
-              <input type="date" class="filter-field__input filter-field__input--date" id="dataInicio" />
-              <input type="date" class="filter-field__input filter-field__input--date" id="dataFim" />
-            </div>
+        <div class="filterField">
+          <label class="filterFieldLabel">Data da ocorrência</label>
+          <div style="display: grid; gap: 8px;">
+            <input type="date" class="filterFieldInput" id="dataInicio" />
+            <input type="date" class="filterFieldInput" id="dataFim" />
           </div>
         </div>
 
-        <div class="filter-field">
-          <label class="filter-field__label" for="testemunhas">Testemunhas</label>
-          <input type="number" min="0" class="filter-field__input" id="testemunhas" placeholder="3, 4..." />
+        <div class="filterField">
+          <label class="filterFieldLabel" for="testemunhas">Testemunhas</label>
+          <input type="number" min="0" class="filterFieldInput" id="testemunhas" placeholder="Ex: 3" />
         </div>
 
-        <div class="filter-form__actions">
-          <button type="reset" class="filter-form__btn filter-form__btn--reset" id="resetBtn">Limpar</button>
-          <button type="submit" class="filter-form__btn filter-form__btn--apply">Aplicar</button>
+        <div class="filterFormActions">
+          <button type="reset" class="filterFormBtn filterFormBtnReset" id="resetBtn">Limpar</button>
+          <button type="submit" class="filterFormBtn filterFormBtnApply">Aplicar</button>
         </div>
 
       </form>
@@ -134,15 +122,6 @@
         <div>
           <h1 class="results__title">Resultados</h1>
           <span class="results__count" id="resultsCount">12 denúncias encontradas</span>
-        </div>
-
-        <div class="results__sort">
-          <label class="results__sort-label" for="sortSelect">Ordenar:</label>
-          <select class="results__sort-select" id="sortSelect">
-            <option value="recente">Mais recente</option>
-            <option value="urgente">Urgência</option>
-            <option value="az">A – Z</option>
-          </select>
         </div>
       </div>
 
@@ -303,6 +282,8 @@
   <footer class="standard-footer"></footer>
 
   <script src="../../assets/js/filtro-denuncias.js"></script>
+  <script src="../../assets/js/search-redirect.js"></script>
+  <script src="../../assets/js/script.js"></script>
 
 </body>
 

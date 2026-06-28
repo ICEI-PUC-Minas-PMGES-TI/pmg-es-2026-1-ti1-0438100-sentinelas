@@ -1,205 +1,91 @@
-/* ─────────────────────────────────────────
-   filters.css – Vigilare Standard Filters
-   ───────────────────────────────────────── */
-
-/* ─── MAIN LAYOUT WITH FILTERS ───────── */
-.main-with-filters {
-    max-width: 1400px;
-    margin: 32px auto;
-    padding: 0 24px;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 28px;
-    flex: 1;
-}
-
-/* ─── FILTERS PANEL ──────────────────── */
 .filters {
-    background: var(--clr-white);
-    border-radius: var(--radius);
-    padding: 24px;
-    height: fit-content;
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--clr-border);
-    animation: slideIn .3s ease both;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px;
 }
 
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(-12px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-
-.filters__header {
+.filtersHeader {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.filters__title {
+.filtersTitle {
     font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--clr-primary);
-    margin: 0;
+    font-weight: bold;
+    color: #236377;
 }
 
-.filters__close {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 6px;
-    transition: background var(--transition);
-    display: none; /* Visible only on mobile */
-    align-items: center;
-    justify-content: center;
-}
-
-.filters__close:hover { background: var(--clr-primary-lt); }
-
-/* ─── FILTER FORM ────────────────────── */
-.filter-form {
+.filterForm {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 15px;
 }
 
-.filter-field {
+.filterField {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
 }
 
-.filter-field__label {
-    display: block;
-    font-size: .9rem;
-    color: var(--clr-muted);
-    font-weight: 600;
-}
-
-.filter-field__input {
-    width: 100%;
-    height: 40px;
-    border: 1px solid var(--clr-border);
-    border-radius: 8px;
-    padding: 0 12px;
-    font-size: .95rem;
-    color: var(--clr-text);
-    background: var(--clr-white);
-    transition: border-color var(--transition), box-shadow var(--transition);
-}
-
-.filter-field__input::placeholder { color: var(--clr-faint); }
-
-.filter-field__input:focus {
-    outline: none;
-    border-color: var(--clr-primary);
-    box-shadow: 0 0 0 3px rgba(35, 99, 119, 0.1);
-}
-
-/* Select Styling */
-.filter-field__select-wrap {
+.filterFieldSeelctWrap {
     position: relative;
 }
 
-.filter-field__select {
-    appearance: none;
-    cursor: pointer;
-    padding-right: 32px;
+.filterFieldInput {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #236377;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-.filter-field__select-wrap::after {
-    content: '';
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid var(--clr-primary);
-    pointer-events: none;
-}
-
-/* Date Range Styling */
-.filter-field__date-field {
+.filterFormActions {
     display: flex;
-    gap: 8px;
-}
-
-.filter-field__input--date {
-    flex: 1;
-    font-size: .85rem;
-}
-
-/* Form Actions */
-.filter-form__actions {
-    display: flex;
+    justify-content: space-between;
     gap: 10px;
-    margin-top: 4px;
+    margin-top: 20px;
 }
 
-.filter-form__btn {
-    flex: 1;
-    height: 42px;
+.filterFormBtn {
+    padding: 10px 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: .95rem;
-    font-weight: 600;
-    transition: all var(--transition);
+    transition: background-color 0.2s, color 0.2s;
 }
 
-.filter-form__btn--reset {
-    background: var(--clr-bg);
-    color: var(--clr-muted);
-    border: 1px solid var(--clr-border);
+.filterFormBtnReset {
+    background-color: #ffffff;
+    color: #236377;
+    border: 2px solid #236377;
 }
 
-.filter-form__btn--reset:hover {
-    background: #e9ecef;
+.filterFormBtnReset:hover {
+    background-color: #236377;
+    color: #ffffff;
 }
 
-.filter-form__btn--apply {
-    background: var(--clr-primary);
-    color: var(--clr-white);
+.filterFormBtnApply {
+    background-color: #236377;
+    color: #ffffff;
 }
 
-.filter-form__btn--apply:hover {
-    background: var(--clr-primary-dk);
-    box-shadow: 0 4px 12px rgba(35, 99, 119, 0.25);
+.filterFormBtnApply:hover {
+    background-color: #1a4d5c;
 }
 
-/* ─── RESPONSIVE ──────────────────────── */
-@media (max-width: 1024px) {
-    .main-with-filters {
-        grid-template-columns: 260px 1fr;
-    }
+#filterToggleBtn {
+    display: none;
 }
 
 @media (max-width: 860px) {
-    .main-with-filters {
-        grid-template-columns: 1fr;
-    }
-
-    .filters {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 2000;
-        border-radius: 0;
-        overflow-y: auto;
-    }
-
-    .filters.is-open {
-        display: block;
-    }
-
-    .filters__close {
+    #filterToggleBtn {
         display: flex;
     }
 }

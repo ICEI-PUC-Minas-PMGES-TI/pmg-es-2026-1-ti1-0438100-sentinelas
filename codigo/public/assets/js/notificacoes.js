@@ -57,7 +57,7 @@ function formatarPrioridade(relevancy) {
   return configuracoes[relevancy] || { label: 'Moderada', className: 'text-bg-secondary' };
 }
 
-fetch('http://localhost:3000/denuncias')
+fetch('http://localhost:3000/denuncias?verificado=true')
   .then((response) => {
     if (!response.ok) {
       throw new Error('Não foi possível carregar as denúncias.');

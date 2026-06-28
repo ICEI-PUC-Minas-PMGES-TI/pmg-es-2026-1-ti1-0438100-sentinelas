@@ -1,4 +1,5 @@
 const API_URL = "http://localhost:3000/properties";
+const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
 // Pega o ID da URL
 const params = new URLSearchParams(window.location.search);
@@ -44,15 +45,14 @@ async function carregarImovel() {
     const imovel = await res.json();
 
     // Preenche os campos com os dados atuais
-    document.getElementById("nome").value          = imovel.nome      ?? "";
-    document.getElementById("local").value         = imovel.local     ?? "";
-    document.getElementById("preco").value         = imovel.preco     ?? "";
-    document.getElementById("quartos").value       = imovel.quartos   ?? "";
-    document.getElementById("banheiros").value     = imovel.banheiros ?? "";
-    document.getElementById("tipo").value          = imovel.tipo      ?? "";
-    document.getElementById("tamanho-imovel").value = imovel.tamanho  ?? "";
-    document.getElementById("descricao").value     = imovel.descricao ?? "";
-    document.getElementById("agent_id").value = imovel.agentId ?? "";
+    document.getElementById("nome").value = imovel.nome ?? "";
+    document.getElementById("local").value = imovel.local ?? "";
+    document.getElementById("preco").value = imovel.preco ?? "";
+    document.getElementById("quartos").value = imovel.quartos ?? "";
+    document.getElementById("banheiros").value = imovel.banheiros ?? "";
+    document.getElementById("tipo").value = imovel.tipo ?? "";
+    document.getElementById("tamanho-imovel").value = imovel.tamanho ?? "";
+    document.getElementById("descricao").value = imovel.descricao ?? "";
 
     // Popula cidades e seleciona a cidade salva
     await popularCidades(imovel.cidade ?? "");
@@ -114,18 +114,18 @@ async function salvarAlteracoes(event) {
   }
 
   const imovelAtualizado = {
-    nome:        document.getElementById("nome").value.trim(),
-    local:       document.getElementById("local").value.trim(),
-    cidade:      document.getElementById("cidade")?.value ?? "",
-    tipo:        document.getElementById("tipo").value,
-    preco:       parseFloat(document.getElementById("preco").value),
-    quartos:     parseInt(document.getElementById("quartos").value),
-    banheiros:   parseInt(document.getElementById("banheiros").value),
-    tamanho:     document.getElementById("tamanho-imovel").value.trim(),
-    descricao:   document.getElementById("descricao").value.trim(),
-    fotos:       fotos,
+    nome: document.getElementById("nome").value.trim(),
+    local: document.getElementById("local").value.trim(),
+    cidade: document.getElementById("cidade")?.value ?? "",
+    tipo: document.getElementById("tipo").value,
+    preco: parseFloat(document.getElementById("preco").value),
+    quartos: parseInt(document.getElementById("quartos").value),
+    banheiros: parseInt(document.getElementById("banheiros").value),
+    tamanho: document.getElementById("tamanho-imovel").value.trim(),
+    descricao: document.getElementById("descricao").value.trim(),
+    fotos: fotos,
     dataCadastro: window._dataCadastro,
-    agentId: String(document.getElementById("agent_id").value),
+    agentId: usuario.id,
   };
 
   try {

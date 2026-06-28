@@ -12,29 +12,28 @@
 </head>
 
 <body>
-    <header class="standard-header">
+    <header class="header w-100 d-flex justify-content-between align-items-center">
         <a href="#"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
-
         <nav>
-            <ul class="standard-header-nav">
-                <li class="standard-header-nav-item"><a href="../denuncias/denuncias.html">Home</a></li>
-                <li class="standard-header-nav-item"><a href="../denuncias/denuncias.html">Denúncias</a></li>
-                <li class="standard-header-nav-item"><a href="../imoveis/exibicao-imoveis.html">Imóveis</a></li>
-                <li class="standard-header-nav-divider"></li>
-                <li class="standard-header-nav-item"><a href="#">Login</a></li>
+            <ul class="navegacao-header d-flex">
+                <li class="botao-header"><a href="../denuncias/denuncias.html">Denúncias</a></li>
+                <li class="botao-header"><a href="../imoveis/exibicao-imoveis.html">Imóveis</a></li>
+                <li class="botao-header" id="admin-link" style="display: none;"><a href="../admin/index.html">Admin</a>
+                </li>
+                <li class="botao-header" id="corretor-link" style="display: none;"><a
+                        href="../imoveis/cadastro-de-imoveis.html">Cadastro de imóveis</a>
+                </li>
+                <li id="barra"></li>
+                <li class="botao-header"><a href="../login/login.html" id="username">Login</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="standard-sub-nav">
         <nav class="standard-sub-nav-left">
-            <select name="Cidade" id="escolherCidade" class="standard-select"></select>
+
             <div class="standard-search-container">
-                <svg class="standard-search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg>
+
                 <input class="standard-search-input" type="text" placeholder="Pesquise...">
             </div>
             <button class="standard-search-button" id="btnSearchMain"> Pesquisar Resultados </button>
@@ -42,13 +41,15 @@
         <nav class="standard-sub-nav-right">
             <a class="standard-nav-action" href="../denuncias/cadastro-denuncias.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
                 </svg>
             </a>
 
             <a href="../notificacoes/notificacoes.html" class="standard-nav-action">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                    <path
+                        d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
                 </svg>
             </a>
         </nav>
@@ -95,6 +96,7 @@
     </main>
     <footer class="standard-footer"></footer>
     <script src="../../assets/js/cadastro-de-corretor.js"></script>
+    <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/search-redirect.js"></script>
 </body>
 
