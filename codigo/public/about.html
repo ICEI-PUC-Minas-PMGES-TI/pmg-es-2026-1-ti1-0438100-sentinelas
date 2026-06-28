@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Sobre nós - Vigilare</title>
     <link rel="stylesheet" href="assets/css/about.css">
 </head>
-<body>
 
-    <!-- HEADER -->
-    <header class="header" id="header">
-        <div class="header-topo">
-            <a href="index.html"><img src="assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
-            <nav>
-                <ul class="navegacao-header">
-                    <li class="botao-header"><a href="index.html">Home</a></li>
-                    <li class="botao-header"><a href="modulos/denuncias/denuncias.html">Denúncias</a></li>
-                    <li id="barra"></li>
-                    <li class="botao-header"><a href="about.html" class="ativo">Sobre nós</a></li>
-                </ul>
-            </nav>
-        </div>
+<body>
+    <header class="header w-100 d-flex justify-content-between align-items-center">
+        <a href="#"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
+        <nav>
+            <ul class="navegacao-header d-flex">
+                <li class="botao-header"><a href="../denuncias/denuncias.html">Denúncias</a></li>
+                <li class="botao-header"><a href="../imoveis/exibicao-imoveis.html">Imóveis</a></li>
+                <li class="botao-header" id="admin-link" style="display: none;"><a href="../admin/index.html">Admin</a>
+                </li>
+                <li class="botao-header" id="corretor-link" style="display: none;"><a
+                        href="../imoveis/cadastro-de-imoveis.html">Cadastro de imóveis</a>
+                </li>
+                <li id="barra"></li>
+                <li class="botao-header"><a href="../login/login.html" id="username">Login</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- HERO -->
@@ -108,4 +111,5 @@
     <div class="barra-rodape">© 2023 VIGILARE. Todos os direitos reservados.</div>
 
 </body>
+
 </html>

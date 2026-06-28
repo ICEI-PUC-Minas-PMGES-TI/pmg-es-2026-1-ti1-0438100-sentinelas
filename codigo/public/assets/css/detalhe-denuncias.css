@@ -68,7 +68,7 @@ body {
     padding: 30px;
     width: 700px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .detalhes h1 {
@@ -94,7 +94,9 @@ body {
     border-radius: 6px;
 }
 
-.descricao, .local, .mapa {
+.descricao,
+.local,
+.mapa {
     margin-bottom: 20px;
 }
 
@@ -231,6 +233,7 @@ body {
     cursor: pointer;
     border-radius: 4px;
 }
+
 /* STATUS DENÚNCIA */
 .status-denuncia {
     display: flex;
@@ -308,15 +311,6 @@ body {
     resize: vertical;
     margin-top: 16px;
     font-family: Arial, sans-serif;
-}
-
-.popup-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 14px;
 }
 
 .popup-actions {

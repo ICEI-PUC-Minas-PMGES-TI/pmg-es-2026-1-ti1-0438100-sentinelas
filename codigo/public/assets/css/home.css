@@ -42,7 +42,7 @@ header h2 {
     margin: 0;
 }
 
-.navegacao-header .botao-header{
+.navegacao-header .botao-header {
     border-bottom: white 1px solid;
     transition: 0.2s ease-in-out
 }
@@ -60,7 +60,7 @@ header h2 {
 }
 
 .navegacao-header .botao-header:hover a {
-    color: #236377 ;
+    color: #236377;
 }
 
 #barra {
@@ -72,7 +72,7 @@ header h2 {
     3. MAIN
    ============================================================ */
 
-main{
+main {
     margin-top: 20vh;
 }
 
@@ -80,12 +80,12 @@ main{
     3.1 BANNER
    ============================================================ */
 
-#banner{
+#banner {
     border-radius: 20px;
     border: rgb(145, 145, 145) 1px solid;
 }
 
-ul{
+ul {
     text-decoration: none;
     list-style: none;
     margin: 0;
@@ -97,14 +97,14 @@ ul{
     padding: 15px 20px;
     text-decoration: none;
     color: white;
-    transition: all 0.2s ease-in-out; 
+    transition: all 0.2s ease-in-out;
 }
 
 .denuncias a:hover {
     box-shadow: 0 0 15px rgba(36, 99, 119, 0.6);
 }
 
-.imoveis a{
+.imoveis a {
     border-radius: 10px;
     background-color: #ecf5f8;
     padding: 15px 20px;
@@ -120,15 +120,15 @@ ul{
 .card-forma {
     width: 900px;
     height: 300px;
-    border-radius: 40px; 
-    overflow: hidden; 
+    border-radius: 40px;
+    overflow: hidden;
 }
 
 .imagem-recortada {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; 
+    object-position: center;
 }
 
 /* ============================================================
@@ -277,25 +277,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-
-    /* HEADER */
-    header {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        padding: 16px;
-    }
-
-    .navegacao-header {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-        padding: 0;
-    }
-
-    #barra {
-        display: none;
-    }
 
     /* BANNER */
     #banner {

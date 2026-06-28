@@ -1,30 +1,6 @@
 /* ============================================================
-    1. SELECIONAR CIDADE (API IBGE)
+    1. SELECIONAR CIDADE - REMOVIDO
    ============================================================ */
-
-const escolherCidade = document.getElementById('escolherCidade');
-
-fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados/MG/municipios')
-    .then(res => res.json())
-    .then(municipios => {
-        municipios.sort((a, b) => a.nome.localeCompare(b.nome));
-        escolherCidade.innerHTML = '';
-        municipios.forEach(municipio => {
-            const option = document.createElement('option');
-            option.value = municipio.nome.toLowerCase().replace(/\s+/g, '');
-            option.textContent = municipio.nome;
-            escolherCidade.appendChild(option);
-        });
-        escolherCidade.value = 'belohorizonte';
-    })
-    .catch(() => {
-        escolherCidade.innerHTML = '<option value="belohorizonte">Belo Horizonte</option>';
-    });
-
-escolherCidade.addEventListener('change', function () {
-    const cidadeSelecionada = this.value;
-    carregarImoveis(cidadeSelecionada);
-});
 
 /* ============================================================
     2. HELPERS
@@ -33,7 +9,7 @@ function obterEtiquetaStatus(imovel) {
     const tipo = (imovel.tipo ?? '').toString().toLowerCase();
 
     if (tipo === 'aluguel') return { classe: 'etiqueta-seguro', texto: 'Aluguel' };
-    if (tipo === 'venda')   return { classe: 'etiqueta-atencao', texto: 'Venda' };
+    if (tipo === 'venda') return { classe: 'etiqueta-atencao', texto: 'Venda' };
     return { classe: 'etiqueta-moderado', texto: 'Disponível' };
 }
 
@@ -49,22 +25,22 @@ function formatarPreco(preco) {
 function renderizarCard(imovel) {
     const { classe, texto } = obterEtiquetaStatus(imovel);
 
-    const titulo    = imovel.nome      ?? 'Imóvel sem nome';
-    const endereco  = imovel.local     ?? 'Endereço não informado';
+    const titulo = imovel.nome ?? 'Imóvel sem nome';
+    const endereco = imovel.local ?? 'Endereço não informado';
     const descricao = imovel.descricao ?? '';
-    const preco     = imovel.preco     ?? null;
-    const quartos   = imovel.quartos   ?? null;
+    const preco = imovel.preco ?? null;
+    const quartos = imovel.quartos ?? null;
     const banheiros = imovel.banheiros ?? null;
-    const tamanho   = imovel.tamanho   ?? null;
+    const tamanho = imovel.tamanho ?? null;
 
     const foto = Array.isArray(imovel.fotos) && imovel.fotos.length > 0
         ? imovel.fotos[0]
         : null;
 
     const infoComodos = [
-        quartos   !== null ? `${quartos} quarto${quartos !== 1 ? 's' : ''}` : null,
+        quartos !== null ? `${quartos} quarto${quartos !== 1 ? 's' : ''}` : null,
         banheiros !== null ? `${banheiros} banheiro${banheiros !== 1 ? 's' : ''}` : null,
-        tamanho   !== null ? tamanho : null,
+        tamanho !== null ? tamanho : null,
     ].filter(Boolean).join(' • ');
 
     const card = document.createElement('div');
@@ -102,7 +78,7 @@ function renderizarCard(imovel) {
 
 let listaImoveisGlobal = [];
 
-async function carregarImoveis(filtroStatus = null) {
+async function carregarImoveis() {
     const container = document.getElementById('imoveis-regiao');
     if (!container) return;
 
@@ -110,14 +86,13 @@ async function carregarImoveis(filtroStatus = null) {
 
     try {
         let url = 'http://localhost:3000/properties';
-        if (filtroStatus) {
-            url += `?cidade=${encodeURIComponent(filtroStatus)}`;
-        }
 
         const resposta = await fetch(url);
         if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
 
         listaImoveisGlobal = await resposta.json();
+
+        document.getElementById('resultsCount').textContent = listaImoveisGlobal.length + " imóveis encontrados";
 
         renderizarListaFiltrada();
     } catch (erro) {
@@ -135,27 +110,48 @@ async function carregarImoveis(filtroStatus = null) {
     5. PESQUISA (Filtragem acionada apenas por eventos específicos)
    ============================================================ */
 
-const barraPesquisa = document.querySelector('.pesquisa-denuncias');
-const botaoPesquisar = document.querySelector('.botao-denuncias');
+const barraPesquisa = document.querySelector('.barra-pesquisa');
+const botaoPesquisar = document.querySelector('.pesquisar-resultado');
+
+const filterForm = document.getElementById('filterForm');
+const filterType = document.getElementById('filterType');
+const filterPrice = document.getElementById('filterPrice');
+const filterRooms = document.getElementById('filterRooms');
+const filterToggleBtn = document.getElementById('filterToggleBtn');
+const filterPanel = document.getElementById('filterPanel');
 
 function renderizarListaFiltrada() {
     const container = document.getElementById('imoveis-regiao');
     if (!container) return;
 
     const termo = barraPesquisa ? barraPesquisa.value.trim().toLowerCase() : '';
+    const tipo = filterType ? filterType.value : '';
+    const precoMax = filterPrice && filterPrice.value ? parseFloat(filterPrice.value) : null;
+    const quartosMin = filterRooms && filterRooms.value ? parseInt(filterRooms.value, 10) : null;
 
     const imoveisFiltrados = listaImoveisGlobal.filter(imovel => {
+        // 1. Pesquisa por texto
         const titulo = (imovel.nome ?? '').toLowerCase();
         const descricao = (imovel.descricao ?? '').toLowerCase();
         const endereco = (imovel.local ?? '').toLowerCase();
+        const matchesSearch = !termo || titulo.includes(termo) || descricao.includes(termo) || endereco.includes(termo);
 
-        return titulo.includes(termo) || descricao.includes(termo) || endereco.includes(termo);
+        // 2. Filtro por tipo de imóvel
+        const matchesType = !tipo || (imovel.tipo && imovel.tipo.toLowerCase() === tipo.toLowerCase());
+
+        // 3. Filtro por preço máximo
+        const matchesPrice = precoMax === null || (imovel.preco !== undefined && imovel.preco !== null && imovel.preco <= precoMax);
+
+        // 4. Filtro por mínimo de quartos
+        const matchesRooms = quartosMin === null || (imovel.quartos !== undefined && imovel.quartos !== null && imovel.quartos >= quartosMin);
+
+        return matchesSearch && matchesType && matchesPrice && matchesRooms;
     });
 
     container.innerHTML = '';
 
     if (!Array.isArray(imoveisFiltrados) || imoveisFiltrados.length === 0) {
-        container.innerHTML = '<p class="text-muted text-center" style="grid-column:1/-1;padding:20px;">Nenhum imóvel corresponde à sua busca.</p>';
+        container.innerHTML = '<p class="text-muted text-center" style="grid-column:1/-1;padding:20px;">Nenhum imóvel corresponde aos filtros selecionados.</p>';
         return;
     }
 
@@ -175,6 +171,25 @@ if (barraPesquisa) {
             e.preventDefault();
             renderizarListaFiltrada();
         }
+    });
+}
+
+// Filtros do Painel Lateral
+if (filterForm) {
+    filterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        renderizarListaFiltrada();
+    });
+
+    filterForm.addEventListener('reset', () => {
+        setTimeout(renderizarListaFiltrada, 0);
+    });
+}
+
+// Alternar visualização do painel de filtros
+if (filterToggleBtn && filterPanel) {
+    filterToggleBtn.addEventListener('click', () => {
+        filterPanel.classList.toggle('d-none');
     });
 }
 

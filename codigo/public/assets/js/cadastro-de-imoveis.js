@@ -1,31 +1,32 @@
 //URL da API onde vai fazer o registro do imóvel
 const API_URL = "http://localhost:3000/properties";
+const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
 //Select de cidades
 async function popularCidades() {
   const select = document.getElementById('cidade');
 
   try {
-      const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados/MG/municipios');
-      const municipios = await res.json();
+    const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados/MG/municipios');
+    const municipios = await res.json();
 
-      // Ordena os municípios em ordem alfabética
-      municipios.sort((a, b) => a.nome.localeCompare(b.nome));
+    // Ordena os municípios em ordem alfabética
+    municipios.sort((a, b) => a.nome.localeCompare(b.nome));
 
-      municipios.forEach(m => {
-          const option = document.createElement('option');
-          // Value em lowercase sem espaços para facilitar filtragem
-          option.value = m.nome.toLowerCase().replace(/\s+/g, '');
-          option.textContent = m.nome;
-          select.appendChild(option);
-      });
+    municipios.forEach(m => {
+      const option = document.createElement('option');
+      // Value em lowercase sem espaços para facilitar filtragem
+      option.value = m.nome.toLowerCase().replace(/\s+/g, '');
+      option.textContent = m.nome;
+      select.appendChild(option);
+    });
 
-      // Belo Horizonte como cidade padrão
-      select.value = 'belohorizonte';
+    // Belo Horizonte como cidade padrão
+    select.value = 'belohorizonte';
 
   } catch {
-      // Fallback caso a API esteja indisponível
-      select.innerHTML = '<option value="belohorizonte">Belo Horizonte</option>';
+    // Fallback caso a API esteja indisponível
+    select.innerHTML = '<option value="belohorizonte">Belo Horizonte</option>';
   }
 }
 
@@ -82,7 +83,7 @@ async function submitImovel(event) {
     descricao: document.getElementById("descricao").value.trim(),
     fotos: fotos,
     dataCadastro: new Date().toLocaleDateString("pt-BR"),
-    agentId: String(document.getElementById("agent_id").value),
+    agentId: usuario.id,
   };
 
   try {

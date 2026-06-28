@@ -1,27 +1,24 @@
-const campoTelefone = document.getElementById('telefone');
 const campoCpf = document.getElementById('cpf');
 const campoNome = document.getElementById('nome');
 const campoEmail = document.getElementById('email');
 const btnSalvar = document.querySelector('.btn-salvar');
 
 const API_URL = 'http://localhost:3000';
+const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
 
-async function carregarPerfil() {
-    try {
-        const response = await fetch(`${API_URL}/profile/1`);
-        if (!response.ok) throw new Error('Erro ao carregar perfil');
-        const perfil = await response.json();
-
-        campoNome.value = perfil.name || '';
-        campoEmail.value = perfil.email || '';
-        campoTelefone.value = perfil.phone_number || '';
-        campoCpf.value = perfil.cpf || '';
-    } catch (error) {
-        console.error('Erro ao carregar perfil:', error);
-    }
+function carregarPerfil() {
+    campoNome.value = usuario.nome;
+    campoEmail.value = usuario.email;
+    campoCpf.value = usuario.cpf;
 }
 
-carregarPerfil();
+document.addEventListener('DOMContentLoaded', () => {
+    if (!usuario) {
+        window.location.href = 'login.html';
+    }
+
+    carregarPerfil();
+});
 
 campoTelefone.addEventListener('input', () => {
     let v = campoTelefone.value.replace(/\D/g, '').slice(0, 11);
@@ -102,7 +99,7 @@ btnSalvar.addEventListener('click', async () => {
         btnSalvar.textContent = 'Salvando...';
         btnSalvar.disabled = true;
 
-        const response = await fetch(`${API_URL}/profile/1`, {
+        const response = await fetch(`${API_URL}/profile/${usuario.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

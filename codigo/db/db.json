@@ -50,6 +50,28 @@
       "status": "open",
       "comentarios": [],
       "verificado": true
+    },
+    {
+      "type": "other",
+      "description": "Teste",
+      "location": [
+        -19.8977713,
+        -44.020092
+      ],
+      "relevancy": "informative",
+      "date": "2026-06-28T21:58:12.681Z",
+      "witness_count": 1,
+      "status": "open",
+      "user_id": 1,
+      "id": "T9Oh1mBnzRo",
+      "testemunhas": [
+        {
+          "user_id": "4g1L6pfq5s0",
+          "depoimento": "teste",
+          "enviadoEm": "2026-06-28T22:29:59.252Z"
+        }
+      ],
+      "verificado": true
     }
   ],
   "heatmap": {
@@ -96,15 +118,12 @@
   "agents": [
     {
       "id": "1",
-      "name": "Carlos Silva",
+      "name": "",
       "cpf": "987.654.321-00",
-      "email": "carlos@imobiliaria.com",
-      "password": "senha123",
-      "phone_number": "(31) 98888-8888",
-      "senha": "Senha123",
-      "specialty": "Imóveis Residenciais",
-      "area_of_expertise": "Belo Horizonte e Região Metropolitana",
-      "experience": "8 anos de experiência no mercado imobiliário"
+      "specialty": "",
+      "area_of_expertise": "",
+      "experience": "",
+      "phone_number": ""
     },
     {
       "id": "2",
@@ -162,6 +181,21 @@
       "dataCadastro": "01/06/2026",
       "agentId": 1,
       "id": "XbBQsn42lJk"
+    },
+    {
+      "nome": "Teste",
+      "local": "Rua Valão, Coqueiros, Regional Noroeste, Belo Horizonte, Minas Gerais, Região Sudeste, 30880-120, Brasil",
+      "cidade": "belohorizonte",
+      "tipo": "aluguel",
+      "preco": 450000,
+      "quartos": 3,
+      "banheiros": 2,
+      "tamanho": "115",
+      "descricao": "teste",
+      "fotos": [],
+      "dataCadastro": "28/06/2026",
+      "agentId": "12",
+      "id": "8_P72etNAmg"
     }
   ],
   "usuarios": [
@@ -173,37 +207,45 @@
       "senha": "senha123"
     },
     {
-      "id": 2,
+      "id": "2",
       "usuario": "Maria Santos",
       "email": "maria@teste.com",
       "numero": "(31) 98888-8888",
       "senha": "senha123"
     },
     {
-      "id": 3,
+      "id": "3",
       "usuario": "Carlos Oliveira",
       "email": "carlos@teste.com",
       "numero": "(31) 97777-7777",
       "senha": "senha123"
+    },
+    {
+      "nome": "teste",
+      "email": "teste123@gmail.com",
+      "senha": "teste1234",
+      "cpf": "420.824.860-28",
+      "perfil": "corretor",
+      "id": "4g1L6pfq5s0"
     }
   ],
   "denuncia_testemunhas": [
     {
-      "id": 1,
+      "id": "1",
       "denuncia_id": "1",
       "usuario_id": 2,
       "depoimento": "Vi o furto acontecer por volta do meio-dia. O carro estava estacionado na rua.",
       "enviadoEm": "2026-04-17T13:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "denuncia_id": "1",
       "usuario_id": 3,
       "depoimento": "Estava passando na rua e presenciei tudo. Anotei a placa do veículo suspeito.",
       "enviadoEm": "2026-04-17T14:30:00Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "denuncia_id": "2",
       "usuario_id": 1,
       "depoimento": "Ouvi os gritos e vi o assalto da minha janela. Eram dois homens em uma moto.",

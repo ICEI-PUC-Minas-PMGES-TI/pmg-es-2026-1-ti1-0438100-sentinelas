@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,23 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/dados-corretor.css">
-    
+
 </head>
-<body>  
-    <header class="standard-header">
+
+<body>
+    <header class="header w-100 d-flex justify-content-between align-items-center">
         <a href="#"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
         <nav>
-            <ul class="standard-header-nav">
-                <li class="standard-header-nav-item"><a href="../denuncias/denuncias.html">Home</a></li>
-                <li class="standard-header-nav-item"><a href="../denuncias/denuncias.html">Denúncias</a></li>
-                <li class="standard-header-nav-item"><a href="../imoveis/exibicao-imoveis.html">Imóveis</a></li>
-                <li class="standard-header-nav-divider"></li>
-                <li class="standard-header-nav-item"><a href="#">Login</a></li>
+            <ul class="navegacao-header d-flex">
+                <li class="botao-header"><a href="../denuncias/denuncias.html">Denúncias</a></li>
+                <li class="botao-header"><a href="../imoveis/exibicao-imoveis.html">Imóveis</a></li>
+                <li class="botao-header" id="admin-link" style="display: none;"><a href="../admin/index.html">Admin</a>
+                </li>
+                <li class="botao-header" id="corretor-link" style="display: none;"><a
+                        href="../imoveis/cadastro-de-imoveis.html">Cadastro de imóveis</a>
+                </li>
+                <li id="barra"></li>
+                <li class="botao-header"><a href="../login/login.html" id="username">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -31,19 +37,27 @@
         <section id="perfil-corretor" class="d-flex justify-content-center gap-5 p-4">
             <div class="avatar-wrapper">
                 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="100" r="100" fill="#2d6e7e"/>
-                    <circle cx="100" cy="78" r="35" fill="#e8f4f7"/>
-                    <path d="M30 180 Q30 128 100 128 Q170 128 170 180" fill="#e8f4f7"/>
+                    <circle cx="100" cy="100" r="100" fill="#2d6e7e" />
+                    <circle cx="100" cy="78" r="35" fill="#e8f4f7" />
+                    <path d="M30 180 Q30 128 100 128 Q170 128 170 180" fill="#e8f4f7" />
                 </svg>
             </div>
             <div id="dados-corretor" class="d-flex flex-column gap-2 p-3">
-                <h3 class="d-flex gap-2">Nome: <span id="nome-corretor" class="modo-visualizacao" ></span> <input id="nome-input" class="modo-edicao" type="text"></h3> 
+                <h3 class="d-flex gap-2">Nome: <span id="nome-corretor" class="modo-visualizacao"></span> <input
+                        id="nome-input" class="modo-edicao" type="text"></h3>
                 <ul class="d-flex flex-column gap-3">
-                    <li class="d-flex gap-2"><strong>Especialidade:</strong> <span id="especialidade" class="modo-visualizacao" ></span> <input id="especialidade-input" class="modo-edicao" type="text"> </li>
-                    <li class="d-flex gap-2"><strong>Área de Atuação:</strong> <span id="area-atuacao" class="modo-visualizacao" ></span> <input id="area-atuacao-input" class="modo-edicao" type="text"> </li>
-                    <li class="d-flex gap-2"><strong>Experiência:</strong> <span id="experiencia" class="modo-visualizacao" ></span> <input id="experiencia-input" class="modo-edicao" type="text"> </li>
+                    <li class="d-flex gap-2"><strong>Especialidade:</strong> <span id="especialidade"
+                            class="modo-visualizacao"></span> <input id="especialidade-input" class="modo-edicao"
+                            type="text"> </li>
+                    <li class="d-flex gap-2"><strong>Área de Atuação:</strong> <span id="area-atuacao"
+                            class="modo-visualizacao"></span> <input id="area-atuacao-input" class="modo-edicao"
+                            type="text"> </li>
+                    <li class="d-flex gap-2"><strong>Experiência:</strong> <span id="experiencia"
+                            class="modo-visualizacao"></span> <input id="experiencia-input" class="modo-edicao"
+                            type="text"> </li>
                 </ul>
-                <p class="d-flex gap-2">Contato: <span id="contato" class="modo-visualizacao" ></span> <input id="contato-input" class="modo-edicao" type="text"></p>
+                <p class="d-flex gap-2">Contato: <span id="contato" class="modo-visualizacao"></span> <input
+                        id="contato-input" class="modo-edicao" type="text"></p>
             </div>
         </section>
         <section id="imoveis" class="container w-100 d-flex flex-column align-items-start p-2">
@@ -55,5 +69,7 @@
     </main>
     <footer class="standard-footer"></footer>
     <script src="../../assets/js/detalhes-corretor.js"></script>
+    <script src="../../assets/js/script.js"></script>
 </body>
+
 </html>

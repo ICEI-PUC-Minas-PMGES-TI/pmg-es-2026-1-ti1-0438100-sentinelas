@@ -80,13 +80,13 @@ async function criarCard(d) {
     try {
         const r = await fetch(`${API}/usuarios/${d.user_id}`);
         if (r.ok) criador = await r.json();
-    } catch (_) {}
+    } catch (_) { }
 
     let testemunhas = [];
     try {
         const r = await fetch(`${API}/denuncia_testemunhas?denuncia_id=${d.id}`);
         if (r.ok) testemunhas = await r.json();
-    } catch (_) {}
+    } catch (_) { }
 
     const testemunhasDetalhes = await Promise.all(testemunhas.map(async (wt) => {
         try {
@@ -95,7 +95,7 @@ async function criarCard(d) {
                 const u = await r.json();
                 return { ...wt, nome: u.usuario, email: u.email };
             }
-        } catch (_) {}
+        } catch (_) { }
         return { ...wt, nome: 'Desconhecido', email: '—' };
     }));
 

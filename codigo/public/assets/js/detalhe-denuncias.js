@@ -61,14 +61,6 @@ async function carregarDenuncia() {
         document.querySelector('.descricao p').textContent =
             d.description || 'Sem descrição.';
 
-        document.querySelector('.local p').textContent =
-            d.address || `Lat: ${d.location?.lat}, Lng: ${d.location?.lng}`;
-
-        if (d.location?.lat && d.location?.lng) {
-            const iframe = document.querySelector('.mapa iframe');
-            iframe.src = `https://www.google.com/maps?q=${d.location.lat},${d.location.lng}&output=embed`;
-        }
-
         if (d.status === 'closed') {
             statusTexto.textContent = 'Status: Resolvida ✅';
             statusTexto.classList.remove('status-pendente');

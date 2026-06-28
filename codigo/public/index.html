@@ -2,456 +2,192 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Vigilare - Denúncias</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="./assets/css/filtro-denuncias.css" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&family=Crimson+Text:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/css/home.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <title>Home</title>
 </head>
 
 <body>
-
-  <!-- NAVBAR -->
-  <header class="navbar">
-
-    <div class="navbar__brand">
-
-      <div class="navbar__logo">
-
-        <svg
-          width="44"
-          height="44"
-          viewBox="0 0 48 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <circle cx="24" cy="24" r="22" stroke="#2c6e7f" stroke-width="2"/>
-          <ellipse cx="24" cy="24" rx="10" ry="22" stroke="#2c6e7f" stroke-width="1.5"/>
-          <line x1="2" y1="24" x2="46" y2="24" stroke="#2c6e7f" stroke-width="1.5"/>
-          <path d="M12 10 Q24 18 36 10" stroke="#2c6e7f" stroke-width="1.2" fill="none"/>
-          <path d="M12 38 Q24 30 36 38" stroke="#2c6e7f" stroke-width="1.2" fill="none"/>
-        </svg>
-
-      </div>
-
-      <span class="navbar__name">
-        VIGILARE
-      </span>
-
-    </div>
-
-    <nav class="navbar__links">
-
-      <a href="#" class="navbar__link">
-        Home
-      </a>
-
-      <a href="#" class="navbar__link navbar__link--active">
-        Denúncias
-      </a>
-
+  <header class="header position-fixed w-100 d-flex justify-content-between align-items-center">
+    <a href="#"><img src="../../assets/images/logo_without_bg.png" width="72" alt="Logo do vigilare"></a>
+    <nav>
+      <ul class="navegacao-header d-flex">
+        <li class="botao-header"><a href="modulos/denuncias/denuncias.html">Denúncias</a></li>
+        <li class="botao-header"><a href="modulos/imoveis/exibicao-imoveis.html">Imóveis</a></li>
+        <li id="barra"></li>
+        <li class="botao-header"><a href="modulos/login/login.html" id="username">Login</a></li>
+      </ul>
     </nav>
-
-    <div class="navbar__user">
-
-      <span class="navbar__divider"></span>
-
-      <span class="navbar__username">
-        Usuário Teste
-      </span>
-
-    </div>
-
   </header>
-
-  <!-- SEARCH BAR -->
-  <section class="searchbar">
-
-    <div class="searchbar__inner">
-
-      <!-- LOCALIZAÇÃO -->
-      <button class="searchbar__location">
-
-        <span>Belo Horizonte, MG</span>
-
-        <svg
-          class="searchbar__caret"
-          width="12"
-          height="8"
-          viewBox="0 0 12 8"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M1 1l5 5 5-5"
-            stroke="#2c6e7f"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          />
-        </svg>
-
-      </button>
-
-      <!-- INPUT -->
-      <div class="searchbar__input-wrap">
-
-        <svg
-          class="searchbar__search-icon"
-          width="18"
-          height="18"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="9"
-            cy="9"
-            r="6.5"
-            stroke="#2c6e7f"
-            stroke-width="1.8"
-          />
-
-          <line
-            x1="14"
-            y1="14"
-            x2="19"
-            y2="19"
-            stroke="#2c6e7f"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          />
-        </svg>
-
-        <input
-          type="text"
-          class="searchbar__input"
-          placeholder="Pesquise denúncias..."
-        />
-
+  <main>
+    <section id="banner" class="d-flex flex-column m-3 p-5">
+      <div class="banner-conteudo d-flex w-100 justify-content-between gap-2 align-items-center">
+        <div class="d-flex flex-column gap-5">
+          <div>
+            <h3 style="font-family: 'Instrument serif', serif ;">Sistema de denúncias pensado para a <span
+                style="color: #236377; text-decoration: underline; ">segurança</span> do seu bairro.
+            </h3>
+            <h4 class="mt-5" style="font-family: 'Instrument serif', serif ;">Comece hoje a deixar o
+              ambiente que você vive mais seguro.</h4>
+          </div>
+          <ul class="d-flex gap-5 ">
+            <li class="denuncias"><a href="modulos/denuncias/denuncias.html">Denunciar</a></li>
+            <li class="imoveis" style="text-wrap: nowrap;"><a href="modulos/imoveis/exibicao-imoveis.html">Ver
+                imóveis</a></li>
+          </ul>
+        </div>
+        <div class="card-forma">
+          <img src="../assets/images/imagem_banner.png" alt="Foto_Bairro" class="imagem-recortada">
+        </div>
       </div>
-
-      <!-- BOTÕES -->
-      <button class="searchbar__btn searchbar__btn--outline">
-        Filtrar
-      </button>
-
-      <button class="searchbar__btn searchbar__btn--solid">
-        Pesquisar
-      </button>
-
-      <!-- ICONES -->
-      <div class="searchbar__actions">
-
-        <button class="searchbar__icon-btn">
-
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="11" fill="#2c6e7f"/>
-
-            <line
-              x1="12"
-              y1="7"
-              x2="12"
-              y2="17"
-              stroke="#fff"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-
-            <line
-              x1="7"
-              y1="12"
-              x2="17"
-              y2="12"
-              stroke="#fff"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
-
-        </button>
-
-        <button class="searchbar__icon-btn">
-
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="11" fill="#2c6e7f"/>
-
-            <path
-              d="M12 6a4 4 0 0 1 4 4v3l1.5 2H6.5L8 13V10a4 4 0 0 1 4-4z"
-              fill="#fff"
-            />
-
-            <circle cx="12" cy="18" r="1.3" fill="#fff"/>
-          </svg>
-
-          <span class="notif-badge">
-            3
-          </span>
-
-        </button>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- MAIN -->
-  <main class="main">
-
-    <!-- FILTROS -->
-    <aside class="filters">
-
-      <h2 class="filters__title">
-        Filtros
+    </section>
+    <section id="funcionalidades-site" class="p-5 m-3">
+      <h2 class="titulo-secao" style="font-family: 'Instrument Serif', serif;">
+        O que o Vigilare oferece
       </h2>
-
-      <form class="filter-form">
-
-        <div class="filter-field">
-
-          <label class="filter-field__label">
-            Tipo de denúncia
-          </label>
-
-          <input
-            type="text"
-            class="filter-field__input"
-            placeholder="Furto, roubo..."
-          />
-
+      <div class="d-flex gap-4 mt-4 flex-wrap justify-content-center">
+        <div class="card-funcionalidade">
+          <i class="bi bi-map icone-func"></i>
+          <h4>Mapa de calor</h4>
+          <p>Visualize as áreas com maior concentração de ocorrências e tome decisões mais seguras sobre onde
+            morar ou investir.</p>
         </div>
-
-        <div class="filter-field">
-
-          <label class="filter-field__label">
-            Origem
-          </label>
-
-          <input
-            type="text"
-            class="filter-field__input"
-            placeholder="Belo Horizonte..."
-          />
-
+        <div class="card-funcionalidade">
+          <i class="bi bi-house icone-func"></i>
+          <h4>Consulta de imóveis</h4>
+          <p>Corretores divulgam seus imóveis e compradores encontram opções com contexto real de segurança da
+            região.</p>
         </div>
-
-        <div class="filter-field">
-
-          <label class="filter-field__label">
-            Relevância
-          </label>
-
-          <input
-            type="text"
-            class="filter-field__input"
-            placeholder="Urgente, moderado..."
-          />
-
+        <div class="card-funcionalidade">
+          <i class="bi bi-shield icone-func"></i>
+          <h4>Denúncia anônima</h4>
+          <p>Registre ocorrências no seu bairro sem se identificar, contribuindo para uma comunidade mais
+            segura.</p>
         </div>
+      </div>
+    </section>
+    <section id="como-utilizar" class="p-5 m-3">
+      <h2 class="titulo-secao" style="font-family: 'Instrument Serif', serif;">
+        Como utilizar o Vigilare
+      </h2>
+      <div class="fluxos-container mt-5">
+        <div class="fluxo">
+          <h3 class="fluxo-titulo"><i class="bi bi-person"></i> Para cidadãos</h3>
+          <div class="timeline">
+            <div class="passo-timeline">
+              <div class="passo-numero">1</div>
+              <div class="passo-conteudo">
+                <i class="bi bi-box-arrow-in-right icone-passo"></i>
+                <div>
+                  <h5>Crie sua conta ou faça login</h5>
+                  <p>Acesse o botão "Login" no topo da página e cadastre-se gratuitamente com seu
+                    e-mail.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="filter-field">
+            <div class="passo-timeline">
+              <div class="passo-numero">2</div>
+              <div class="passo-conteudo">
+                <i class="bi bi-map icone-passo"></i>
+                <div>
+                  <h5>Explore o mapa de calor</h5>
+                  <p>Veja as regiões com mais ocorrências registradas e entenda a situação de
+                    segurança do seu bairro.</p>
+                </div>
+              </div>
+            </div>
 
-          <label class="filter-field__label">
-            Data
-          </label>
+            <div class="passo-timeline">
+              <div class="passo-numero">3</div>
+              <div class="passo-conteudo">
+                <i class="bi bi-shield icone-passo"></i>
+                <div>
+                  <h5>Faça uma denúncia anônima</h5>
+                  <p>Clique em "Denunciar", descreva a ocorrência e marque o local no mapa. Sua
+                    identidade é protegida.</p>
+                </div>
+              </div>
+            </div>
 
-          <div class="filter-field__date-wrap">
-
-            <input
-              type="date"
-              class="filter-field__input filter-field__input--date"
-            />
-
-            <input
-              type="date"
-              class="filter-field__input filter-field__input--date"
-            />
+            <div class="passo-timeline">
+              <div class="passo-numero">4</div>
+              <div class="passo-conteudo">
+                <i class="bi bi-bell icone-passo"></i>
+                <div>
+                  <h5>Receba notificações</h5>
+                  <p>Seja avisado quando novas ocorrências forem registradas perto de você.</p>
+                </div>
+              </div>
+            </div>
 
           </div>
-
         </div>
+        <div class="fluxo">
+          <h3 class="fluxo-titulo"><i class="bi bi-house"></i> Para imóveis</h3>
+          <div class="timeline">
 
-        <div class="filter-field">
+            <div class="passo-timeline">
+              <div class="passo-numero">1</div>
+              <div class="passo-conteudo">
+                <i class="bi bi-box-arrow-in-right icone-passo"></i>
+                <div>
+                  <h5>Crie sua conta ou faça login</h5>
+                  <p>Acesse o botão "Login" no topo da página e cadastre-se gratuitamente com seu
+                    e-mail.</p>
+                </div>
+              </div>
+            </div>
 
-          <label class="filter-field__label">
-            Testemunhas
-          </label>
+            <div class="passo-timeline">
+              <div class="passo-numero">2</div>
+              <div class="passo-conteudo">
+                <i class="bi bi-search icone-passo"></i>
+                <div>
+                  <h5>Busque imóveis disponíveis</h5>
+                  <p>Acesse a seção "Imóveis" e filtre por cidade ou bairro para encontrar opções na
+                    sua região.</p>
+                </div>
+              </div>
+            </div>
 
-          <input
-            type="text"
-            class="filter-field__input"
-            placeholder="3, 4..."
-          />
+            <div class="passo-timeline">
+              <div class="passo-numero">3</div>
+              <div class="passo-conteudo">
+                <i class="bi bi-info-circle icone-passo"></i>
+                <div>
+                  <h5>Veja os detalhes do imóvel</h5>
+                  <p>Consulte fotos, descrição, preço e o perfil do corretor responsável pela venda.
+                  </p>
+                </div>
+              </div>
+            </div>
 
+            <div class="passo-timeline">
+              <div class="passo-numero">4</div>
+              <div class="passo-conteudo">
+                <i class="bi bi-chat-dots icone-passo"></i>
+                <div>
+                  <h5>Entre em contato com o corretor</h5>
+                  <p>Clique no perfil do corretor e envie uma mensagem diretamente pela plataforma.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-
-        <div class="filter-form__actions">
-
-          <button
-            type="reset"
-            class="filter-form__btn filter-form__btn--reset"
-          >
-            Limpar
-          </button>
-
-          <button
-            type="submit"
-            class="filter-form__btn filter-form__btn--apply"
-          >
-            Aplicar
-          </button>
-
-        </div>
-
-      </form>
-
-    </aside>
-
-    <!-- RESULTADOS -->
-    <section class="results">
-
-      <div class="results__header">
-
-        <h1 class="results__title">
-          Resultados
-        </h1>
-
-        <span class="results__count">
-          12 denúncias encontradas
-        </span>
 
       </div>
-
-      <!-- CARD -->
-      <article class="report-card">
-
-        <div class="report-card__top">
-
-          <span class="report-card__tag">
-            Roubo
-          </span>
-
-          <span class="report-card__priority">
-            Urgente
-          </span>
-
-        </div>
-
-        <h3 class="report-card__title">
-          Roubo em região central
-        </h3>
-
-        <p class="report-card__description">
-          Denúncia registrada envolvendo roubo próximo à praça central.
-        </p>
-
-        <div class="report-card__meta">
-
-          <span>Belo Horizonte, MG</span>
-
-          <span>05/03/2026</span>
-
-        </div>
-
-      </article>
-
-      <!-- CARD -->
-      <article class="report-card">
-
-        <div class="report-card__top">
-
-          <span class="report-card__tag">
-            Furto
-          </span>
-
-          <span class="report-card__priority">
-            Moderado
-          </span>
-
-        </div>
-
-        <h3 class="report-card__title">
-          Furto de veículo
-        </h3>
-
-        <p class="report-card__description">
-          Automóvel furtado durante a madrugada em estacionamento público.
-        </p>
-
-        <div class="report-card__meta">
-
-          <span>São Paulo, SP</span>
-
-          <span>06/03/2026</span>
-
-        </div>
-
-      </article>
-
-      <!-- CARD -->
-      <article class="report-card">
-
-        <div class="report-card__top">
-
-          <span class="report-card__tag">
-            Agressão
-          </span>
-
-          <span class="report-card__priority">
-            Leve
-          </span>
-
-        </div>
-
-        <h3 class="report-card__title">
-          Discussão em via pública
-        </h3>
-
-        <p class="report-card__description">
-          Relato de agressão verbal e tumulto em área comercial.
-        </p>
-
-        <div class="report-card__meta">
-
-          <span>Curitiba, PR</span>
-
-          <span>08/03/2026</span>
-
-        </div>
-
-      </article>
-
     </section>
-
   </main>
+  <footer>
 
-  <!-- FOOTER -->
-  <footer class="footer"></footer>
-
+  </footer>
 </body>
 
 </html>

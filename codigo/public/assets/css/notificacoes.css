@@ -16,66 +16,6 @@ body {
   background-color: #ecf5f8;
 }
 
-/* ================= HEADER ================= */
-header {
-  background-color: white;
-  box-shadow: 1px 2px 2px rgb(173, 172, 172);
-  padding: 4vh;
-  display: flex;
-  align-items: center;
-  top: 0;
-  z-index: 1000;
-}
-header h2 {
-  margin: 0;
-}
-
-.imagem-header {
-  gap: 15px;
-}
-
-.navegacao-header {
-  list-style: none;
-  gap: 50px;
-  margin: 0;
-}
-
-.navegacao-header .botao-header a {
-  text-decoration: none;
-  color: black;
-}
-
-.navegacao-header .botao-header:hover {
-  font-weight: bold;
-  transition: 0.1s;
-}
-
-#barra {
-  border-left: solid black 1px;
-  height: 30px;
-}
-
-/* ================= BARRA DE BUSCA E FILTROS ================= */
-.navegacao {
-  margin-top: 20vh;
-  padding: 12px 15px;
-  background-color: #ecf5f8;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.navegacao-main-esquerda {
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-left: 15vh;
-}
-
-.navegacao-main-direita {
-  gap: 15px;
-  margin-left: auto;
-  margin-right: 15vh;
-}
-
 .selecao-localidade {
   background-color: #ffffff;
   color: #236377;
