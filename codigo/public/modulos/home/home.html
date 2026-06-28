@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../../assets/css/home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Home</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
     </header>
     <main>
         <section id="banner" class="d-flex flex-column m-3 p-5">
-            <div class="d-flex w-100 justify-content-between align-items-center">
+            <div class="banner-conteudo d-flex w-100 justify-content-between align-items-center">
                 <div class="d-flex flex-column gap-5">
                     <div>
                         <h3 style="font-family: 'Instrument serif', serif ;">Sistema de denúncias pensado para a <span style="color: #236377; text-decoration: underline; " >segurança</span> do seu bairro.</h3>
@@ -38,11 +39,134 @@
                 </div>
             </div>
         </section>
-        <section id="funcionalidades-site">
-
+        <section id="funcionalidades-site" class="p-5 m-3">
+            <h2 class="titulo-secao" style="font-family: 'Instrument Serif', serif;">
+                O que o Vigilare oferece
+            </h2>
+            <div class="d-flex gap-4 mt-4 flex-wrap justify-content-center">
+                <div class="card-funcionalidade">
+                    <i class="bi bi-map icone-func"></i>
+                    <h4>Mapa de calor</h4>
+                    <p>Visualize as áreas com maior concentração de ocorrências e tome decisões mais seguras sobre onde morar ou investir.</p>
+                </div>
+                <div class="card-funcionalidade">
+                    <i class="bi bi-house icone-func"></i>
+                    <h4>Consulta de imóveis</h4>
+                    <p>Corretores divulgam seus imóveis e compradores encontram opções com contexto real de segurança da região.</p>
+                </div>
+                <div class="card-funcionalidade">
+                    <i class="bi bi-shield icone-func"></i>
+                    <h4>Denúncia anônima</h4>
+                    <p>Registre ocorrências no seu bairro sem se identificar, contribuindo para uma comunidade mais segura.</p>
+                </div>
+            </div>
         </section>
-        <section id="como-utilizar">
-
+        <section id="como-utilizar" class="p-5 m-3">
+            <h2 class="titulo-secao" style="font-family: 'Instrument Serif', serif;">
+                Como utilizar o Vigilare
+            </h2>
+            <div class="fluxos-container mt-5">
+                <div class="fluxo">
+                    <h3 class="fluxo-titulo"><i class="bi bi-person"></i> Para cidadãos</h3>
+                    <div class="timeline">
+                        <div class="passo-timeline">
+                            <div class="passo-numero">1</div>
+                            <div class="passo-conteudo">
+                                <i class="bi bi-box-arrow-in-right icone-passo"></i>
+                                <div>
+                                    <h5>Crie sua conta ou faça login</h5>
+                                    <p>Acesse o botão "Login" no topo da página e cadastre-se gratuitamente com seu e-mail.</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="passo-timeline">
+                            <div class="passo-numero">2</div>
+                            <div class="passo-conteudo">
+                                <i class="bi bi-map icone-passo"></i>
+                                <div>
+                                    <h5>Explore o mapa de calor</h5>
+                                    <p>Veja as regiões com mais ocorrências registradas e entenda a situação de segurança do seu bairro.</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="passo-timeline">
+                            <div class="passo-numero">3</div>
+                            <div class="passo-conteudo">
+                                <i class="bi bi-shield icone-passo"></i>
+                                <div>
+                                    <h5>Faça uma denúncia anônima</h5>
+                                    <p>Clique em "Denunciar", descreva a ocorrência e marque o local no mapa. Sua identidade é protegida.</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="passo-timeline">
+                            <div class="passo-numero">4</div>
+                            <div class="passo-conteudo">
+                                <i class="bi bi-bell icone-passo"></i>
+                                <div>
+                                    <h5>Receba notificações</h5>
+                                    <p>Seja avisado quando novas ocorrências forem registradas perto de você.</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="fluxo">
+                    <h3 class="fluxo-titulo"><i class="bi bi-house"></i> Para imóveis</h3>
+                    <div class="timeline">
+                    
+                        <div class="passo-timeline">
+                            <div class="passo-numero">1</div>
+                            <div class="passo-conteudo">
+                                <i class="bi bi-box-arrow-in-right icone-passo"></i>
+                                <div>
+                                    <h5>Crie sua conta ou faça login</h5>
+                                    <p>Acesse o botão "Login" no topo da página e cadastre-se gratuitamente com seu e-mail.</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="passo-timeline">
+                            <div class="passo-numero">2</div>
+                            <div class="passo-conteudo">
+                                <i class="bi bi-search icone-passo"></i>
+                                <div>
+                                    <h5>Busque imóveis disponíveis</h5>
+                                    <p>Acesse a seção "Imóveis" e filtre por cidade ou bairro para encontrar opções na sua região.</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="passo-timeline">
+                            <div class="passo-numero">3</div>
+                            <div class="passo-conteudo">
+                                <i class="bi bi-info-circle icone-passo"></i>
+                                <div>
+                                    <h5>Veja os detalhes do imóvel</h5>
+                                    <p>Consulte fotos, descrição, preço e o perfil do corretor responsável pela venda.</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="passo-timeline">
+                            <div class="passo-numero">4</div>
+                            <div class="passo-conteudo">
+                                <i class="bi bi-chat-dots icone-passo"></i>
+                                <div>
+                                    <h5>Entre em contato com o corretor</h5>
+                                    <p>Clique no perfil do corretor e envie uma mensagem diretamente pela plataforma.</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            
+            </div>
         </section>
     </main>
     <footer>
