@@ -1,7 +1,4 @@
-# Nome do projeto
-- **Projeto:** Vigilare
-
-
+# Vigilare
 ## Alunos integrantes da equipe
 
   - [Arthur Estevão Santos Teixeira](https://github.com/ArthurEstevaoST)
