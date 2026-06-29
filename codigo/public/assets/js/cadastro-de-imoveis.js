@@ -2,6 +2,10 @@
 const API_URL = "http://localhost:3000/properties";
 const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
+if (usuario.perfil == 'admin' || usuario.perfil == 'corretor') {
+  window.location.href = '../login.html';
+}
+
 //Select de cidades
 async function popularCidades() {
   const select = document.getElementById('cidade');
