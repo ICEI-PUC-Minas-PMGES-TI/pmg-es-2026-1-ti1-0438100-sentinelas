@@ -443,7 +443,7 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 - Bootstrap 5 - [http://getbootstrap.com/](http://getbootstrap.com/)
 - Bootstrap Icons - [https://icons.getbootstrap.com/](https://icons.getbootstrap.com/)
 - Openstreetmap - [https://www.openstreetmap.org/](https://www.openstreetmap.org/)
-- Openstreetmap - [https://leafletjs.com/](https://leafletjs.com/)
+- Leaflet - [https://leafletjs.com/](https://leafletjs.com/)
 
 # Referências
 
