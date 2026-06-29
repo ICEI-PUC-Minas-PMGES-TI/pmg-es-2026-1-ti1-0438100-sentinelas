@@ -288,70 +288,141 @@ O vídeo a seguir traz uma apresentação do problema que a equipe está tratand
 
 Esta seção apresenta as funcionalidades da solução.Info
 
-##### Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️
+##### Funcionalidade 1 - Exibição/Cadastro de Denúncias
+Permite o cadastro de uma denúncia por um usuário e visualizar as denúncias no geral
 
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
-
-- **Estrutura de dados:** [Contatos](#ti_ed_contatos)
+- **Estrutura de dados:** [Denúncias]
 - **Instruções de acesso:**
-  - Abra o site e efetue o login
-  - Acesse o menu principal e escolha a opção Cadastros
-  - Em seguida, escolha a opção Contatos
+  - Abra o site
+  - Acesse a página de Denúncias para ver as denúncias feitas
+  - Em seguida, clique no botão "+" no canto superior direito da página para adicionar uma nova denúncia
 - **Tela da funcionalidade**:
+![Tela de cadastro das denúncias](images/func_cadastro_denuncias.png)
+![Tela de exibição de denúncias](images/func_exibicao_denuncias.png)
 
-![Tela de Funcionalidade](images/exemplo-funcionalidade.png)
+##### Funcionalidade 2 - Exibição/Cadastro de Imóveis
+Permite o cadastro de um imóvel por um corretor e visualizar os imóveis no geral
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
+- **Estrutura de dados:** [Imóveis]
+- **Instruções de acesso:**
+  - Abra o site
+  - Faça o login como corretor e acesse a página de Imóveis para ver os imóveis cadastrados
+  - Em seguida, clique no botão "+" no canto superior direito da página para adicionar um novo imóvel
+- **Tela da funcionalidade**:
+![Tela de exibição de imóvel](images/func_exibicao_imoveis.png)
+
+##### Funcionalidade 3 - Painel Administrativo
+Permite a verificação de denúncias para futura exibição no site por um administrador
+
+- **Estrutura de dados:** [Denúncias]
+- **Instruções de acesso:**
+  - Abra o site
+  - Faça o login como administrador e acesse a página Admin
+- **Tela da funcionalidade**:
+![Painel Administrativo](images\func_painel_administrativo.png)
+
+##### Funcionalidade 4 - Exibição das notificações 
+Permite a visualização de notificações recentes de denúncias realizadas
+
+- **Estrutura de dados:** [Notificações]
+- **Instruções de acesso:**
+  - Abra o site
+  - Acesse a página de denúncias ou imóveis
+- **Tela da funcionalidade**:
+![Notificações](images/func_notificacoes.png)
 
 ## Estruturas de Dados
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
 
-##### Estrutura de Dados - Contatos ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Denúncias 
 
-Contatos da aplicação
+Denúncias cadastradas na aplicação
 
 ```json
 {
-  "id": 1,
-  "nome": "Leanne Graham",
-  "cidade": "Belo Horizonte",
-  "categoria": "amigos",
-  "email": "Sincere@april.biz",
-  "telefone": "1-770-736-8031",
-  "website": "hildegard.org"
+  "id": "1",
+  "type": "theft",
+  "description": "Crime ocorreu com o carro placa XYZ-1234",
+  "location": {
+    "lat": -19.907755,
+    "lng": -43.9954089
+  },
+  "date": "2026-04-17T12:00:00Z",
+  "witness_count": 4,
+  "testemunhas": [],
+  "relevancy": "urgent",
+  "user_id": 1,
+  "status": "open",
+  "comentarios": [],
+  "verificado": false
 }
 ```
 
-##### Estrutura de Dados - Usuários ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Imóveis
+
+Propriedades cadastradas na aplicação
+
+```json
+{
+  "nome": "Casa XX",
+  "local": "Rua das Flores, 233",
+  "cidade": "belohorizonte",
+  "tipo": "aluguel",
+  "preco": 240,
+  "quartos": 3,
+  "banheiros": 1,
+  "tamanho": "120m²",
+  "descricao": "Teste",
+  "fotos": [],
+  "dataCadastro": "30/05/2026",
+  "id": "za9GPlVvGQI"
+}
+```
+
+##### Estrutura de Dados - Notificações
+
+Notificações da aplicação
+
+```json
+{
+  "id": "2",
+  "user_id": 2,
+  "type": "complaint_update",
+  "description": "Sua denúncia foi atualizada",
+  "date": "2026-04-16T18:30:00Z",
+  "read": true
+}
+```
+
+##### Estrutura de Dados - Usuários 
 
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
 
 ```json
 {
-  "id": "eed55b91-45be-4f2c-81bc-7686135503f9",
-  "email": "admin@abc.com",
-  "id": "eed55b91-45be-4f2c-81bc-7686135503f9",
-  "login": "admin",
-  "nome": "Administrador do Sistema",
-  "senha": "123"
+  "nome": "teste",
+  "email": "teste123@gmail.com",
+  "senha": "teste1234",
+  "cpf": "420.824.860-28",
+  "perfil": "corretor",
+  "id": "4g1L6pfq5s0"
 }
 ```
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
->
-> **Orientações:**
->
-> - [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> - [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
+##### Estrutura de Dados - Denúncia de testemunhas 
+
+Registro dos depoimentos de outros usuários nos detalhes de cada denúncia
+
+```json
+{
+  "id": "1",
+  "denuncia_id": "1",
+  "usuario_id": 2,
+  "depoimento": "Vi o furto acontecer por volta do meio-dia. O carro estava estacionado na rua.",
+  "enviadoEm": "2026-04-17T13:00:00Z"
+}
+```
 
 ## Módulos e APIs
 
@@ -370,9 +441,7 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 - jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
 - Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
+
 
 # Referências
 
