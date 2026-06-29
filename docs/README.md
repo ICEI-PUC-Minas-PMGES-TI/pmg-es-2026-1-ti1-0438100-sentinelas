@@ -41,10 +41,16 @@ Informações básicas do projeto.
 - [Solução Implementada](#solução-implementada)
   - [Vídeo do Projeto](#vídeo-do-projeto)
   - [Funcionalidades](#funcionalidades)
-        - [Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️](#funcionalidade-1---cadastro-de-contatos-️-exemplo-️)
+        - [Funcionalidade 1 - Exibição/Cadastro de Denúncias](#funcionalidade-1---exibiçãocadastro-de-denúncias)
+        - [Funcionalidade 2 - Exibição/Cadastro de Imóveis](#funcionalidade-2---exibiçãocadastro-de-imóveis)
+        - [Funcionalidade 3 - Painel Administrativo](#funcionalidade-3---painel-administrativo)
+        - [Funcionalidade 4 - Exibição das notificações](#funcionalidade-4---exibição-das-notificações)
   - [Estruturas de Dados](#estruturas-de-dados)
-        - [Estrutura de Dados - Contatos ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---contatos-️-exemplo-️)
-        - [Estrutura de Dados - Usuários ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---usuários-️-exemplo-️)
+        - [Estrutura de Dados - Denúncias](#estrutura-de-dados---denúncias)
+        - [Estrutura de Dados - Imóveis](#estrutura-de-dados---imóveis)
+        - [Estrutura de Dados - Notificações](#estrutura-de-dados---notificações)
+        - [Estrutura de Dados - Usuários](#estrutura-de-dados---usuários)
+        - [Estrutura de Dados - Denúncia de testemunhas](#estrutura-de-dados---denúncia-de-testemunhas)
   - [Módulos e APIs](#módulos-e-apis)
 - [Referências](#referências)
 
@@ -428,20 +434,16 @@ Registro dos depoimentos de outros usuários nos detalhes de cada denúncia
 
 Esta seção apresenta os módulos e APIs utilizados na solução
 
-**Images**:
-
-- Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
-
 **Fonts:**
 
-- Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
+- Playfair Font - [https://fontawesome.com/](https://fonts.google.com/specimen/Playfair+Display)
 
 **Scripts:**
 
-- jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-- Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
-
-
+- Bootstrap 5 - [http://getbootstrap.com/](http://getbootstrap.com/)
+- Bootstrap Icons - [https://icons.getbootstrap.com/](https://icons.getbootstrap.com/)
+- Openstreetmap - [https://www.openstreetmap.org/](https://www.openstreetmap.org/)
+- Openstreetmap - [https://leafletjs.com/](https://leafletjs.com/)
 
 # Referências
 
