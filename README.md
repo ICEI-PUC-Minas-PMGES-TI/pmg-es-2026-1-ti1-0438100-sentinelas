@@ -1,16 +1,17 @@
 # Nome do projeto
+- **Projeto:** Vigilare
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
-* Arthur Estevão Santos Teixeira
-* Bernardo Ramos Ferreira
-* Francisco Filipe da Cunha Oliveira
-* Gabriel de Oliveira Costa
-* João Pedro Oliveira Monteiro Moura
-* Sophia Nicole Ferreira Reis Gonçalves
-* Victor Dante Fonseca Oliveira
+  - [Arthur Estevão Santos Teixeira](https://github.com/ArthurEstevaoST)
+  - [Bernardo Ramos Ferreira](https://github.com/bernardorf5)
+  - [Francisco Filipe da Cunha Oliveira](https://github.com/franciscofilipeee)
+  - [Gabriel de Oliveira Costa](https://github.com/Biels2w)
+  - [João Pedro Oliveira Monteiro Moura](https://github.com/jpommoura)
+  - [Sophia Nicole Ferreira Reis Gonçalves](https://github.com/sophiaferreira1a)
+  - [Victor Dante Fonseca Oliveira](https://github.com/victordante666)
+
 
 ## Professores responsáveis
 
