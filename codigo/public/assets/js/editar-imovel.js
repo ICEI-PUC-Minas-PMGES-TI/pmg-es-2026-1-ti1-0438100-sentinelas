@@ -1,7 +1,7 @@
 const API_URL = "http://localhost:3000/properties";
 const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-if (usuario.perfil == 'admin' || usuario.perfil == 'corretor') {
+if (usuario.perfil != 'admin' && usuario.perfil != 'corretor') {
   window.location.href = '../login.html';
 }
 
