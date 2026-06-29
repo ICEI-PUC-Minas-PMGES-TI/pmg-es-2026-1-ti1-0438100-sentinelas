@@ -1,30 +1,4 @@
 /* ============================================================
-    1. Escolher Cidade
-   ============================================================ */
-
-const escolherCidade = document.getElementById('escolherCidade')
-
-// Busca municípios de MG
-fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados/MG/municipios')
-    .then(resultado => resultado.json())
-    .then(municipios => {
-    municipios.sort((a, b) => a.nome.localeCompare(b.nome))
-
-    escolherCidade.innerHTML = ''
-    municipios.forEach(municipio => {
-        const option = document.createElement('option')
-        option.value = municipio.nome.toLowerCase().replace(/\s+/g, '')
-        option.textContent = municipio.nome
-        escolherCidade.appendChild(option)
-    })
-    escolherCidade.value = 'belohorizonte'
-    })
-
-escolherCidade.addEventListener('change', function() {
-    const cidadeSelecionada = this.value
-})
-
-/* ============================================================
     2. MAPA DE CALOR
    ============================================================ */
 
@@ -53,10 +27,6 @@ async function carregarMapaDeCalor() {
         scrollWheelZoom: false
     });
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(mapa);
-
     const camadaCalor = L.heatLayer(coordenadas, {
         radius: 32,
         blur: 22,
@@ -77,12 +47,28 @@ async function carregarMapaDeCalor() {
     }
 
     let userLocation = null;
+
     if (navigator.geolocation) {
-        const pos = await new Promise((resolve, reject) =>
-            navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true, timeout: 5000 })
-        );
-        userLocation = [pos.coords.latitude, pos.coords.longitude];
-        L.circle(userLocation, { radius: 40, color: '#3388ff', fillColor: '#3388ff', fillOpacity: 0.18 }).addTo(mapa).bindPopup('Você está aqui');
+        try {
+            const pos = await new Promise((resolve, reject) =>
+                navigator.geolocation.getCurrentPosition(resolve, reject, {
+                    enableHighAccuracy: true,
+                    timeout: 5000
+                })
+            );
+
+            userLocation = [pos.coords.latitude, pos.coords.longitude];
+
+            L.circle(userLocation, {
+                radius: 40,
+                color: '#3388ff',
+                fillColor: '#3388ff',
+                fillOpacity: 0.18
+            }).addTo(mapa);
+
+        } catch (erro) {
+
+        }
     }
 
     if (bounds && userLocation) {
@@ -99,6 +85,13 @@ async function carregarMapaDeCalor() {
     } else {
         mapa.setView([-19.919393, -43.926384], 13);
     }
+
+    L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+            attribution: '&copy; OpenStreetMap'
+        }
+    ).addTo(mapa);
 
     requestAnimationFrame(() => {
         mapa.invalidateSize();
@@ -132,7 +125,7 @@ function capitalizeWords(str) {
 
 function translateType(type) {
     if (!type) return 'Denúncia';
-    switch(type?.toString().toLowerCase()) {
+    switch (type?.toString().toLowerCase()) {
         case 'theft':
             return 'Furto';
         case 'vandalism':
@@ -173,7 +166,7 @@ function translateRelevancy(relevancy) {
 function carregarDenuncias() {
     const listaDenuncias = document.getElementById('lista-principal');
     const denunciasRegiao = document.getElementById('denuncias-regiao');
-    fetch('http://localhost:3000/denuncias')
+    fetch('http://localhost:3000/denuncias?verificado=true')
         .then(response => response.json())
         .then(denuncias => {
             listaDenuncias.innerHTML = '';
@@ -181,6 +174,10 @@ function carregarDenuncias() {
             ultimasDenuncias.forEach(denuncia => {
                 const item = document.createElement('article');
                 item.classList.add('cartao-denuncia', 'd-flex', 'justify-content-between');
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', () => {
+                    window.location.href = `detalhe-denuncias.html?id=${denuncia.id}`;
+                });
                 const rawRelevancy = denuncia.relevancy ?? denuncia.relevancy ?? denuncia.relevancia;
                 let relevancia = translateRelevancy(rawRelevancy);
                 const titulo = translateType(denuncia.type) || (denuncia.title ?? 'Denúncia');
@@ -253,7 +250,7 @@ function atualizarRegiaoGPS() {
         regiaoElement.textContent = 'Geolocalização não é suportada pelo seu navegador.';
         return;
     }
-    
+
     navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
         fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`)
@@ -305,7 +302,7 @@ async function carregarDenunciasRegiao() {
 
     let resp;
     try {
-        resp = await fetch('http://localhost:3000/denuncias');
+        resp = await fetch('http://localhost:3000/denuncias?verificado=true');
         if (!resp.ok) throw new Error('Erro ao buscar denúncias');
     } catch (err) {
         container.innerHTML = '<div class="text-danger">Não foi possível carregar denúncias.</div>';
@@ -326,6 +323,10 @@ async function carregarDenunciasRegiao() {
     proximas.forEach(d => {
         const card = document.createElement('div');
         card.className = 'card-denuncia d-flex';
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            window.location.href = `detalhe-denuncias.html?id=${d.id}`;
+        });
 
         const rawRelevancy = d.relevancy ?? d.relevancia ?? '';
         const relevancia = translateRelevancy(rawRelevancy);

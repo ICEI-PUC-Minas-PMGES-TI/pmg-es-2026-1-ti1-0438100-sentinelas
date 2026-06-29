@@ -22,7 +22,7 @@
                     targetPath = '../imoveis/exibicao-imoveis.html';
                 }
             } else {
-                if (currentPath.includes('filtro-denuncias.html')) {
+                if (currentPath.includes('filtro-denuncias.html') || currentPath.includes('pesquisa-denuncias.html')) {
                     return;
                 }
                 targetPath = 'filtro-denuncias.html';

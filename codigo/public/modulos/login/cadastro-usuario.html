@@ -18,10 +18,9 @@
     <div class="lado-direito">
       <div class="caixa-login">
         <h2 class="titulo">Cadastrar uma conta</h2>
-        
+
         <select id="perfil">
-          <option value ="">Selecione um perfil</option>
-          <option value="admin">Administrador</option>
+          <option value="">Selecione um perfil</option>
           <option value="cliente">Cidadão</option>
           <option value="funcionario">Corretor</option>
         </select>
@@ -34,13 +33,13 @@
 
         <div class="campo">
           <label class="rotulo">CPF</label>
-          <input class="entrada" type="text" id="cpf" placeholder="403...">
+          <input class="entrada" type="text" id="cpf" placeholder="403..." maxlength="14" oninput="mascaraCPF(this)">
           <p class="erro" id="erro-cpf">Preencha este campo.</p>
         </div>
 
         <div class="campo">
           <label class="rotulo">Telefone</label>
-          <input class="entrada" type="text" id="telefone" placeholder="31 9...">
+          <input class="entrada" type="text" id="telefone" placeholder="31 9..." oninput="handlePhone(event)">
           <p class="erro" id="erro-telefone">Preencha este campo.</p>
         </div>
 
@@ -90,7 +89,8 @@
 
         <p class="erro" id="erro-geral"></p>
         <button class="botao-entrar" id="botao-cadastrar" type="button" onclick="cadastrar()">Cadastrar</button>
-        <button class="botao-registrar" id="botao-login" type="button" onclick="window.location.href='login.html'">Login</button>
+        <button class="botao-registrar" id="botao-login" type="button"
+          onclick="window.location.href='login.html'">Login</button>
       </div>
     </div>
 
@@ -99,3 +99,36 @@
 </body>
 
 </html>
+
+<script>
+  function mascaraCPF(input) {
+    let valor = input.value.replace(/\D/g, "");
+
+    if (valor.length > 11) {
+      valor = valor.slice(0, 11);
+    }
+
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+    input.value = valor;
+  }
+
+  const handlePhone = (event) => {
+    let input = event.target;
+    let value = input.value.replace(/\D/g, '');
+
+    value = value.substring(0, 11);
+
+    if (value.length > 2) {
+      value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+    }
+    if (value.length > 10) {
+      value = `${value.substring(0, 10)}-${value.substring(10)}`;
+    }
+
+    input.value = value;
+  };
+</script>
+<script src="../../assets/js/script.js"></script>

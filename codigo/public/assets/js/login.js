@@ -2,7 +2,6 @@ const botaoEntrar = document.getElementById("botao-entrar")
 const botaoOlho = document.getElementById("botao-olho")
 const inputSenha = document.getElementById("senha")
 
-
 botaoOlho.addEventListener("click", function () {
     if (inputSenha.type === "password") {
         inputSenha.type = "text"
@@ -12,11 +11,10 @@ botaoOlho.addEventListener("click", function () {
 })
 
 botaoEntrar.addEventListener('click', async function () {
-    const nome = document.getElementById('nome').value.trim()
-    const usuario = document.getElementById('usuario').value.trim()
+    const login = document.getElementById('usuario').value.trim()
     const senha = document.getElementById('senha').value.trim()
 
-    if (!nome || !usuario || !senha) {
+    if (!usuario || !senha) {
         document.getElementById('erro-geral').textContent = 'Preencha todos os campos.'
         document.getElementById('erro-geral').style.display = 'block'
         return
@@ -25,34 +23,28 @@ botaoEntrar.addEventListener('click', async function () {
     document.getElementById('erro-geral').style.display = 'none'
 
     try {
-        const respostaUsuarios = await fetch('http://localhost:3000/usuarios')
-        const usuarios = await respostaUsuarios.json()
+        let usuario = null;
+        await fetch(`http://localhost:3000/usuarios?email=${login}`).then(
+            resposta => resposta.json()).then(dados => {
+                if (dados.length > 0) {
+                    usuario = dados[0];
+                }
+            });
 
-        const respostaAgentes = await fetch('http://localhost:3000/agents')
-        const agentes = await respostaAgentes.json()
+        await fetch(`http://localhost:3000/agents?email=${login}`).then(
+            resposta => resposta.json()).then(dados => {
+                if (dados.length > 0) {
+                    usuario = dados[0];
+                }
+            });
 
-const usuarioEncontrado = usuarios.find(u =>
-    u.usuario === nome &&
-    (u.email === usuario || u.numero === usuario) &&
-    u.senha === senha
-)
-
-const agenteEncontrado = agentes.find(a =>
-    a.name === nome &&
-    (a.email === usuario || a.phone_number === usuario) &&
-    a.senha === senha
-)
-
-if (usuarioEncontrado) {
-    localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado))
-    localStorage.setItem('tipoUsuario', 'usuario')
-    window.location.href = '../../modulos/denuncias/denuncias.html'
-} else if (agenteEncontrado) {
-    localStorage.setItem('usuarioLogado', JSON.stringify(agenteEncontrado))
-    localStorage.setItem('tipoUsuario', 'agente')
-    window.location.href = '../../modulos/denuncias/denuncias.html'
-}
-
+        if (usuario.senha == senha) {
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuario))
+            localStorage.setItem('tipoUsuario', usuario.perfil)
+            window.location.href = '../../modulos/denuncias/denuncias.html'
+        } else {
+            alert('Senha incorreta. Tente novamente.')
+        }
     } catch (erro) {
         document.getElementById('erro-geral').textContent = 'Erro ao conectar com o servidor.'
         document.getElementById('erro-geral').style.display = 'block'

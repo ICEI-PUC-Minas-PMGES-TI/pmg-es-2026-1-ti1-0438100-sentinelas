@@ -20,14 +20,14 @@ async function getEndereco(latitude, longitude) {
 async function submitDenuncia(event) {
     event.preventDefault();
     console.log('Form submit detectado - preventDefault ativado');
-    
+
     const form = event.target;
     const submitBtn = form.querySelector('button[type="submit"]');
     if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Enviando...';
     }
-    
+
     const local = document.getElementById('local').value;
     let tipo = document.getElementById('tipo').value;
     const descricao = document.getElementById('descricao').value;
@@ -40,13 +40,13 @@ async function submitDenuncia(event) {
             throw new Error('Erro ao buscar localização no Nominatim');
         }
         const localData = await localJson.json();
-        
+
         if (!Array.isArray(localData) || localData.length === 0) {
             alert('Local não encontrado. Verifique o endereço e tente novamente.');
             if (submitBtn) submitBtn.disabled = false;
             return;
         }
-        
+
         localizacao = [parseFloat(localData[0].lat), parseFloat(localData[0].lon)];
     } catch (error) {
         console.error('Erro ao buscar localização:', error);

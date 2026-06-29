@@ -1,26 +1,24 @@
-const campoTelefone = document.getElementById('telefone');
 const campoCpf = document.getElementById('cpf');
 const campoNome = document.getElementById('nome');
 const campoEmail = document.getElementById('email');
 const btnSalvar = document.querySelector('.btn-salvar');
-const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'))
-const tipoUsuario = localStorage.getItem('tipoUsuario')
 
-if (!usuarioLogado) {
-    window.location.href = '../../modulos/login/login.html'
+const API_URL = 'http://localhost:3000';
+const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+function carregarPerfil() {
+    campoNome.value = usuario.nome;
+    campoEmail.value = usuario.email;
+    campoCpf.value = usuario.cpf;
 }
 
-if (tipoUsuario === 'usuario') {
-    campoNome.value = usuarioLogado.usuario || ''
-    campoEmail.value = usuarioLogado.email || ''
-    campoTelefone.value = usuarioLogado.numero || ''
-    campoCpf.value = usuarioLogado.cpf || ''
-} else if (tipoUsuario === 'agente') {
-    campoNome.value = usuarioLogado.name || ''
-    campoEmail.value = usuarioLogado.email || ''
-    campoTelefone.value = usuarioLogado.phone_number || ''
-    campoCpf.value = usuarioLogado.cpf || ''
-}
+document.addEventListener('DOMContentLoaded', () => {
+    if (!usuario) {
+        window.location.href = 'login.html';
+    }
+
+    carregarPerfil();
+});
 
 campoTelefone.addEventListener('input', () => {
     let v = campoTelefone.value.replace(/\D/g, '').slice(0, 11);
@@ -69,7 +67,7 @@ function limparErro(campo) {
     campo.addEventListener('input', () => limparErro(campo));
 });
 
-btnSalvar.addEventListener('click', () => {
+btnSalvar.addEventListener('click', async () => {
     let valido = true;
 
     if (campoNome.value.trim() === '') {
@@ -95,12 +93,41 @@ btnSalvar.addEventListener('click', () => {
         valido = false;
     }
 
-    if (valido) {
+    if (!valido) return;
+
+    try {
+        btnSalvar.textContent = 'Salvando...';
+        btnSalvar.disabled = true;
+
+        const response = await fetch(`${API_URL}/profile/${usuario.id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: campoNome.value.trim(),
+                email: campoEmail.value.trim(),
+                phone_number: campoTelefone.value,
+                cpf: campoCpf.value
+            })
+        });
+
+        if (!response.ok) throw new Error('Erro ao salvar perfil');
+
         btnSalvar.textContent = 'Salvo!';
-        btnSalvar.style.backgroundColor = '#1f4f5a';
+        btnSalvar.style.backgroundColor = '#2f798a';
         setTimeout(() => {
             btnSalvar.textContent = 'Salvar Alterações';
             btnSalvar.style.backgroundColor = '';
+            btnSalvar.disabled = false;
+        }, 2000);
+
+    } catch (error) {
+        console.error('Erro ao salvar perfil:', error);
+        btnSalvar.textContent = 'Erro ao salvar';
+        btnSalvar.style.backgroundColor = '#c0392b';
+        setTimeout(() => {
+            btnSalvar.textContent = 'Salvar Alterações';
+            btnSalvar.style.backgroundColor = '';
+            btnSalvar.disabled = false;
         }, 2000);
     }
 });

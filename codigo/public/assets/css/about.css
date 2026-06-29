@@ -1,0 +1,284 @@
+/* ─────────────────────────────────────────
+   about.css  -  Vigilare
+   ───────────────────────────────────────── */
+
+:root {
+  --color-brand: #2c6e7f;
+  --color-brand-dark: #1d4f5c;
+  --color-brand-bg: #eaf2f4;
+  --color-bg: #eef4f6;
+  --color-surface: #ffffff;
+  --color-footer: #1d5063;
+  --color-text: #1a2b30;
+  --color-text-soft: #4a6e77;
+  --color-border: #c8dde3;
+  --color-placeholder: #6a97a3;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-ui: 'Lato', sans-serif;
+  --font-body: 'Crimson Text', Georgia, serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-sm: 0 1px 4px rgba(44, 110, 127, .10);
+  --shadow-md: 0 4px 20px rgba(44, 110, 127, .12);
+
+  --transition: .2s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── HERO ───────────────────────────────────────────── */
+.hero-about {
+  background: linear-gradient(160deg, var(--color-brand) 0%, var(--color-brand-dark) 100%);
+  padding: 88px 48px 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-about::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-about__linha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-about__linha img {
+  display: block;
+}
+
+.hero-about__brasao {
+  height: 112px;
+  width: auto;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .25));
+}
+
+.hero-about__logo {
+  height: 100px;
+  width: auto;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .25));
+}
+
+.hero-about__titulo {
+  text-align: center;
+
+}
+
+.hero-about__titulo h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+}
+
+/* ── CONTEÚDO PRINCIPAL ─────────────────────────────── */
+main.pagina-about {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 56px 24px 64px;
+}
+
+.about-conteudo {
+  width: 100%;
+  max-width: 920px;
+}
+
+.about-bloco {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 44px 48px;
+  margin-bottom: 32px;
+}
+
+.about-bloco__eyebrow {
+  font-family: var(--font-ui);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  margin-bottom: 10px;
+}
+
+.about-bloco h2 {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  letter-spacing: -.01em;
+}
+
+.about-bloco p {
+  font-family: var(--font-body);
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--color-text-soft);
+}
+
+.about-bloco p+p {
+  margin-top: 16px;
+}
+
+/* ── EQUIPE ─────────────────────────────────────────── */
+.equipe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.equipe__membro {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-brand-bg);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.equipe__membro:hover {
+  border-color: var(--color-brand);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.equipe__avatar {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--color-brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.equipe__nome {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.equipe__papel {
+  font-family: var(--font-ui);
+  font-size: .75rem;
+  color: var(--color-text-soft);
+  letter-spacing: .03em;
+}
+
+/* ── RODAPÉ ─────────────────────────────────────────── */
+.barra-rodape {
+  height: 72px;
+  background-color: var(--color-footer);
+  color: #ffffff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-size: .85rem;
+  letter-spacing: .5px;
+  flex-shrink: 0;
+}
+
+/* ── RESPONSIVO ─────────────────────────────────────── */
+@media (max-width: 860px) {
+  .equipe {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-topo {
+    padding: 0 20px;
+  }
+
+  .hero-about {
+    padding: 40px 20px;
+  }
+
+  .hero-about__linha {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero-about__brasao {
+    height: 64px;
+  }
+
+  .hero-about__logo {
+    height: 76px;
+  }
+
+  .hero-about__titulo h1 {
+    font-size: 1.7rem;
+  }
+
+  .about-bloco {
+    padding: 32px 26px;
+  }
+
+  .about-bloco h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .equipe {
+    grid-template-columns: 1fr;
+  }
+}
