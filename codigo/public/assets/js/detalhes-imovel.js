@@ -2,6 +2,11 @@ const API_URL = "http://localhost:3000/properties";
 
 const params = new URLSearchParams(window.location.search);
 const imovelId = params.get("id");
+const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+if (usuario.perfil == 'admin' || usuario.perfil == 'corretor') {
+  window.location.href = '../login.html';
+}
 
 if (!imovelId) {
   window.location.href = "exibicao-imoveis.html";

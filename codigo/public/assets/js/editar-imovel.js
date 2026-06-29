@@ -1,6 +1,10 @@
 const API_URL = "http://localhost:3000/properties";
 const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
+if (usuario.perfil == 'admin' || usuario.perfil == 'corretor') {
+  window.location.href = '../login.html';
+}
+
 // Pega o ID da URL
 const params = new URLSearchParams(window.location.search);
 const imovelId = params.get("id");
@@ -43,6 +47,12 @@ async function carregarImovel() {
     const res = await fetch(`${API_URL}/${imovelId}`);
     if (!res.ok) throw new Error();
     const imovel = await res.json();
+
+    if (imovel.agentId !== usuario.id) {
+      alert("Você não tem permissão para editar este imóvel.");
+      window.location.href = "exibicao-imoveis.html";
+      return;
+    }
 
     // Preenche os campos com os dados atuais
     document.getElementById("nome").value = imovel.nome ?? "";

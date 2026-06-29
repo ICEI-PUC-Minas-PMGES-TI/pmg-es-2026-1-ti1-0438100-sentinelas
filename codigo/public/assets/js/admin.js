@@ -2,6 +2,11 @@ const API = 'http://localhost:3000';
 const listaEl = document.getElementById('lista-denuncias');
 const filtroEl = document.getElementById('filtro-status');
 const contadorEl = document.getElementById('contador');
+const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+if (usuario.perfil != 'admin') {
+    window.location.href = '../login.html';
+}
 
 const TIPOS = {
     theft: 'Furto',

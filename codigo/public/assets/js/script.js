@@ -3,8 +3,10 @@ function getUsuario() {
 
     if (usuario) {
         const username = document.getElementById('username');
+        const logout = document.getElementById('logout');
         username.textContent = usuario.nome;
         username.href = '../perfil/meuperfil.html';
+        logout.style.display = 'block';
 
         switch (usuario.perfil) {
             case 'admin':
